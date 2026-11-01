@@ -1,0 +1,2312 @@
+[
+  {
+    "cityName": "Maubin Township",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.71629,
+    "lon": 95.65518,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pathein Township",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.8435,
+    "lon": 94.57622,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Thabaung Township",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.15184,
+    "lon": 94.75498,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကန်ကြီးတောင့်မြို့နယ် (Kangyidaunt Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.81141,
+    "lon": 94.87599,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျိုက်လတ်မြို့နယ် (Kyaiklat Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.51306,
+    "lon": 95.63923,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျုံပျော်မြို့နယ် (Kyonpyaw Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.31062,
+    "lon": 95.27709,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောင်းကုန်းမြို့နယ် (Kyaunggon Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.05722,
+    "lon": 95.15341,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကြံခင်းမြို့နယ် (Kyangin Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 18.30256,
+    "lon": 95.05736,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ငပုတော်မြို့ (Ngapudaw Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.32527,
+    "lon": 94.44946,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဇလွန်မြို့နယ် (Zalun Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.47557,
+    "lon": 95.57555,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ညောင်တုန်းမြို့နယ် (Nyaungdon Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.02104,
+    "lon": 95.70506,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဒေးဒရဲမြို့နယ် (Dedaye Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.31267,
+    "lon": 95.85154,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဓနုဖြူမြို့နယ် (Danubyu Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.2588,
+    "lon": 95.54653,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပန်းတနော်မြို့နယ် (Pantanaw Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.96639,
+    "lon": 95.40196,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဖျာပုံမြို့နယ် (Pyapon Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.06145,
+    "lon": 95.64947,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဘိုကလေးမြို့နယ် (Bogale Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.09403,
+    "lon": 95.36475,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မော်လမြိုင်ကျွန်းမြို့နယ် (Mawlamyinegyun Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.34545,
+    "lon": 95.26686,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြန်အောင်မြို့နယ် (Myanaung Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 18.08532,
+    "lon": 95.17801,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြောင်းမြမြို့နယ် (Myaungmya Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.51579,
+    "lon": 94.89725,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရေကြည်မြို့နယ် (Yegyi Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.36597,
+    "lon": 94.98362,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လပွတ္တာမြို့နယ် (Labutta Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 15.96214,
+    "lon": 94.94948,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လေးမျက်နှာမြို့နယ် (Lemyethna Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.6014,
+    "lon": 95.01443,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဝါးခယ်မမြို့နယ် (Wakema Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.59211,
+    "lon": 95.23278,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဟင်္သာတမြို့နယ် (Hinthada Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.62085,
+    "lon": 95.37351,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အင်္ဂပူမြို့နယ် (Ingapu Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 17.85381,
+    "lon": 95.14544,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အိမ်မဲမြို့နယ် (Einme Township)",
+    "country": "Myanmar - Ayeyarwady Region",
+    "lat": 16.77134,
+    "lon": 95.09937,
+    "tz": 6.5
+  },
+  {
+    "cityName": ": သာယာဝတီ (Thayarwady Township)",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.69148,
+    "lon": 95.83288,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Bago Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.33513,
+    "lon": 96.48358,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Daik-U Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.76782,
+    "lon": 96.57624,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Gyobingauk Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.28652,
+    "lon": 95.75204,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Minhla Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.9725,
+    "lon": 95.7405,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Monyo Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.11115,
+    "lon": 95.46166,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Nattalin Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.50516,
+    "lon": 95.7017,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Nyaunglebin Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.92348,
+    "lon": 96.73826,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Okpho Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.16451,
+    "lon": 95.84136,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Oktwin Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.79888,
+    "lon": 96.20317,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Padaung Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.68407,
+    "lon": 94.92726,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Paukkhaung Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.98086,
+    "lon": 95.62226,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Paungde Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.64062,
+    "lon": 95.6213,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Phyu Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.52679,
+    "lon": 96.27694,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pyay Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.81977,
+    "lon": 95.21567,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Shwedaung Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.56611,
+    "lon": 95.21242,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Shwegyin Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.89169,
+    "lon": 97.00453,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Taungoo Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 19.00468,
+    "lon": 96.22151,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Thanatpin Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.25484,
+    "lon": 96.72153,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Thegon Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.62299,
+    "lon": 95.39966,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Waw Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.50406,
+    "lon": 96.7465,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Yedashe Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 19.28195,
+    "lon": 96.1536,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Zigon Township",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.34534,
+    "lon": 95.66342,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကဝမြို့နယ် (Kawa Township)",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.04853,
+    "lon": 96.68262,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်ကြီး မြို့နယ (Kyaukkyi Township)",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.39379,
+    "lon": 96.83735,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်တံခါးမြို့နယ် (Kyauktaga Township)",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.18867,
+    "lon": 96.34958,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ထန်းတပင် မြို့နယ် (Htantabin Township)",
+    "country": "Myanmar - Bago Region",
+    "lat": 18.7432,
+    "lon": 96.53812,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လက်ပတန်းမြို့နယ် (Letpadan Township)",
+    "country": "Myanmar - Bago Region",
+    "lat": 17.88204,
+    "lon": 95.82375,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Falam Township",
+    "country": "Myanmar - Chin State",
+    "lat": 23.01799,
+    "lon": 93.67397,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကန်ပက်လက်မြို့နယ် (Kanpetlet Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 20.99775,
+    "lon": 93.87427,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တီတိန်မြို့ (Tedim Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 23.37246,
+    "lon": 93.71405,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တွန်းဇံမြို့နယ် (Tonzang Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 23.76474,
+    "lon": 93.7467,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ထန်တလန်မြို့နယ် (Thantlang Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 22.58487,
+    "lon": 93.30873,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပလက်ဝမြို့ (Paletwa Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 21.39031,
+    "lon": 93.05209,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မင်းတပ်မြို့နယ် (Mindat Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 21.46591,
+    "lon": 93.77778,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မတူပီမြို့နယ် (Matupi Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 21.82791,
+    "lon": 93.46198,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဟားခါးမြို့နယ် (Hakha Township)",
+    "country": "Myanmar - Chin State",
+    "lat": 22.45398,
+    "lon": 93.76921,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Khaunglanhpu Township",
+    "country": "Myanmar - Kachin State",
+    "lat": 27.10804,
+    "lon": 98.41044,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Machanbaw Township",
+    "country": "Myanmar - Kachin State",
+    "lat": 27.20828,
+    "lon": 97.79347,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mansi Township",
+    "country": "Myanmar - Kachin State",
+    "lat": 23.94148,
+    "lon": 97.32545,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Nawngmun Township",
+    "country": "Myanmar - Kachin State",
+    "lat": 27.8788,
+    "lon": 97.83234,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Puta-O Township",
+    "country": "Myanmar - Kachin State",
+    "lat": 27.30117,
+    "lon": 97.33662,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Shwegu Township",
+    "country": "Myanmar - Kachin State",
+    "lat": 24.37542,
+    "lon": 96.81795,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ချီဖွေမြို့နယ် (Chipwi Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 25.94125,
+    "lon": 98.3786,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဆော့လောမြို့နယ် (Tsawlaw Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 26.44701,
+    "lon": 98.43247,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဆွမ်ပရာဘွမ်မြို့နယ် (Sumprabum Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 26.46787,
+    "lon": 97.56792,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တနိုင်းမြို့ (Tanai Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 26.48565,
+    "lon": 96.6992,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဖားကန့်မြို့နယ် (Hpakant Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 25.68872,
+    "lon": 96.45001,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဗန်းမော်မြို့နယ် (Bhamo Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 24.19749,
+    "lon": 97.09531,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မိုးကောင်းမြို့နယ် (Mogaung Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 25.32185,
+    "lon": 96.90696,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မိုးညှင်းမြို့နယ် (Mohnyin Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 24.93806,
+    "lon": 96.32714,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မိုးမောက်မြို့နယ် (Momauk Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 24.51262,
+    "lon": 97.43595,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြစ်ကြီးနားမြို့နယ် (Myitkyina Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 25.35259,
+    "lon": 97.20302,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဝိုင်းမော်မြို့နယ် (Waingmaw Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 25.31178,
+    "lon": 97.70103,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အင်ဂျန်းယန်မြို့နယ် (Injangyang Township)",
+    "country": "Myanmar - Kachin State",
+    "lat": 26.11032,
+    "lon": 97.88643,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mese Township",
+    "country": "Myanmar - Kayah State",
+    "lat": 18.7337,
+    "lon": 97.55736,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဒီမောဆိုး‌မြို့နယ် (Demoso Township)",
+    "country": "Myanmar - Kayah State",
+    "lat": 19.45763,
+    "lon": 97.28282,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဖရူဆိုမြို့နယ် (Hpruso Township)",
+    "country": "Myanmar - Kayah State",
+    "lat": 19.26302,
+    "lon": 97.06431,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဖားဆောင်းမြို့နယ် (Hpasawng Township)",
+    "country": "Myanmar - Kayah State",
+    "lat": 18.88239,
+    "lon": 97.17768,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဘော်လခဲမြို့နယ် (Bawlakhe Township)",
+    "country": "Myanmar - Kayah State",
+    "lat": 19.10468,
+    "lon": 97.4934,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရှားတော‌မြို့နယ် (Shadaw Township)",
+    "country": "Myanmar - Kayah State",
+    "lat": 19.5032,
+    "lon": 97.63918,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လွိုင်ကော်‌မြို့နယ် (Loikaw Township)",
+    "country": "Myanmar - Kayah State",
+    "lat": 19.68501,
+    "lon": 97.32595,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Hpapun Township",
+    "country": "Myanmar - Kayin State",
+    "lat": 18.07659,
+    "lon": 97.36866,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kyain Seikgyi Township",
+    "country": "Myanmar - Kayin State",
+    "lat": 16.0675,
+    "lon": 97.90694,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကော့ကရိတ်မြို့နယ် (Kawkareik Township)",
+    "country": "Myanmar - Kayin State",
+    "lat": 16.53778,
+    "lon": 98.14978,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဘားအံမြို့နယ် (Hpa-An Township)",
+    "country": "Myanmar - Kayin State",
+    "lat": 16.96542,
+    "lon": 97.66012,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြဝတီမြို့နယ် (Myawaddy Township)",
+    "country": "Myanmar - Kayin State",
+    "lat": 16.54942,
+    "lon": 98.51991,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လှိုင်းဘွဲ့မြို့နယ် (Hlaingbwe Township)",
+    "country": "Myanmar - Kayin State",
+    "lat": 17.19579,
+    "lon": 97.92441,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သံတောင်ကြီးမြို့နယ် (Thandaunggyi Township)",
+    "country": "Myanmar - Kayin State",
+    "lat": 19.04518,
+    "lon": 96.7281,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Aunglan Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.28188,
+    "lon": 95.46402,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Chauk Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.73654,
+    "lon": 94.87329,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Gangaw Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 22.25027,
+    "lon": 94.17969,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kamma Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.03815,
+    "lon": 94.96447,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Minbu Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.09548,
+    "lon": 94.74237,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Minhla Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.74622,
+    "lon": 94.76052,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pauk Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.48852,
+    "lon": 94.48836,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Saw Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.20345,
+    "lon": 94.18929,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Seikphyu Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.06271,
+    "lon": 94.53845,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Yesagyo Township",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.59869,
+    "lon": 95.17623,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ငဖဲ မြို့နယ် (Ngape Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.95924,
+    "lon": 94.41494,
+    "tz": 6.5
+  },
+  {
+    "cityName": "စလင်းမြို့ (Salin Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.69483,
+    "lon": 94.53772,
+    "tz": 6.5
+  },
+  {
+    "cityName": "စေတုတ္တရာ မြို့နယ် (Sidoktaya Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.50837,
+    "lon": 94.18066,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဆင်ပေါင်ဝဲမြို့နယ် (Sinbaungwe Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.62381,
+    "lon": 95.35674,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တောင်တွင်းကြီး မြို့နယ် (Taungdwingyi Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.8813,
+    "lon": 95.58555,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ထီးလင်းမြို့ (Tilin Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.76704,
+    "lon": 94.17669,
+    "tz": 6.5
+  },
+  {
+    "cityName": "နတ်မောတ် မြို့နယ် (Natmauk Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.49865,
+    "lon": 95.43255,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပခုက္ကူ မြို့နယ် (Pakokku Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.27608,
+    "lon": 94.88544,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပွင့်ဖြူ မြို့နယ် (Pwintbyu Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.34766,
+    "lon": 94.60421,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မကွေးမြို့နယ် (Magway Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.08519,
+    "lon": 95.13084,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မင်းတုန်းမြို့နယ် (Mindon Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.36711,
+    "lon": 94.68314,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြိုင် မြို့နယ် (Myaing Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 21.65559,
+    "lon": 94.84919,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြို့သစ် မြို့နယ် (Myothit Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.17829,
+    "lon": 95.49505,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရေနံချောင်းမြို့နယ် (Yenangyaung Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 20.4604,
+    "lon": 95.00952,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သရက်မြို့နယ် (Thayet Township)",
+    "country": "Myanmar - Magway Region",
+    "lat": 19.37904,
+    "lon": 95.05225,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Amarapura Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.85302,
+    "lon": 96.09545,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Chanmyathazi Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.9384,
+    "lon": 96.09492,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kyaukpadaung Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 20.84287,
+    "lon": 95.25669,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kyaukse Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.72523,
+    "lon": 96.60359,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mahlaing Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.08916,
+    "lon": 95.66334,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Meiktila Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 20.83372,
+    "lon": 95.76091,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mogoke Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 22.90657,
+    "lon": 96.42476,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Myittha Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.35229,
+    "lon": 96.16509,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Ngazun Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.78619,
+    "lon": 95.64123,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Nyaung-U Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.08515,
+    "lon": 95.02048,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pyawbwe Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 20.61185,
+    "lon": 95.94592,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pyigyitagon Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.90441,
+    "lon": 96.10094,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pyinoolwin Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.97366,
+    "lon": 96.47962,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Singu Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 22.54063,
+    "lon": 96.12292,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Sintgaing Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.73981,
+    "lon": 96.13025,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tada-U Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.68787,
+    "lon": 95.89408,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Taungtha Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.22092,
+    "lon": 95.39211,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Thabeikkyin Township",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 23.22536,
+    "lon": 96.10169,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ချမ်းအေးသာဇံ မြို့နယ် (Chanayethazan Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.97605,
+    "lon": 96.09378,
+    "tz": 6.5
+  },
+  {
+    "cityName": "နွားထိုးကြီး (Natogyi Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.43521,
+    "lon": 95.72451,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပုသိမ်ကြီးမြို့နယ် (Patheingyi Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 22.00496,
+    "lon": 96.20164,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မတ္တရာမြို့နယ် (Madaya Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 22.21588,
+    "lon": 96.1724,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မဟာအောင်မြေ မြို့နယ် (Mahaaungmyay Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.96143,
+    "lon": 96.08679,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြင်းခြံမြို့နယ် (Myingyan Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.55504,
+    "lon": 95.45111,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရမည်းသင်းမြို့နယ် (Yamethin Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 20.39995,
+    "lon": 96.15346,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဝမ်းတွင် (Wundwin Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 21.16981,
+    "lon": 95.99912,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သာစည်မြို့နယ် (Thazi Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 20.82006,
+    "lon": 96.25436,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အောင်မြေသာဇံ မြို့နယ် (Aungmyaythazan Township)",
+    "country": "Myanmar - Mandalay Region",
+    "lat": 22.00247,
+    "lon": 96.09813,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Chaungzon Township",
+    "country": "Myanmar - Mon State",
+    "lat": 16.37058,
+    "lon": 97.5272,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Ye Township",
+    "country": "Myanmar - Mon State",
+    "lat": 15.29692,
+    "lon": 97.94833,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျိုက်ထိုမြို့နယ် (Kyaikto Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 17.42922,
+    "lon": 97.00759,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျိုက်မရောမြို့နယ် (Kyaikmaraw Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 16.32187,
+    "lon": 97.87464,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပေါင်မြို့နယ် (Paung Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 16.66801,
+    "lon": 97.42869,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဘီးလင်းမြို့ (Bilin Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 17.31013,
+    "lon": 97.26209,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မုဒုံမြို့နယ် (Mudon Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 16.15106,
+    "lon": 97.71944,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မော်လမြိုင်မြို့ (Mawlamyine Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 16.47572,
+    "lon": 97.65351,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သထုံမြို့နယ် (Thaton Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 16.97954,
+    "lon": 97.3426,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သံဖြူဇရပ်မြို့နယ် (Thanbyuzayat Township)",
+    "country": "Myanmar - Mon State",
+    "lat": 15.85342,
+    "lon": 97.74668,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Lewe Township",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.61657,
+    "lon": 96.02403,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tatkon Township",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 20.16095,
+    "lon": 96.14329,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Zay Yar Thi Ri Township",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.88727,
+    "lon": 96.32377,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဇမ္ဗူသီရိမြို့နယ် (Zabu Thiri Township)",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.75051,
+    "lon": 96.11665,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဒက္ခိဏသီရိမြို့နယ် (Dekkhina Thiri Township)",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.7045,
+    "lon": 96.06807,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပုဗ္ဗသီရိမြို့နယ် (Pobba Thiri Township)",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.90129,
+    "lon": 96.19096,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပျဉ်းမနားမြို့နယ် (Pyinmana Township)",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.67079,
+    "lon": 96.45666,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဥတ္တရသီရိမြို့နယ် (Ottara Thiri Township)",
+    "country": "Myanmar - Nay Pyi Taw",
+    "lat": 19.93102,
+    "lon": 95.99902,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Ramree Township",
+    "country": "Myanmar - Rakhine State",
+    "lat": 19.10254,
+    "lon": 93.8754,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်တော်မြို့နယ် (Kyauktaw Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.90385,
+    "lon": 92.93582,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်ဖြူမြို့နယ် (Kyaukpyu Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 19.34497,
+    "lon": 93.68348,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဂွမြို့နယ် (Gwa Twonship Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 17.7518,
+    "lon": 94.66392,
+    "tz": 6.5
+  },
+  {
+    "cityName": "စစ်တွေမြို့နယ် (Sittwe Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.21106,
+    "lon": 92.85285,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တောင်ကုတ်မြို့နယ် (Toungup Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 19.02427,
+    "lon": 94.364,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပုဏ္ဏားကျွန်းမြို့နယ် (Ponnagyun Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.569,
+    "lon": 92.89133,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပေါက်တောမြို့နယ် (Pauktaw Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.13839,
+    "lon": 93.08982,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဘူးသီးတောင်မြို့နယ် (Buthidaung Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 21.0218,
+    "lon": 92.55774,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မင်းပြားမြို့နယ် (Minbya Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.49283,
+    "lon": 93.51408,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မာန်အောင်မြို့နယ် (Munaung Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 18.79368,
+    "lon": 93.64673,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မောင်တောမြို့နယ် (Maungdaw Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 21.03525,
+    "lon": 92.3683,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြေပုံမြို့နယ် (Myebon Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 19.98217,
+    "lon": 93.55395,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြောက်ဦးမြို့နယ် (Mrauk-U Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.62644,
+    "lon": 93.17785,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရသေ့တောင်မြို့နယ် (Rathedaung Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 20.45594,
+    "lon": 92.68896,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သံတွဲမြို့နယ် (Thandwe Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 18.35477,
+    "lon": 94.58302,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အမ်း မြို့နယ် (Ann Township)",
+    "country": "Myanmar - Rakhine State",
+    "lat": 19.90897,
+    "lon": 93.99945,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Ayadaw Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.29642,
+    "lon": 95.42682,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Banmauk Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.52446,
+    "lon": 95.72082,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Budalin Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.43879,
+    "lon": 95.10814,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Indaw Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.31132,
+    "lon": 96.09998,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kale Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.15676,
+    "lon": 94.12222,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kalewa Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.32435,
+    "lon": 94.50576,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kanbalu Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.21908,
+    "lon": 95.70346,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kani Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.45363,
+    "lon": 94.66331,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Katha Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.18923,
+    "lon": 96.40253,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kawlin Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.69455,
+    "lon": 95.46389,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Khin-U Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.77438,
+    "lon": 95.698,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kyunhla Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.4791,
+    "lon": 95.18909,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mawlaik Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.6991,
+    "lon": 94.59822,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mingin Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.88803,
+    "lon": 94.52124,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Monywa Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.13923,
+    "lon": 95.2083,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Myaung Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 21.75263,
+    "lon": 95.31899,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Myinmu Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.00794,
+    "lon": 95.50905,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pale Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 21.99513,
+    "lon": 94.61419,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Paungbyin Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.19691,
+    "lon": 94.87068,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pinlebu Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.04946,
+    "lon": 95.36674,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Sagaing Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.05204,
+    "lon": 95.83307,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Salingyi Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 21.96506,
+    "lon": 95.03061,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tabayin Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.65242,
+    "lon": 95.17999,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tamu Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.17969,
+    "lon": 94.38739,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tigyaing Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.77521,
+    "lon": 96.20689,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Wetlet Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.35163,
+    "lon": 95.78106,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Wuntho Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.9974,
+    "lon": 95.77949,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Ye-U Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.85911,
+    "lon": 95.11717,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Yinmabin Township",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.15296,
+    "lon": 94.84079,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ခန္တီးမြို့နယ် (Hkamti Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 25.85591,
+    "lon": 95.7059,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ချောင်းဦးမြို့နယ် (Chaung-U Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 21.92385,
+    "lon": 95.26735,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တန့်ဆည် (Taze Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 23.08675,
+    "lon": 95.19496,
+    "tz": 6.5
+  },
+  {
+    "cityName": "နန်းယွန်းမြို့နယ် (Nanyun Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 26.92552,
+    "lon": 96.15373,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရွှေဘိုမြို့နယ် (Shwebo Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 22.58485,
+    "lon": 95.71001,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လဟယ်မြို့ (Lahe Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 26.30065,
+    "lon": 95.37126,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လေရှီးမြို့နယ် (Lay Shi Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 25.35594,
+    "lon": 94.89433,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဟုမ္မလင်း မြို့နယ် (Homalin Township)",
+    "country": "Myanmar - Sagaing Region",
+    "lat": 24.95113,
+    "lon": 95.29161,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Hsipaw Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.37656,
+    "lon": 97.54358,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kutkai Township",
+    "country": "Myanmar - Shan State",
+    "lat": 23.58539,
+    "lon": 98.11664,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kyethi Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.7294,
+    "lon": 98.06284,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Langkho Township",
+    "country": "Myanmar - Shan State",
+    "lat": 19.99305,
+    "lon": 98.05254,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Lawksawk Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.59088,
+    "lon": 96.97083,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Loilen Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.97497,
+    "lon": 97.48344,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Matman Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.8803,
+    "lon": 98.81668,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mawkmai Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.13873,
+    "lon": 97.60062,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Monghsat Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.55327,
+    "lon": 99.31359,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Monghsu Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.77972,
+    "lon": 98.39173,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongkaing Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.73253,
+    "lon": 97.47901,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongkhet Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.70282,
+    "lon": 99.34224,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongla Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.55151,
+    "lon": 99.94364,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongnai Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.63946,
+    "lon": 98.17548,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongpan Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.25186,
+    "lon": 98.37719,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongping Township",
+    "country": "Myanmar - Shan State",
+    "lat": 21.16004,
+    "lon": 98.94264,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongton Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.21587,
+    "lon": 98.82594,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mongyai Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.41589,
+    "lon": 98.03695,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Namhkan Township",
+    "country": "Myanmar - Shan State",
+    "lat": 23.71286,
+    "lon": 97.62478,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Namtu Township",
+    "country": "Myanmar - Shan State",
+    "lat": 23.03326,
+    "lon": 97.43983,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Narphan Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.57811,
+    "lon": 99.15739,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Nawnghkio Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.34999,
+    "lon": 96.61814,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pangsang Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.46102,
+    "lon": 98.83146,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pangwaun Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.93159,
+    "lon": 99.28464,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pekon Township",
+    "country": "Myanmar - Shan State",
+    "lat": 19.68075,
+    "lon": 96.86993,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tangyan Township",
+    "country": "Myanmar - Shan State",
+    "lat": 22.4972,
+    "lon": 98.39051,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Taunggyi Township",
+    "country": "Myanmar - Shan State",
+    "lat": 20.67002,
+    "lon": 97.03846,
+    "tz": 6.5
+  },
+  {
+    "cityName": "miuuinnmateႈ (Mongmit Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.15299,
+    "lon": 96.62603,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကလောမြို့ (Kalaw Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.68842,
+    "lon": 96.68292,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကုန်းကြမ်းမြို့နယ် (Konkyan Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.96313,
+    "lon": 98.61206,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျိုင်းတုံမြို့နယ် (Kengtung Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.23986,
+    "lon": 99.59339,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်မဲမြို့နယ် (Kyaukme Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 22.58933,
+    "lon": 96.89417,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကွန်ဟိန်းမြို့နယ် (Kunhing Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.22825,
+    "lon": 98.491,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကွမ်းလုံမြို့နယ် (Kunlong Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.43408,
+    "lon": 98.60751,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဆီဆိုင်မြို့နယ် (Hsihseng Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.24498,
+    "lon": 97.29287,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ညောင်ရွှေမြို့နယ် (Nyaungshwe Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.35535,
+    "lon": 96.95226,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တာချီလိတ်မြို့နယ် (Tachileik Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.69655,
+    "lon": 99.99372,
+    "tz": 6.5
+  },
+  {
+    "cityName": "နမ့်စန်မြို့နယ် (Nansang Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.87521,
+    "lon": 97.88187,
+    "tz": 6.5
+  },
+  {
+    "cityName": "နမ့်ဆန်မြို့နယ် (Namhsan Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 22.95782,
+    "lon": 97.11447,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပင်လောင်းမြို့နယ် (Pinlaung Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.10823,
+    "lon": 96.69002,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပင်းတယမြို့နယ် (Pindaya Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.93939,
+    "lon": 96.67318,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မန်တုံမြို့နယ် (Manton Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.37154,
+    "lon": 97.28934,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မဘိမ်းမြို့နယ် (Mabein Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.62011,
+    "lon": 96.67883,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မိုင်းယောင်းမြို့နယ် (Mongyawng Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.34165,
+    "lon": 100.56986,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မူဆယ် (Muse Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.94341,
+    "lon": 98.14611,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရွာငံမြို့နယ် (Ywangan Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.28372,
+    "lon": 96.49952,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လားရှိုးမြို့နယ် (Lashio Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 22.97614,
+    "lon": 97.97123,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လောက်ကိုင်မြို့နယ် (Laukkaing Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.65287,
+    "lon": 98.71265,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဝဵင်းလၢႆးၶႃႈ (Laihka Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.29809,
+    "lon": 97.79544,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သိန္နီမြို့နယ် (Hseni Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.27356,
+    "lon": 98.10524,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဟိုပန်မြို့နယ် (Hopang Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 23.22028,
+    "lon": 98.72574,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဟိုပုန်းမြို့နယ်/ဟုိပုံးၿမိဳ႕ (Hopong Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.02378,
+    "lon": 97.25809,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ၸႄႈwinnmiuuinnyၢin (Mongyang Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 21.95813,
+    "lon": 99.53553,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ၸႄႈwinnmiuuinnၽyaၢၵႈ (Monghpyak Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 20.95887,
+    "lon": 99.85109,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ၸႄႈဝဵင်းမိူင်းမႂ်ႇ (Mongmao Township)",
+    "country": "Myanmar - Shan State",
+    "lat": 22.95984,
+    "lon": 98.88605,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Bokpyin Township",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 11.28958,
+    "lon": 98.79032,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kyunsu Township",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 12.5005,
+    "lon": 98.39113,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Palaw Township",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 13.1153,
+    "lon": 98.68536,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကော့သောင်မြို့နယ် (Kawthoung Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 10.42056,
+    "lon": 98.577,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တနသၤာရီ)တနင်္သာရီမြို့နယ် (Tanintharyi Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 12.30199,
+    "lon": 99.16825,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ထားဝယ်မြို့ (Dawei Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 13.90416,
+    "lon": 98.73524,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မြိတ်မြို့နယ် (Myeik Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 12.49985,
+    "lon": 98.77611,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရေဖြူမြို့နယ် (Yebyu Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 14.6329,
+    "lon": 98.10763,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လောင်းလုံးမြို့နယ် (Launglon Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 13.92743,
+    "lon": 98.12702,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သရက်ချောင်းမြို့နယ် (Thayetchaung Township)",
+    "country": "Myanmar - Tanintharyi Region",
+    "lat": 13.69128,
+    "lon": 98.44312,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Dagon Myothit (North) Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.88083,
+    "lon": 96.18933,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Dagon Myothit (Seikkan) Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.88152,
+    "lon": 96.29808,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Dagon Myothit (South) Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.86417,
+    "lon": 96.24215,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Dala Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.67703,
+    "lon": 96.15202,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Hlaingtharya Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.88136,
+    "lon": 96.05061,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Hlegu Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 17.26782,
+    "lon": 96.20607,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kamaryut Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.82365,
+    "lon": 96.13289,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Kayan Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.90102,
+    "lon": 96.59206,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Mingalartaungnyunt Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.79083,
+    "lon": 96.17312,
+    "tz": 6.5
+  },
+  {
+    "cityName": "North Okkalapa Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.92382,
+    "lon": 96.17444,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Pabedan Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.78028,
+    "lon": 96.15556,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Tamwe Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.81054,
+    "lon": 96.17591,
+    "tz": 6.5
+  },
+  {
+    "cityName": "Thanlyin Township",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.79558,
+    "lon": 96.32907,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကိုကိုးကျွန်း မြို့နယ် (Cocokyun Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 14.87044,
+    "lon": 93.62202,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကော့မှူး မြို့နယ် (Kawhmu Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.5491,
+    "lon": 96.05339,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်တန်း မြို့နယ် (Kyauktan Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.60181,
+    "lon": 96.46,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကျောက်တံတား မြို့နယ် (Kyauktada Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.77443,
+    "lon": 96.16142,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကြည့်မြင်တိုင် မြို့နယ် (Kyeemyindaing Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.80364,
+    "lon": 96.11598,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ကွမ်းခြံကုန်း မြို့နယ် (Kungyangon Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.43006,
+    "lon": 96.11134,
+    "tz": 6.5
+  },
+  {
+    "cityName": "စမ်းချောင်း မြို့နယ် (Sanchaung Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.80629,
+    "lon": 96.13222,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဆိပ်ကမ်း မြို့နယ် (Seikkan Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.77008,
+    "lon": 96.15719,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဆိပ်ကြီးခနောင်တို မြို့နယ် (Seikgyikanaungto Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.76403,
+    "lon": 96.10394,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တိုက်ကြီး မြို့နယ် (Taikkyi Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 17.43491,
+    "lon": 95.91153,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တောင်ဥက္ကလာပမြို့နယ် (South Okkalapa Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.84856,
+    "lon": 96.18225,
+    "tz": 6.5
+  },
+  {
+    "cityName": "တွံတေး မြို့နယ် (Twantay Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.7451,
+    "lon": 95.95402,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ထန်းတပင် မြို့နယ် (Htantabin Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 17.04977,
+    "lon": 95.90721,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဒဂုံ မြို့နယ် (Dagon Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.79192,
+    "lon": 96.14534,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဒဂုံမြို့သစ်အရှေ့ပိုင်း မြို့နယ် (Dagon Myothit (East) Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.94861,
+    "lon": 96.27028,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဒေါပုံ မြို့နယ် (Dawbon Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.78832,
+    "lon": 96.1901,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ပုဇွန်တောင် မြို့နယ် (Pazundaung Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.77757,
+    "lon": 96.17494,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဗဟန်း မြို့နယ် (Bahan Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.81057,
+    "lon": 96.15741,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ဗိုလ်တစ်ထောင် မြို့နယ် (Botahtaung Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.77116,
+    "lon": 96.17886,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မင်္ဂလာဒုံ မြို့နယ် (Mingaladon Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.99749,
+    "lon": 96.13464,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မရမ်းကုန်း မြို့နယ် (Mayangone Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.86552,
+    "lon": 96.14175,
+    "tz": 6.5
+  },
+  {
+    "cityName": "မှော်ဘီမြို့နယ် (Hmawbi Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 17.1003,
+    "lon": 96.0409,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရန်ကင်း မြို့နယ် (Yankin Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.82361,
+    "lon": 96.16278,
+    "tz": 6.5
+  },
+  {
+    "cityName": "ရွှေပြည်သာ မြို့နယ် (Shwepyithar Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.97703,
+    "lon": 96.0776,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လမ်းမတော် မြို့နယ် (Lanmadaw Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.77948,
+    "lon": 96.14204,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လသာ မြို့နယ် (Latha Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.77673,
+    "lon": 96.15049,
+    "tz": 6.5
+  },
+  {
+    "cityName": "လှိုင် မြို့နယ် (Hlaing Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.84765,
+    "lon": 96.12086,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သင်္ဃန်းကျွန်း မြို့နယ် (Thingangyun Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.82789,
+    "lon": 96.19915,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သာကေတ မြို့နယ် (Thaketa Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.79821,
+    "lon": 96.21101,
+    "tz": 6.5
+  },
+  {
+    "cityName": "သုံးခွ မြို့နယ် (Thongwa Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.75478,
+    "lon": 96.59259,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အင္းစိန္ ၿမိဳ႕နယ္ (Insein Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.90257,
+    "lon": 96.10126,
+    "tz": 6.5
+  },
+  {
+    "cityName": "အလုံ မြို့နယ် (Ahlone Township)",
+    "country": "Myanmar - Yangon Region",
+    "lat": 16.78542,
+    "lon": 96.12815,
+    "tz": 6.5
+  }
+]

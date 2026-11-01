@@ -1,0 +1,4990 @@
+[
+  {
+    "groupMm": "အထွေထွေ",
+    "groupEn": "General",
+    "titleMm": "အလုပ်ရမလား၊ ဘယ်တော့လဲ?",
+    "titleEn": "Will I get a job, and when?",
+    "key": "core_0",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "အထွေထွေ",
+    "groupEn": "General",
+    "titleMm": "ဒီသတင်းမှန်ရဲ့လား?",
+    "titleEn": "Is this news true?",
+    "key": "core_1",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "နေကောင်းပါ့မလား? (ကျန်းမာရေးပြန်ကောင်းနိုင်မလား)",
+    "titleEn": "Will my health recover?",
+    "key": "core_2",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ရောဂါကို အချိန်ကြာကြာ ကုသရနိုင်မလား?",
+    "titleEn": "Will the illness require long-term treatment?",
+    "key": "core_3",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "လက်ရှိကုသမှုက ထိရောက်မှုရှိမလား?",
+    "titleEn": "Will the current treatment be effective?",
+    "key": "core_4",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ပေးထားတဲ့ဆေးနဲ့ပဲ သက်သာနိုင်မလား?",
+    "titleEn": "Will the prescribed medicine be enough?",
+    "key": "core_5",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ဆေးရုံတက်ကုသရနိုင်မလား?",
+    "titleEn": "Will hospitalization be necessary?",
+    "key": "core_6",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ခွဲစိတ်ကုသရနိုင်မလား?",
+    "titleEn": "Will surgery be necessary?",
+    "key": "core_7",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ခွဲစိတ်ကုသမှု အောင်မြင်နိုင်မလား?",
+    "titleEn": "Will the surgery be successful?",
+    "key": "core_8",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ဆေးရုံက ဘယ်တော့ဆင်းရနိုင်မလဲ?",
+    "titleEn": "When can the patient leave hospital?",
+    "key": "core_9",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ဘယ်အချိန်ကစပြီး ကျန်းမာရေးသက်သာလာမလဲ?",
+    "titleEn": "When will recovery begin?",
+    "key": "core_10",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "သုံးလအတွင်း ကျန်းမာရေးပြန်ကောင်းနိုင်မလား?",
+    "titleEn": "Will health recover within three months?",
+    "key": "core_11",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ဒီရောဂါ ပြန်ဖြစ်နိုင်သေးလား?",
+    "titleEn": "Could this illness return?",
+    "key": "core_12",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "လက်ရှိဆရာဝန်နဲ့ ကုသမှုက သင့်တော်ရဲ့လား?",
+    "titleEn": "Is the current doctor and treatment suitable?",
+    "key": "core_13",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ဆရာဝန် ဒါမှမဟုတ် ဆေးရုံ ပြောင်းသင့်လား?",
+    "titleEn": "Should the doctor or hospital be changed?",
+    "key": "core_14",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "ဆေးစစ်ချက်အဖြေက စိုးရိမ်ရနိုင်မလား?",
+    "titleEn": "Is the medical test result likely to be serious?",
+    "key": "core_15",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "သတိလစ်နေသူ ပြန်သတိရနိုင်မလား?",
+    "titleEn": "Will the unconscious patient regain consciousness?",
+    "key": "core_16",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "titleMm": "သူ့ရဲ့ ကျန်းမာရေးနဲ့ ရောဂါအခြေအနေက ဘယ်လိုရှိလဲ?",
+    "titleEn": "What is this person's health and illness condition?",
+    "key": "core_17",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "အိမ်ထောင်ရေး",
+    "groupEn": "Relationships",
+    "titleMm": "အိမ်ထောင်ကျပါ့မလား? (အိမ်ထောင်ကျမယ့်ကံရှိလား)",
+    "titleEn": "Will I get married?",
+    "key": "core_18",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "အိမ်ထောင်ရေး",
+    "groupEn": "Relationships",
+    "titleMm": "မိမိချစ်သူရဲ့ စရိုက်အခြေအနေက ဘယ်လိုရှိလဲ?",
+    "titleEn": "What is my lover's character like?",
+    "key": "core_19",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "အိမ်ထောင်ရေး",
+    "groupEn": "Relationships",
+    "titleMm": "မိမိအိမ်ထောင်ဘက်ရဲ့ စရိုက်အခြေအနေက ဘယ်လိုရှိလဲ?",
+    "titleEn": "What is my spouse's character like?",
+    "key": "core_20",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "လူပုဂ္ဂိုလ်နှင့်စရိုက်",
+    "groupEn": "Person and character",
+    "titleMm": "သူ့ရဲ့ ရုပ်ရည်သွင်ပြင်က ဘယ်လိုရှိလဲ?",
+    "titleEn": "What does this person look like?",
+    "key": "core_21",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "လူပုဂ္ဂိုလ်နှင့်စရိုက်",
+    "groupEn": "Person and character",
+    "titleMm": "သူ့ရဲ့ စိတ်နေစိတ်ထားက ဘယ်လိုရှိလဲ?",
+    "titleEn": "What is this person's character like?",
+    "key": "core_22",
+    "cusp": 0,
+    "support": [],
+    "obstacle": [],
+    "kind": "core"
+  },
+  {
+    "groupMm": "မိသားစု",
+    "groupEn": "Family",
+    "titleMm": "သားစီစဉ်ထားသော အလှူကို ဘယ်တော့လုပ်ဖြစ်မလဲ?",
+    "titleEn": "When will my son's planned donation take place?",
+    "key": "son_donation_timing",
+    "cusp": 5,
+    "support": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "obstacle": [
+      8,
+      10,
+      12
+    ],
+    "kind": "son_donation"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "ယခုစဉ်းစားထားသော လုပ်ငန်းကို စတင်သင့်သလား။",
+    "titleEn": "Business Horary: Starting a business (1)",
+    "key": "business_01_01",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "ဒီလုပ်ငန်းကို စတင်လျှင် အောင်မြင်နိုင်မလား။",
+    "titleEn": "Business Horary: Starting a business (2)",
+    "key": "business_01_02",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "ဒီလုပ်ငန်းမှ ရေရှည်အမြတ်အစွန်း ရနိုင်မလား။",
+    "titleEn": "Business Horary: Starting a business (3)",
+    "key": "business_01_03",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "ယခုနှစ်အတွင်း လုပ်ငန်းစတင်နိုင်မလား။",
+    "titleEn": "Business Horary: Starting a business (4)",
+    "key": "business_01_04",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "လုပ်ငန်းကို တစ်ဦးတည်း စတင်ခြင်းကောင်းမလား။",
+    "titleEn": "Business Horary: Starting a business (5)",
+    "key": "business_01_05",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "မိတ်ဖက်နှင့် ပူးပေါင်းစတင်ခြင်းကောင်းမလား။",
+    "titleEn": "Business Horary: Starting a business (6)",
+    "key": "business_01_06",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအသစ် စတင်ခြင်း",
+    "groupEn": "Starting a business",
+    "titleMm": "လက်ရှိအလုပ်ကိုစွန့်ပြီး ကိုယ်ပိုင်လုပ်ငန်း စတင်သင့်သလား။",
+    "titleEn": "Business Horary: Starting a business (7)",
+    "key": "business_01_07",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအမျိုးအစား ရွေးချယ်ခြင်း",
+    "groupEn": "Choosing a business",
+    "titleMm": "စားသောက်ကုန်လုပ်ငန်းသည် မိမိအတွက် အကျိုးရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Choosing a business (1)",
+    "key": "business_02_01",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအမျိုးအစား ရွေးချယ်ခြင်း",
+    "groupEn": "Choosing a business",
+    "titleMm": "အွန်လိုင်းရောင်းဝယ်ရေးလုပ်ငန်း စတင်သင့်သလား။",
+    "titleEn": "Business Horary: Choosing a business (2)",
+    "key": "business_02_02",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအမျိုးအစား ရွေးချယ်ခြင်း",
+    "groupEn": "Choosing a business",
+    "titleMm": "ကုန်သွယ်ရေး၊ ထုတ်လုပ်ရေးနှင့် ဝန်ဆောင်မှုလုပ်ငန်းတို့အနက် ဘယ်လုပ်ငန်းကို ရွေးချယ်သင့်သလဲ။",
+    "titleEn": "Business Horary: Choosing a business (3)",
+    "key": "business_02_03",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "choice"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအမျိုးအစား ရွေးချယ်ခြင်း",
+    "groupEn": "Choosing a business",
+    "titleMm": "လက်ရှိလုပ်ကိုင်နေသော လုပ်ငန်းအမျိုးအစားကို ပြောင်းလဲသင့်သလား။",
+    "titleEn": "Business Horary: Choosing a business (4)",
+    "key": "business_02_04",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအမျိုးအစား ရွေးချယ်ခြင်း",
+    "groupEn": "Choosing a business",
+    "titleMm": "ပြည်တွင်းလုပ်ငန်းထက် နိုင်ငံတကာကုန်သွယ်ရေးကို ရွေးချယ်သင့်သလား။",
+    "titleEn": "Business Horary: Choosing a business (5)",
+    "key": "business_02_05",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းအမျိုးအစား ရွေးချယ်ခြင်း",
+    "groupEn": "Choosing a business",
+    "titleMm": "Franchise လုပ်ငန်းတစ်ခုကို ဝယ်ယူလုပ်ကိုင်သင့်သလား။",
+    "titleEn": "Business Horary: Choosing a business (6)",
+    "key": "business_02_06",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "လက်ရှိလုပ်ငန်းမှ အမြတ်အစွန်း တိုးလာနိုင်မလား။",
+    "titleEn": "Business Horary: Profit and income (1)",
+    "key": "business_03_01",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "လာမည့်ခြောက်လအတွင်း လုပ်ငန်းဝင်ငွေ တိုးလာနိုင်မလား။",
+    "titleEn": "Business Horary: Profit and income (2)",
+    "key": "business_03_02",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "ယခုရောင်းချနေသော ကုန်ပစ္စည်းမှ အမြတ်ကောင်း ရနိုင်မလား။",
+    "titleEn": "Business Horary: Profit and income (3)",
+    "key": "business_03_03",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "လက်ရှိအရှုံးပေါ်နေသောလုပ်ငန်း ပြန်လည်အမြတ်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Profit and income (4)",
+    "key": "business_03_04",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "သတ်မှတ်ထားသော အမြတ်ပမာဏကို ယခုနှစ်အတွင်း ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Profit and income (5)",
+    "key": "business_03_05",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "လုပ်ငန်းထဲသို့ ထည့်ဝင်ထားသောငွေကို ပြန်လည်ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Profit and income (6)",
+    "key": "business_03_06",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အမြတ်အစွန်းနှင့် ဝင်ငွေ",
+    "groupEn": "Profit and income",
+    "titleMm": "လုပ်ငန်းဝင်ငွေ တည်ငြိမ်လာမည့်အချိန် ဘယ်တော့လဲ။",
+    "titleEn": "Business Horary: Profit and income (7)",
+    "key": "business_03_07",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "timing"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "လက်ရှိလုပ်ငန်းကို ယခုအချိန်မှာ တိုးချဲ့သင့်သလား။",
+    "titleEn": "Business Horary: Business expansion (1)",
+    "key": "business_04_01",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "ဆိုင်ခွဲအသစ် ဖွင့်လှစ်ခြင်း အောင်မြင်နိုင်မလား။",
+    "titleEn": "Business Horary: Business expansion (2)",
+    "key": "business_04_02",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "နေရာအသစ်သို့ ပြောင်းရွှေ့ဖွင့်လှစ်သင့်သလား။",
+    "titleEn": "Business Horary: Business expansion (3)",
+    "key": "business_04_03",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "ထုတ်ကုန်အသစ် ထပ်မံထုတ်လုပ်ရောင်းချသင့်သလား။",
+    "titleEn": "Business Horary: Business expansion (4)",
+    "key": "business_04_04",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "ဝန်ဆောင်မှုအသစ် ထည့်သွင်းခြင်း အကျိုးရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Business expansion (5)",
+    "key": "business_04_05",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "စက်ပစ္စည်းအသစ် ဝယ်ယူပြီး ထုတ်လုပ်မှုတိုးမြှင့်သင့်သလား။",
+    "titleEn": "Business Horary: Business expansion (6)",
+    "key": "business_04_06",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းတိုးချဲ့ခြင်း",
+    "groupEn": "Business expansion",
+    "titleMm": "နိုင်ငံခြားဈေးကွက်သို့ လုပ်ငန်းတိုးချဲ့နိုင်မလား။",
+    "titleEn": "Business Horary: Business expansion (7)",
+    "key": "business_04_07",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "ယခုရွေးချယ်ထားသောသူနှင့် မိတ်ဖက်လုပ်ငန်း စတင်သင့်သလား။",
+    "titleEn": "Business Horary: Partners and shareholders (1)",
+    "key": "business_05_01",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "လက်ရှိမိတ်ဖက်နှင့် ဆက်လက်လုပ်ကိုင်ခြင်း အကျိုးရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Partners and shareholders (2)",
+    "key": "business_05_02",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "မိတ်ဖက်က သဘောတူညီချက်အတိုင်း တာဝန်ယူနိုင်မလား။",
+    "titleEn": "Business Horary: Partners and shareholders (3)",
+    "key": "business_05_03",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "မိတ်ဖက်ကြောင့် လုပ်ငန်းအရှုံးအနာတရ ဖြစ်နိုင်မလား။",
+    "titleEn": "Business Horary: Partners and shareholders (4)",
+    "key": "business_05_04",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "risk"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "မိတ်ဖက်ဆက်ဆံရေး ပြတ်တောက်သွားနိုင်မလား။",
+    "titleEn": "Business Horary: Partners and shareholders (5)",
+    "key": "business_05_05",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "risk"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "ရှယ်ယာရှင်အသစ် လက်ခံသင့်သလား။",
+    "titleEn": "Business Horary: Partners and shareholders (6)",
+    "key": "business_05_06",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "မိတ်ဖက်နှင့် ရှယ်ယာရှင်များ",
+    "groupEn": "Partners and shareholders",
+    "titleMm": "လက်ရှိမိတ်ဖက်ထံမှ မိမိ၏ရှယ်ယာကို ပြန်လည်ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Partners and shareholders (7)",
+    "key": "business_05_07",
+    "cusp": 7,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "ဒီလုပ်ငန်းမှာ ငွေရင်းနှီးမြှုပ်နှံသင့်သလား။",
+    "titleEn": "Business Horary: Investment (1)",
+    "key": "business_06_01",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "ဒီကုမ္ပဏီမှာ ရှယ်ယာဝယ်ယူခြင်း အကျိုးရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Investment (2)",
+    "key": "business_06_02",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "ရင်းနှီးမြှုပ်နှံထားသောငွေ ပြန်လည်ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Investment (3)",
+    "key": "business_06_03",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "ယခုရင်းနှီးမြှုပ်နှံမှုမှ အမြတ်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Investment (4)",
+    "key": "business_06_04",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "ရင်းနှီးမြှုပ်နှံမှုပမာဏ ထပ်မံတိုးသင့်သလား။",
+    "titleEn": "Business Horary: Investment (5)",
+    "key": "business_06_05",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "လက်ရှိရင်းနှီးမြှုပ်နှံမှုမှ ပြန်လည်ထွက်ခွာသင့်သလား။",
+    "titleEn": "Business Horary: Investment (6)",
+    "key": "business_06_06",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ရင်းနှီးမြှုပ်နှံခြင်း",
+    "groupEn": "Investment",
+    "titleMm": "ရင်းနှီးမြှုပ်နှံမှုအမြတ်ကို ဘယ်အချိန်မှာ ရရှိနိုင်မလဲ။",
+    "titleEn": "Business Horary: Investment (7)",
+    "key": "business_06_07",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "timing"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "လုပ်ငန်းချေးငွေ လျှောက်ထားလျှင် ခွင့်ပြုနိုင်မလား။",
+    "titleEn": "Business Horary: Loans and cash flow (1)",
+    "key": "business_07_01",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "ချေးငွေကို သတ်မှတ်ရက်အတွင်း ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Loans and cash flow (2)",
+    "key": "business_07_02",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "ယခုချေးငွေယူပြီး လုပ်ငန်းတိုးချဲ့သင့်သလား။",
+    "titleEn": "Business Horary: Loans and cash flow (3)",
+    "key": "business_07_03",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "လုပ်ငန်းကြွေးမြီများကို ပြန်လည်ပေးဆပ်နိုင်မလား။",
+    "titleEn": "Business Horary: Loans and cash flow (4)",
+    "key": "business_07_04",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "ဖောက်သည်ထံမှ ရရန်ရှိသောငွေကို ပြန်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Loans and cash flow (5)",
+    "key": "business_07_05",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "ပေးရန်ရှိသောငွေကို အချိန်မီပေးဆပ်နိုင်မလား။",
+    "titleEn": "Business Horary: Loans and cash flow (6)",
+    "key": "business_07_06",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "လက်ရှိငွေကြေးအခက်အခဲ ဘယ်အချိန်မှာ ပြေလည်နိုင်မလဲ။",
+    "titleEn": "Business Horary: Loans and cash flow (7)",
+    "key": "business_07_07",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "timing"
+  },
+  {
+    "groupMm": "ချေးငွေနှင့် ငွေကြေးစီးဆင်းမှု",
+    "groupEn": "Loans and cash flow",
+    "titleMm": "အကြွေးကျေအောင်ဆပ်နိုင်မလား၊ ဆပ်နိုင်ရင် ဘယ်တော့လဲ။",
+    "titleEn": "Can I clear my debts, and when?",
+    "key": "business_07_08",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "timing"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "လာမည့်သုံးလအတွင်း အရောင်းတိုးလာနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (1)",
+    "key": "business_08_01",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "ယခုထုတ်ကုန်ကို ဈေးကွက်က လက်ခံနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (2)",
+    "key": "business_08_02",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "သတ်မှတ်ထားသော အရောင်းရည်မှန်းချက် ပြည့်မီနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (3)",
+    "key": "business_08_03",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "ဖောက်သည်ကြီးတစ်ဦးထံမှ အမှာစာ ရနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (4)",
+    "key": "business_08_04",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "လက်လွတ်သွားသောဖောက်သည် ပြန်လည်ဆက်သွယ်လာနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (5)",
+    "key": "business_08_05",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "ယခုကြော်ငြာအစီအစဉ်မှ အရောင်းရလဒ်ကောင်း ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (6)",
+    "key": "business_08_06",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "အရောင်း၊ ဖောက်သည်နှင့် ဈေးကွက်",
+    "groupEn": "Sales and market",
+    "titleMm": "ထုတ်ကုန်ဈေးနှုန်း ပြောင်းလဲခြင်းက အရောင်းအတွက် ကောင်းနိုင်မလား။",
+    "titleEn": "Business Horary: Sales and market (7)",
+    "key": "business_08_07",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "ယခုစာချုပ်ကို လက်မှတ်ရေးထိုးသင့်သလား။",
+    "titleEn": "Business Horary: Contracts and licenses (1)",
+    "key": "business_09_01",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "စာချုပ်အတိုင်း လုပ်ငန်းအောင်မြင်စွာ ပြီးမြောက်နိုင်မလား။",
+    "titleEn": "Business Horary: Contracts and licenses (2)",
+    "key": "business_09_02",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "ယခုတင်ဒါကို အနိုင်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Contracts and licenses (3)",
+    "key": "business_09_03",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "ကုမ္ပဏီမှ လိုအပ်သောလိုင်စင် ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Contracts and licenses (4)",
+    "key": "business_09_04",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "အစိုးရခွင့်ပြုချက်ကို သတ်မှတ်ကာလအတွင်း ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Contracts and licenses (5)",
+    "key": "business_09_05",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "လက်ရှိညှိနှိုင်းနေသော သဘောတူညီချက် အောင်မြင်နိုင်မလား။",
+    "titleEn": "Business Horary: Contracts and licenses (6)",
+    "key": "business_09_06",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "စာချုပ်၊ တင်ဒါနှင့် လိုင်စင်",
+    "groupEn": "Contracts and licenses",
+    "titleMm": "စာချုပ်ပါတစ်ဖက်က ကတိကဝတ်အတိုင်း ဆောင်ရွက်နိုင်မလား။",
+    "titleEn": "Business Horary: Contracts and licenses (7)",
+    "key": "business_09_07",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "ယခုလုပ်ငန်းကို ဝယ်ယူသင့်သလား။",
+    "titleEn": "Business Horary: Buying or selling a business (1)",
+    "key": "business_10_01",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "ဒီဆိုင်ကို ဝယ်ယူလျှင် အမြတ်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Buying or selling a business (2)",
+    "key": "business_10_02",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "မိမိလုပ်ငန်းကို သတ်မှတ်ဈေးဖြင့် ရောင်းချနိုင်မလား။",
+    "titleEn": "Business Horary: Buying or selling a business (3)",
+    "key": "business_10_03",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "လုပ်ငန်းအတွက် ဝယ်ယူသူ ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Buying or selling a business (4)",
+    "key": "business_10_04",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "ဆိုင်ခန်း၊ စက်ရုံ သို့မဟုတ် လုပ်ငန်းပိုင်ပစ္စည်းကို ယခုဝယ်သင့်သလား။",
+    "titleEn": "Business Horary: Buying or selling a business (5)",
+    "key": "business_10_05",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "လုပ်ငန်းပိုင်ပစ္စည်းကို ရောင်းချလျှင် အရှုံးမရှိ ရောင်းနိုင်မလား။",
+    "titleEn": "Business Horary: Buying or selling a business (6)",
+    "key": "business_10_06",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းဝယ်ယူခြင်းနှင့် ရောင်းချခြင်း",
+    "groupEn": "Buying or selling a business",
+    "titleMm": "လုပ်ငန်းလွှဲပြောင်းမှု ဘယ်အချိန်မှာ ပြီးမြောက်နိုင်မလဲ။",
+    "titleEn": "Business Horary: Buying or selling a business (7)",
+    "key": "business_10_07",
+    "cusp": 4,
+    "support": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "timing"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "ယခုလျှောက်ထားသူကို အလုပ်ခန့်သင့်သလား။",
+    "titleEn": "Business Horary: Employees and management (1)",
+    "key": "business_11_01",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "လက်ရှိမန်နေဂျာကို ဆက်လက်တာဝန်ပေးသင့်သလား။",
+    "titleEn": "Business Horary: Employees and management (2)",
+    "key": "business_11_02",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "အရေးကြီးသောတာဝန်ကို ဒီဝန်ထမ်းထံ အပ်နှံသင့်သလား။",
+    "titleEn": "Business Horary: Employees and management (3)",
+    "key": "business_11_03",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "ဝန်ထမ်းပြဿနာများ မကြာမီ ပြေလည်နိုင်မလား။",
+    "titleEn": "Business Horary: Employees and management (4)",
+    "key": "business_11_04",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "လုပ်ငန်းအတွင်း ယုံကြည်စိတ်ချရသော ဝန်ထမ်း ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Employees and management (5)",
+    "key": "business_11_05",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "ဝန်ထမ်းတစ်ဦး လုပ်ငန်းမှထွက်ခွာသွားနိုင်မလား။",
+    "titleEn": "Business Horary: Employees and management (6)",
+    "key": "business_11_06",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "risk"
+  },
+  {
+    "groupMm": "ဝန်ထမ်းနှင့် စီမံခန့်ခွဲမှု",
+    "groupEn": "Employees and management",
+    "titleMm": "ဝန်ထမ်းအပြောင်းအလဲ ပြုလုပ်ခြင်းက လုပ်ငန်းအတွက် ကောင်းနိုင်မလား။",
+    "titleEn": "Business Horary: Employees and management (7)",
+    "key": "business_11_07",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "ယခုပစ္စည်းပေးသွင်းသူကို ယုံကြည်စိတ်ချနိုင်မလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (1)",
+    "key": "business_12_01",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "မှာယူထားသော ကုန်ပစ္စည်း အချိန်မီရောက်နိုင်မလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (2)",
+    "key": "business_12_02",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "ကုန်ပစ္စည်းတင်သွင်းမှု အောင်မြင်စွာပြီးမြောက်နိုင်မလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (3)",
+    "key": "business_12_03",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "အကောက်ခွန် သို့မဟုတ် ပို့ဆောင်ရေးအခက်အခဲ ပြေလည်နိုင်မလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (4)",
+    "key": "business_12_04",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "ပျောက်ဆုံးနေသော ကုန်ပစ္စည်း ပြန်လည်ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (5)",
+    "key": "business_12_05",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "ပစ္စည်းပေးသွင်းသူအသစ်သို့ ပြောင်းသင့်သလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (6)",
+    "key": "business_12_06",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "ပစ္စည်းပေးသွင်းသူနှင့် ကုန်စည်ပို့ဆောင်ရေး",
+    "groupEn": "Suppliers and logistics",
+    "titleMm": "နိုင်ငံခြားသို့ ကုန်ပစ္စည်းတင်ပို့ခြင်း အမြတ်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Suppliers and logistics (7)",
+    "key": "business_12_07",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "ပြိုင်ဘက်လုပ်ငန်းကြောင့် မိမိလုပ်ငန်း ထိခိုက်နိုင်မလား။",
+    "titleEn": "Business Horary: Competition and disputes (1)",
+    "key": "business_13_01",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "risk"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "လုပ်ငန်းအတွင်း ငွေကြေးလိမ်လည်မှု ရှိနေသလား။",
+    "titleEn": "Business Horary: Competition and disputes (2)",
+    "key": "business_13_02",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "risk"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "မိမိယုံကြည်ထားသူက လုပ်ငန်းအပေါ် မရိုးသားမှုရှိသလား။",
+    "titleEn": "Business Horary: Competition and disputes (3)",
+    "key": "business_13_03",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "risk"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "ပျောက်ဆုံးနေသော လုပ်ငန်းငွေ ပြန်လည်ရရှိနိုင်မလား။",
+    "titleEn": "Business Horary: Competition and disputes (4)",
+    "key": "business_13_04",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "စီးပွားရေးအငြင်းပွားမှုကို မိမိဘက်မှ အနိုင်ရနိုင်မလား။",
+    "titleEn": "Business Horary: Competition and disputes (5)",
+    "key": "business_13_05",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "တရားရုံးမတက်ဘဲ ညှိနှိုင်းဖြေရှင်းနိုင်မလား။",
+    "titleEn": "Business Horary: Competition and disputes (6)",
+    "key": "business_13_06",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "ပြိုင်ဘက်၊ လိမ်လည်မှုနှင့် အငြင်းပွားမှု",
+    "groupEn": "Competition and disputes",
+    "titleMm": "လုပ်ငန်းဂုဏ်သတင်း ထိခိုက်မှု ပြန်လည်ကောင်းမွန်နိုင်မလား။",
+    "titleEn": "Business Horary: Competition and disputes (7)",
+    "key": "business_13_07",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းပိတ်ခြင်းနှင့် ပြန်လည်ထူထောင်ခြင်း",
+    "groupEn": "Closure and recovery",
+    "titleMm": "လက်ရှိလုပ်ငန်းကို ဆက်လက်လုပ်ကိုင်သင့်သလား။",
+    "titleEn": "Business Horary: Closure and recovery (1)",
+    "key": "business_14_01",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းပိတ်ခြင်းနှင့် ပြန်လည်ထူထောင်ခြင်း",
+    "groupEn": "Closure and recovery",
+    "titleMm": "အရှုံးပေါ်နေသောလုပ်ငန်းကို ပိတ်သင့်သလား။",
+    "titleEn": "Business Horary: Closure and recovery (2)",
+    "key": "business_14_02",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းပိတ်ခြင်းနှင့် ပြန်လည်ထူထောင်ခြင်း",
+    "groupEn": "Closure and recovery",
+    "titleMm": "လုပ်ငန်းကို ခေတ္တရပ်နားပြီး ပြန်လည်စတင်သင့်သလား။",
+    "titleEn": "Business Horary: Closure and recovery (3)",
+    "key": "business_14_03",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "decision"
+  },
+  {
+    "groupMm": "လုပ်ငန်းပိတ်ခြင်းနှင့် ပြန်လည်ထူထောင်ခြင်း",
+    "groupEn": "Closure and recovery",
+    "titleMm": "ပိတ်ထားသောလုပ်ငန်းကို ပြန်လည်ဖွင့်လှစ်လျှင် အောင်မြင်နိုင်မလား။",
+    "titleEn": "Business Horary: Closure and recovery (4)",
+    "key": "business_14_04",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းပိတ်ခြင်းနှင့် ပြန်လည်ထူထောင်ခြင်း",
+    "groupEn": "Closure and recovery",
+    "titleMm": "လုပ်ငန်းပုံစံ ပြောင်းလဲခြင်းဖြင့် အရှုံးမှ ပြန်လည်လွတ်မြောက်နိုင်မလား။",
+    "titleEn": "Business Horary: Closure and recovery (5)",
+    "key": "business_14_05",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "result"
+  },
+  {
+    "groupMm": "လုပ်ငန်းပိတ်ခြင်းနှင့် ပြန်လည်ထူထောင်ခြင်း",
+    "groupEn": "Closure and recovery",
+    "titleMm": "လုပ်ငန်းအခြေအနေ ဘယ်အချိန်မှာ ပြန်လည်တိုးတက်လာမလဲ။",
+    "titleEn": "Business Horary: Closure and recovery (6)",
+    "key": "business_14_06",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "timing"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားသို့ သွားရမလား?",
+    "titleEn": "Will I travel abroad?",
+    "key": "foreign_travel_possible",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_possibility"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားခရီး ဘယ်တော့သွားရမလဲ?",
+    "titleEn": "When will I travel abroad?",
+    "key": "foreign_travel_when",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_timing"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "လက်ရှိစီစဉ်ထားတဲ့ နိုင်ငံခြားခရီး ဖြစ်မြောက်မလား?",
+    "titleEn": "Will my planned foreign trip happen?",
+    "key": "foreign_travel_plan_success",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_possibility"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားဗီဇာ ရမလား၊ ဘယ်တော့ရမလဲ?",
+    "titleEn": "Will I get the visa, and when?",
+    "key": "foreign_travel_visa",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_visa"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားမှာ အလုပ်ရမလား၊ ဘယ်တော့လဲ?",
+    "titleEn": "Will I get a job abroad, and when?",
+    "key": "foreign_travel_work",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_work"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားမှာ ပညာသင်ခွင့်ရမလား?",
+    "titleEn": "Will I be able to study abroad?",
+    "key": "foreign_travel_study",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_study"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားမှာ အမြဲတမ်းအခြေချနေထိုင်နိုင်မလား?",
+    "titleEn": "Will I settle abroad permanently?",
+    "key": "foreign_travel_settlement",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_settlement"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားခရီး အဆင်ပြေချောမွေ့မလား?",
+    "titleEn": "Will the foreign journey go smoothly?",
+    "key": "foreign_travel_smooth",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_journey"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားသွားဖို့ ကြန့်ကြာမှုရှိမလား?",
+    "titleEn": "Will my foreign travel be delayed?",
+    "key": "foreign_travel_delay",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_delay"
+  },
+  {
+    "groupMm": "နိုင်ငံခြားခရီး",
+    "groupEn": "Foreign travel",
+    "titleMm": "နိုင်ငံခြားကနေ ဘယ်တော့ပြန်လာရမလဲ?",
+    "titleEn": "When will I return from abroad?",
+    "key": "foreign_travel_return",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "foreign_return"
+  },
+  {
+    "groupMm": "ထီကံနှင့် လောင်းကစား",
+    "groupEn": "Lottery and gambling",
+    "titleMm": "ထီပေါက်ကံရှိလား၊ ရှိရင် ဘယ်အချိန်မှာ ထီပေါက်မလဲ?",
+    "titleEn": "Do I have lottery luck, and when is it strongest?",
+    "key": "lottery_luck_timing_numbers",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "lottery"
+  },
+  {
+    "groupMm": "ထီကံနှင့် လောင်းကစား",
+    "groupEn": "Lottery and gambling",
+    "titleMm": "ထီပေါက်ကံရှိလား?",
+    "titleEn": "Do I have lottery luck?",
+    "key": "lottery_luck",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "lottery"
+  },
+  {
+    "groupMm": "ထီကံနှင့် လောင်းကစား",
+    "groupEn": "Lottery and gambling",
+    "titleMm": "ထီပေါက်နိုင်ခြေ အားကောင်းမယ့်ကာလက ဘယ်တော့လဲ?",
+    "titleEn": "When is lottery luck strongest?",
+    "key": "lottery_timing",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "lottery"
+  },
+  {
+    "groupMm": "ထီကံနှင့် လောင်းကစား",
+    "groupEn": "Lottery and gambling",
+    "titleMm": "ထီနံပါတ်ကို ဘယ်လိုရွေးချယ်သင့်လဲ?",
+    "titleEn": "How should I choose lottery numbers?",
+    "key": "lottery_numbers",
+    "cusp": 5,
+    "support": [
+      2,
+      3,
+      5,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "lottery"
+  },
+  {
+    "groupMm": "ထီကံနှင့် လောင်းကစား",
+    "groupEn": "Lottery and gambling",
+    "titleMm": "ကံကောင်းစေမယ့် မြန်မာအက္ခရာနှင့် နံပါတ်များက ဘာလဲ?",
+    "titleEn": "Which Burmese letters and numbers are favourable?",
+    "key": "lottery_letters",
+    "cusp": 5,
+    "support": [
+      2,
+      3,
+      5,
+      11
+    ],
+    "obstacle": [
+      6,
+      12
+    ],
+    "kind": "lottery"
+  },
+  {
+    "groupMm": "ထီကံနှင့် လောင်းကစား",
+    "groupEn": "Lottery and gambling",
+    "titleMm": "လောင်းကစားကိစ္စမှာ အကျိုးရှိနိုင်မလား?",
+    "titleEn": "Is this gambling decision likely to be favourable?",
+    "key": "gambling_result",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "lottery"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "လျှောက်ထားထားတဲ့ အိမ်မှအလုပ်လုပ်ရသောရာထူးကို ရနိုင်မလား?",
+    "titleEn": "Will I get the remote job I applied for?",
+    "key": "modern_career_01",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "အွန်လိုင်းအလုပ်အင်တာဗျူးရလဒ်ကို အောင်မြင်စွာရနိုင်မလား?",
+    "titleEn": "Will my online job interview lead to an offer?",
+    "key": "modern_career_02",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "လက်ရှိစမ်းသပ်ခန့်ထားကာလပြီးနောက် အတည်ခန့်ခံရမလား?",
+    "titleEn": "Will I be confirmed after probation?",
+    "key": "modern_career_03",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "အလုပ်ခန့်စာချုပ် သက်တမ်းတိုးခွင့်ရမလား?",
+    "titleEn": "Will my employment contract be renewed?",
+    "key": "modern_career_04",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "လက်ရှိအလုပ်မှာ ရာထူးတိုးခွင့်ရမလား?",
+    "titleEn": "Will I receive a promotion in my current job?",
+    "key": "modern_career_05",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "တောင်းဆိုထားတဲ့ လစာတိုးကို အတည်ပြုခံရမလား?",
+    "titleEn": "Will my requested pay rise be approved?",
+    "key": "modern_career_06",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "မိမိလိုချင်တဲ့ဌာနသို့ အလုပ်ပြောင်းရွှေ့ခွင့်ရမလား?",
+    "titleEn": "Will my transfer to the desired department be approved?",
+    "key": "modern_career_07",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "အလုပ်ချိန်ကို လိုသလိုပြောင်းလဲခွင့်ရမလား?",
+    "titleEn": "Will my flexible working hours be approved?",
+    "key": "modern_career_08",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "သင်ယူထားတဲ့ ကျွမ်းကျင်မှုအသစ်နဲ့ အလုပ်ရမလား?",
+    "titleEn": "Will my new skills lead to a job?",
+    "key": "modern_career_09",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခေတ်သစ်အလုပ်အကိုင်",
+    "groupEn": "Modern careers",
+    "titleMm": "နိုင်ငံရပ်ခြားကုမ္ပဏီရဲ့ အဝေးမှလုပ်ရတဲ့အလုပ်ကို ရမလား?",
+    "titleEn": "Will I get a remote job with an overseas company?",
+    "key": "modern_career_10",
+    "cusp": 10,
+    "support": [
+      2,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "အလွတ်တန်းအလုပ်အတွက် ပထမဆုံးငွေပေးချေမယ့်ဖောက်သည် ရမလား?",
+    "titleEn": "Will I get my first paying freelance client?",
+    "key": "modern_freelance_01",
+    "cusp": 7,
+    "support": [
+      2,
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "ပို့ထားတဲ့ ပရောဂျက်အဆိုပြုလွှာကို လက်ခံမလား?",
+    "titleEn": "Will my project proposal be accepted?",
+    "key": "modern_freelance_02",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "လက်ရှိဖောက်သည်က လစဉ်ဝန်ဆောင်မှုစာချုပ် သက်တမ်းတိုးမလား?",
+    "titleEn": "Will my client renew the monthly service contract?",
+    "key": "modern_freelance_03",
+    "cusp": 7,
+    "support": [
+      2,
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "ပြီးခဲ့တဲ့ အလွတ်တန်းအလုပ်ရဲ့ ရရန်ငွေ ပြန်ရမလား?",
+    "titleEn": "Will I receive payment for completed freelance work?",
+    "key": "modern_freelance_04",
+    "cusp": 2,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "အလွတ်တန်းပလက်ဖောင်းရဲ့ အကောင့်အတည်ပြုချက် ရမလား?",
+    "titleEn": "Will my freelance platform account be verified?",
+    "key": "modern_freelance_05",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "ပရောဂျက်ကို သတ်မှတ်ထားတဲ့နေ့မတိုင်မီ ပြီးမြောက်မလား?",
+    "titleEn": "Will I finish this project before its deadline?",
+    "key": "modern_freelance_06",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "တောင်းဆိုထားတဲ့ ဝန်ဆောင်ခအသစ်ကို ဖောက်သည်က လက်ခံမလား?",
+    "titleEn": "Will the client accept my new service rate?",
+    "key": "modern_freelance_07",
+    "cusp": 2,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "အလုပ်နမူနာပြစာမျက်နှာမှ ဖောက်သည်အသစ် ရမလား?",
+    "titleEn": "Will my portfolio bring in a new client?",
+    "key": "modern_freelance_08",
+    "cusp": 7,
+    "support": [
+      2,
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "အတူလုပ်နေတဲ့ ပရောဂျက်မှာ မိမိအလုပ်အတွက် ဝေစုရမလား?",
+    "titleEn": "Will I receive my share from the joint project?",
+    "key": "modern_freelance_09",
+    "cusp": 2,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အလွတ်တန်းနှင့် ပရောဂျက်",
+    "groupEn": "Freelance and projects",
+    "titleMm": "အလွတ်တန်းအလုပ်ကို ပုံမှန်ဝင်ငွေရတဲ့အလုပ်အဖြစ် ပြောင်းနိုင်မလား?",
+    "titleEn": "Will freelance work become a steady income source?",
+    "key": "modern_freelance_10",
+    "cusp": 11,
+    "support": [
+      2,
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "အွန်လိုင်းဆိုင်ဖွင့်ပြီး ပထမဆုံးအမှာစာ ရမလား?",
+    "titleEn": "Will my online shop receive its first order?",
+    "key": "modern_commerce_01",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "ယခုအွန်လိုင်းဆိုင်ကနေ ထပ်မံဝယ်ယူမယ့်ဖောက်သည် ရမလား?",
+    "titleEn": "Will my online shop gain repeat customers?",
+    "key": "modern_commerce_02",
+    "cusp": 7,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "ဈေးဝယ်ပလက်ဖောင်းမှာ ရောင်းသူအကောင့်အတည်ပြုချက် ရမလား?",
+    "titleEn": "Will my marketplace seller account be approved?",
+    "key": "modern_commerce_03",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "အွန်လိုင်းမှာ မှာယူထားတဲ့ကုန်ပစ္စည်းတွေ အချိန်မီရောက်မလား?",
+    "titleEn": "Will my online inventory order arrive on time?",
+    "key": "modern_commerce_04",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "ရွေးထားတဲ့ ပို့ဆောင်ရေးဝန်ဆောင်မှုနဲ့ အမှာစာတွေ အဆင်ပြေမလား?",
+    "titleEn": "Will the chosen delivery service fulfil my orders?",
+    "key": "modern_commerce_05",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "ပြန်ပို့ထားတဲ့ကုန်ပစ္စည်းအတွက် ငွေပြန်အမ်းရမလား?",
+    "titleEn": "Will I receive the refund for returned goods?",
+    "key": "modern_commerce_06",
+    "cusp": 2,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "အွန်လိုင်းကြော်ငြာကနေ ဝယ်ယူမှုအသစ်တွေ ရမလား?",
+    "titleEn": "Will this online advertisement generate new purchases?",
+    "key": "modern_commerce_07",
+    "cusp": 11,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "အွန်လိုင်းဆိုင်ရဲ့ ရောင်းရငွေကို ပလက်ဖောင်းက လွှဲပေးမလား?",
+    "titleEn": "Will the platform release my shop payout?",
+    "key": "modern_commerce_08",
+    "cusp": 2,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "လူမှုကွန်ရက်မှ တိုက်ရိုက်ရောင်းချမှုမှာ အမှာစာရမလား?",
+    "titleEn": "Will the live social-media sale receive orders?",
+    "key": "modern_commerce_09",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အွန်လိုင်းရောင်းဝယ်ရေး",
+    "groupEn": "Online commerce",
+    "titleMm": "အွန်လိုင်းဆိုင်ကနေ နိုင်ငံခြားဖောက်သည်ရဲ့ အမှာစာ ရမလား?",
+    "titleEn": "Will my online shop receive an overseas order?",
+    "key": "modern_commerce_10",
+    "cusp": 9,
+    "support": [
+      2,
+      3,
+      7,
+      9,
+      10,
+      11
+    ],
+    "obstacle": [
+      5,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ဗီဒီယိုချန်နယ်ရဲ့ ဝင်ငွေဖွင့်ခွင့်ကို အတည်ပြုခံရမလား?",
+    "titleEn": "Will monetization be approved for my video channel?",
+    "key": "modern_creator_01",
+    "cusp": 11,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ဤအကြောင်းအရာအတွက် စပွန်ဆာစာချုပ် ရမလား?",
+    "titleEn": "Will this content attract a sponsorship contract?",
+    "key": "modern_creator_02",
+    "cusp": 7,
+    "support": [
+      2,
+      3,
+      5,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "လာမယ့်လများမှာ ချန်နယ်ရဲ့ အမှန်တကယ်ကြည့်ရှုသူ တိုးလာမလား?",
+    "titleEn": "Will my channel gain more genuine viewers in the coming months?",
+    "key": "modern_creator_03",
+    "cusp": 11,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ကိုယ်တိုင်ဖန်တီးတဲ့ အွန်လိုင်းသင်တန်းမှာ သင်တန်းသားရမလား?",
+    "titleEn": "Will my online course attract paying students?",
+    "key": "modern_creator_04",
+    "cusp": 5,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "မိမိဖန်တီးမှုအပေါ် မူပိုင်ခွင့်တိုင်ကြားချက် ပြေလည်မလား?",
+    "titleEn": "Will the copyright claim against my content be resolved?",
+    "key": "modern_creator_05",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ပိတ်ထားတဲ့ လူမှုကွန်ရက်ချန်နယ် ပြန်ဖွင့်ခွင့်ရမလား?",
+    "titleEn": "Will my suspended social-media channel be restored?",
+    "key": "modern_creator_06",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "အွန်လိုင်းတိုက်ရိုက်ပွဲမှာ စာရင်းသွင်းသူများ လုံလောက်စွာရမလား?",
+    "titleEn": "Will my live online event get enough registrations?",
+    "key": "modern_creator_07",
+    "cusp": 11,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ပူးတွဲဖန်တီးထားတဲ့ဗီဒီယိုကို သတ်မှတ်ရက်တွင် ထုတ်နိုင်မလား?",
+    "titleEn": "Will our collaborative video launch on schedule?",
+    "key": "modern_creator_08",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ငွေပေးသွင်းဖတ်ရတဲ့ စာစောင်မှာ အဖွဲ့ဝင်သစ်ရမလား?",
+    "titleEn": "Will my paid newsletter gain subscribers?",
+    "key": "modern_creator_09",
+    "cusp": 11,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အကြောင်းအရာဖန်တီးမှု",
+    "groupEn": "Content creation",
+    "titleMm": "ဒစ်ဂျစ်တယ်ဖိုင်ထုတ်ကုန်အသစ်ကို ဝယ်ယူသူရမလား?",
+    "titleEn": "Will my new digital product find buyers?",
+    "key": "modern_creator_10",
+    "cusp": 2,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လျှောက်ထားထားတဲ့ ပညာသင်ဆု ရမလား?",
+    "titleEn": "Will I receive the scholarship I applied for?",
+    "key": "modern_learning_01",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ရွေးထားတဲ့တက္ကသိုလ်အစီအစဉ်မှာ ဝင်ခွင့်ရမလား?",
+    "titleEn": "Will I be admitted to the chosen university program?",
+    "key": "modern_learning_02",
+    "cusp": 4,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လာမယ့် အသက်မွေးဝမ်းကျောင်းစာမေးပွဲကို အောင်မလား?",
+    "titleEn": "Will I pass the upcoming professional exam?",
+    "key": "modern_learning_03",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "အွန်လိုင်းသင်တန်းပြီးစီးပြီး အသိအမှတ်ပြုလက်မှတ်ရမလား?",
+    "titleEn": "Will I complete the online course and earn its certificate?",
+    "key": "modern_learning_04",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "တင်ထားတဲ့ သုတေသနစာတမ်းကို အတည်ပြုခံရမလား?",
+    "titleEn": "Will my submitted research thesis be approved?",
+    "key": "modern_learning_05",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ရွေးထားတဲ့ လုပ်ငန်းခွင်လေ့ကျင့်ရေးအစီအစဉ်မှာ ပါဝင်ခွင့်ရမလား?",
+    "titleEn": "Will I be accepted into the apprenticeship program?",
+    "key": "modern_learning_06",
+    "cusp": 6,
+    "support": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ယခုနှစ်မှာ သင်တန်းပြီးဆုံးပြီး ဘွဲ့ရမလား?",
+    "titleEn": "Will I graduate after finishing my studies this year?",
+    "key": "modern_learning_07",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လျှောက်ထားထားတဲ့ လုပ်ငန်းခွင်အလုပ်သင်နေရာ ရမလား?",
+    "titleEn": "Will I get the internship I applied for?",
+    "key": "modern_learning_08",
+    "cusp": 6,
+    "support": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "အသက်မွေးဝမ်းကျောင်းလိုင်စင်စာမေးပွဲကို အောင်မလား?",
+    "titleEn": "Will I pass the professional licensing exam?",
+    "key": "modern_learning_09",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လေ့လာထားတဲ့ နည်းပညာကျွမ်းကျင်မှုအတွက် အသိအမှတ်ပြုလက်မှတ်ရမလား?",
+    "titleEn": "Will I earn certification for my technical skill?",
+    "key": "modern_learning_10",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လက်ရှိကျောင်းကနေ ရွေးထားတဲ့ကျောင်းသို့ ပြောင်းရွှေ့ခွင့်ရမလား?",
+    "titleEn": "Will my transfer to the chosen school be approved?",
+    "key": "modern_learning_11",
+    "cusp": 4,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လက်ရှိသင်ယူနေတဲ့ ဘာသာရပ်ကနေ ရွေးထားတဲ့ဘာသာရပ်သို့ ပြောင်းခွင့်ရမလား?",
+    "titleEn": "Will I be allowed to change to my chosen subject?",
+    "key": "modern_learning_12",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ပြန်လည်ဖြေဆိုမယ့် စာမေးပွဲကို ဒီတစ်ကြိမ် အောင်မြင်မလား?",
+    "titleEn": "Will I pass the examination on this resit?",
+    "key": "modern_learning_13",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "တောင်းဆိုထားတဲ့ စာမေးပွဲအမှတ်ပြန်လည်စစ်ဆေးမှုက အကျိုးရှိမလား?",
+    "titleEn": "Will the requested examination remark improve my result?",
+    "key": "modern_learning_14",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ပညာသင်စရိတ်အတွက် လျှောက်ထားထားတဲ့ ထောက်ပံ့ငွေ ရမလား?",
+    "titleEn": "Will I receive the study-cost grant I applied for?",
+    "key": "modern_learning_15",
+    "cusp": 2,
+    "support": [
+      2,
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ဒီပညာသင်နှစ်အတွင်း သုတေသနစာတမ်းကို အပြီးသတ်နိုင်မလား?",
+    "titleEn": "Will I complete my thesis within this academic year?",
+    "key": "modern_learning_16",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ရွေးထားတဲ့ ကြီးကြပ်ဆရာနဲ့ သုတေသနဆက်လုပ်ခြင်း အဆင်ပြေမလား?",
+    "titleEn": "Will continuing my research with the chosen supervisor work out?",
+    "key": "modern_learning_17",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "လျှောက်ထားထားတဲ့ လက်တွေ့သင်တန်းနေရာ ရမလား?",
+    "titleEn": "Will I get the practical training placement I applied for?",
+    "key": "modern_learning_18",
+    "cusp": 6,
+    "support": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ရွေးထားတဲ့ ဘွဲ့လွန်သင်တန်းကို ယခုတက်သင့်သလား?",
+    "titleEn": "Should I begin the chosen postgraduate program now?",
+    "key": "modern_learning_19",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ပညာရေးနှင့် အရည်အချင်း",
+    "groupEn": "Education and skills",
+    "titleMm": "ရပ်နားထားတဲ့ ပညာရေးကို ယခုနှစ်မှာ ပြန်လည်စတင်နိုင်မလား?",
+    "titleEn": "Will I be able to resume my paused studies this year?",
+    "key": "modern_learning_20",
+    "cusp": 9,
+    "support": [
+      4,
+      9,
+      11
+    ],
+    "obstacle": [
+      3,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "လျှောက်ထားထားတဲ့ တိုက်ခန်းငှားခွင့် ရမလား?",
+    "titleEn": "Will my apartment rental application be approved?",
+    "key": "modern_home_01",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "လက်ရှိအိမ်ငှားစာချုပ်ကို ဆက်လက်သက်တမ်းတိုးနိုင်မလား?",
+    "titleEn": "Will I be able to renew my current lease?",
+    "key": "modern_home_02",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "ရွေးထားတဲ့တိုက်ခန်းသို့ သတ်မှတ်ရက်မှာ ပြောင်းရွှေ့နိုင်မလား?",
+    "titleEn": "Will I move into the chosen apartment on schedule?",
+    "key": "modern_home_03",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "အိမ်ငှားစပေါ်ငွေကို သဘောတူညီချက်အတိုင်း ပြန်ရမလား?",
+    "titleEn": "Will my rental deposit be returned as agreed?",
+    "key": "modern_home_04",
+    "cusp": 2,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "လျှောက်ထားထားတဲ့ အိမ်ရာချေးငွေကို အတည်ပြုမလား?",
+    "titleEn": "Will my home loan application be approved?",
+    "key": "modern_home_05",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "အိမ်ပြုပြင်မှုကို သတ်မှတ်ထားတဲ့အချိန်မှာ ပြီးစီးမလား?",
+    "titleEn": "Will the home renovation finish on schedule?",
+    "key": "modern_home_06",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "မိမိအိမ်အတွက် သင့်တော်တဲ့ ဝယ်ယူသူရမလား?",
+    "titleEn": "Will I find a suitable buyer for my home?",
+    "key": "modern_home_07",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "ရွေးထားတဲ့အိမ်ကို ဝယ်ယူရေးစာချုပ် အောင်မြင်မလား?",
+    "titleEn": "Will the purchase agreement for my chosen home succeed?",
+    "key": "modern_home_08",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "အိမ်သစ်မှာ လျှပ်စစ်နှင့် အင်တာနက်ချိတ်ဆက်မှု အချိန်မီရမလား?",
+    "titleEn": "Will utilities and internet be connected to my new home on time?",
+    "key": "modern_home_09",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "titleMm": "ရွေးထားတဲ့ အခန်းဖော်နဲ့ အတူနေထိုင်မှု အဆင်ပြေမလား?",
+    "titleEn": "Will living with my chosen roommate work out?",
+    "key": "modern_home_10",
+    "cusp": 7,
+    "support": [
+      2,
+      4,
+      7,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "အဝေးမှာနေတဲ့ မိသားစုဝင်နဲ့ မကြာမီ ပြန်လည်တွေ့ဆုံနိုင်မလား?",
+    "titleEn": "Will I reunite soon with my family member living far away?",
+    "key": "modern_family_01",
+    "cusp": 2,
+    "support": [
+      2,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "အိမ်ထောင်ပြုမယ့်အစီအစဉ်ကို မိသားစုနှစ်ဖက်က သဘောတူမလား?",
+    "titleEn": "Will both families agree to our marriage plans?",
+    "key": "modern_family_02",
+    "cusp": 7,
+    "support": [
+      2,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "ကလေးကို လျှောက်ထားထားတဲ့ကျောင်းမှာ ဝင်ခွင့်ရမလား?",
+    "titleEn": "Will my child get a place at the school we applied to?",
+    "key": "modern_family_03",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "စကားမပြောဖြစ်တော့တဲ့ မောင်နှမနဲ့ ပြန်လည်သင့်မြတ်မလား?",
+    "titleEn": "Will I reconcile with my estranged sibling?",
+    "key": "modern_family_04",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "မိဘက မိမိနဲ့အတူ ပြောင်းရွှေ့နေထိုင်နိုင်မလား?",
+    "titleEn": "Will my parent be able to move in with me?",
+    "key": "modern_family_05",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "စီစဉ်ထားတဲ့ စေ့စပ်ပွဲကို သတ်မှတ်ရက်မှာ ကျင်းပနိုင်မလား?",
+    "titleEn": "Will the planned engagement take place on schedule?",
+    "key": "modern_family_06",
+    "cusp": 7,
+    "support": [
+      2,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "ကလေးထိန်းစောင့်ရှောက်ရေးအစီအစဉ်ကို မိသားစုက သဘောတူမလား?",
+    "titleEn": "Will my family agree to the childcare arrangement?",
+    "key": "modern_family_07",
+    "cusp": 5,
+    "support": [
+      2,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "အဝေးရောက် အိမ်ထောင်ဖက်နဲ့ ပြန်လည်အတူနေထိုင်နိုင်မလား?",
+    "titleEn": "Will I live together again with my spouse who is away?",
+    "key": "modern_family_08",
+    "cusp": 7,
+    "support": [
+      2,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "မိသားစုနဲ့ စီစဉ်ထားတဲ့ ခရီးကို အတူထွက်နိုင်မလား?",
+    "titleEn": "Will our planned family trip happen together?",
+    "key": "modern_family_09",
+    "cusp": 3,
+    "support": [
+      2,
+      3,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "titleMm": "မိသားစုအိမ်ရာခွဲဝေမှုကို သဘောတူညီချက်နဲ့ ပြီးဆုံးနိုင်မလား?",
+    "titleEn": "Will the family home-sharing agreement be settled?",
+    "key": "modern_family_10",
+    "cusp": 4,
+    "support": [
+      2,
+      4,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      1,
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "အလုပ်နဲ့ဆိုင်တဲ့ ပြည်တွင်းခရီးကို သတ်မှတ်ရက်မှာ ထွက်နိုင်မလား?",
+    "titleEn": "Will my domestic work trip happen on schedule?",
+    "key": "modern_mobility_01",
+    "cusp": 3,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "အလုပ်ဗီဇာသက်တမ်းတိုးလျှောက်လွှာ အတည်ပြုခံရမလား?",
+    "titleEn": "Will my work visa renewal be approved?",
+    "key": "modern_mobility_02",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "နေထိုင်ခွင့်ကတ်သက်တမ်းတိုးမှု အချိန်မီပြီးမလား?",
+    "titleEn": "Will my residence permit renewal finish on time?",
+    "key": "modern_mobility_03",
+    "cusp": 12,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "သက်တမ်းတိုးထားတဲ့ နိုင်ငံကူးလက်မှတ်ကို အချိန်မီပြန်ရမလား?",
+    "titleEn": "Will my renewed passport be returned on time?",
+    "key": "modern_mobility_04",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "ပြောင်းထားတဲ့ လေယာဉ်ခရီးစဉ်အတွက် နေရာအတည်ပြုချက် ရမလား?",
+    "titleEn": "Will my rescheduled flight seat be confirmed?",
+    "key": "modern_mobility_05",
+    "cusp": 9,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "အလုပ်ကြောင့် မြို့သစ်သို့ ပြောင်းရွှေ့နိုင်မလား?",
+    "titleEn": "Will I relocate to a new city for work?",
+    "key": "modern_mobility_06",
+    "cusp": 3,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "အွန်လိုင်းမှအလုပ်လုပ်သူအတွက် နေထိုင်ခွင့်အစီအစဉ်ကို ခွင့်ပြုမလား?",
+    "titleEn": "Will my remote-worker residence application be approved?",
+    "key": "modern_mobility_07",
+    "cusp": 12,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "ခရီးမှာ ထိန်းသိမ်းခံထားရတဲ့ ပစ္စည်းကို ပြန်ရမလား?",
+    "titleEn": "Will my held travel belongings be released?",
+    "key": "modern_mobility_08",
+    "cusp": 3,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "အလုပ်ပြောင်းရွှေ့မည့်မြို့မှာ နေထိုင်စရာ အချိန်မီရမလား?",
+    "titleEn": "Will I secure housing in my relocation city on time?",
+    "key": "modern_mobility_09",
+    "cusp": 4,
+    "support": [
+      3,
+      4,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ခရီးသွားနှင့် ပြောင်းရွှေ့ရေး",
+    "groupEn": "Travel and relocation",
+    "titleMm": "ရွေးထားတဲ့ အလုပ်သွားလာရေးယာဉ်ကို အချိန်မီရမလား?",
+    "titleEn": "Will I obtain the chosen commuting vehicle on time?",
+    "key": "modern_mobility_10",
+    "cusp": 3,
+    "support": [
+      3,
+      9,
+      11,
+      12
+    ],
+    "obstacle": [
+      4,
+      6,
+      8
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "ကိုယ်ပိုင်ချေးငွေပြန်ဆပ်ရေးအစီအစဉ်အသစ်ကို ဘဏ်က လက်ခံမလား?",
+    "titleEn": "Will the bank accept my personal loan repayment plan?",
+    "key": "modern_money_01",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "တင်ထားတဲ့ အာမခံကြေးလျော်တောင်းဆိုမှုအတွက် ငွေရမလား?",
+    "titleEn": "Will my insurance claim be paid?",
+    "key": "modern_money_02",
+    "cusp": 8,
+    "support": [
+      2,
+      6,
+      8,
+      11
+    ],
+    "obstacle": [
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "ကန့်သတ်ထားတဲ့ ဘဏ်အကောင့်ကို ပြန်အသုံးပြုခွင့်ရမလား?",
+    "titleEn": "Will access to my restricted bank account be restored?",
+    "key": "modern_money_03",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "အွန်လိုင်းဝယ်ယူမှုအတွက် ပေးထားတဲ့ငွေကို ပြန်အမ်းခံရမလား?",
+    "titleEn": "Will I receive a refund for my online purchase?",
+    "key": "modern_money_04",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "ရပ်ဆိုင်းထားတဲ့ ဝန်ဆောင်မှုကြေးကို ပြန်အမ်းခံရမလား?",
+    "titleEn": "Will my cancelled subscription fee be refunded?",
+    "key": "modern_money_05",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "တင်ထားတဲ့ ပညာသင်ထောက်ပံ့ကြေးလျှောက်လွှာကို အတည်ပြုမလား?",
+    "titleEn": "Will my education grant application be approved?",
+    "key": "modern_money_06",
+    "cusp": 11,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "အလုပ်ပြီးဆုံးမှုအတွက် ကျန်တဲ့လုပ်ခငွေ ရမလား?",
+    "titleEn": "Will I receive the remaining wages for completed work?",
+    "key": "modern_money_07",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "အိမ်ငှားခပေးချေရန် အချိန်တိုးခွင့်ရမလား?",
+    "titleEn": "Will I receive an extension to pay my rent?",
+    "key": "modern_money_08",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "မိမိအမည်နဲ့ မှားယွင်းကောက်ခံထားတဲ့ငွေ ပြန်ရမလား?",
+    "titleEn": "Will a mistaken charge in my name be reversed?",
+    "key": "modern_money_09",
+    "cusp": 2,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "titleMm": "ငွေပေးချေမှုအငြင်းပွားချက်ကို ညှိနှိုင်းပြီး ပိတ်နိုင်မလား?",
+    "titleEn": "Will the payment dispute be settled by agreement?",
+    "key": "modern_money_10",
+    "cusp": 7,
+    "support": [
+      2,
+      6,
+      7,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "ပျက်သွားတဲ့ ဖုန်းထဲက အချက်အလက်တွေကို ပြန်ရနိုင်မလား?",
+    "titleEn": "Will I recover the data from my damaged phone?",
+    "key": "modern_technology_01",
+    "cusp": 3,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "ပိတ်ခံထားရတဲ့ အီးမေးလ်အကောင့်ကို ပြန်ဖွင့်နိုင်မလား?",
+    "titleEn": "Will I regain access to my locked email account?",
+    "key": "modern_technology_02",
+    "cusp": 3,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "ဖန်တီးထားတဲ့ မိုဘိုင်းအက်ပ်ကို သတ်မှတ်ရက်မှာ ထုတ်နိုင်မလား?",
+    "titleEn": "Will my mobile app be released on schedule?",
+    "key": "modern_technology_03",
+    "cusp": 10,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "ဆော့ဖ်ဝဲဝန်ဆောင်မှုစာချုပ်အသစ်ကို လက်မှတ်ရေးထိုးနိုင်မလား?",
+    "titleEn": "Will I sign the new software service contract?",
+    "key": "modern_technology_04",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "အက်ပ်ရဲ့လုပ်ဆောင်ချက်အသစ်ကို အသုံးပြုသူတွေ လက်ခံမလား?",
+    "titleEn": "Will users adopt my app's new feature?",
+    "key": "modern_technology_05",
+    "cusp": 11,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "ဒေတာဝန်ဆောင်မှုအသစ်ဆီ ပြောင်းရွှေ့မှု အောင်မြင်မလား?",
+    "titleEn": "Will the migration to the new data service succeed?",
+    "key": "modern_technology_06",
+    "cusp": 3,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "ဝက်ဘ်ဆိုက်အမည်ရောင်းချရေးသဘောတူညီချက် ပြီးမြောက်မလား?",
+    "titleEn": "Will the domain-name sale agreement close?",
+    "key": "modern_technology_07",
+    "cusp": 7,
+    "support": [
+      3,
+      6,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "အွန်လိုင်းဝန်ဆောင်မှု ပြတ်တောက်မှု မကြာမီပြေလည်မလား?",
+    "titleEn": "Will the online service outage be resolved soon?",
+    "key": "modern_technology_08",
+    "cusp": 3,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "နည်းပညာပရောဂျက်အတွက် လိုအပ်တဲ့ကျွမ်းကျင်သူကို ရမလား?",
+    "titleEn": "Will I recruit the specialist needed for my tech project?",
+    "key": "modern_technology_09",
+    "cusp": 6,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "titleMm": "လုံခြုံရေးစစ်ဆေးမှုအပြီး ဝက်ဘ်ဆိုက်ကို ပြန်လည်ဖွင့်နိုင်မလား?",
+    "titleEn": "Will my website reopen after the security review?",
+    "key": "modern_technology_10",
+    "cusp": 3,
+    "support": [
+      3,
+      6,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "key": "health_oral_cancer",
+    "titleMm": "ပါးစပ်ကင်ဆာဖြစ်နိုင်လား?",
+    "titleEn": "Could this be mouth cancer?",
+    "groupMm": "ကျန်းမာရေး",
+    "groupEn": "Health",
+    "cusp": 6,
+    "support": [],
+    "obstacle": [],
+    "kind": "oral_health"
+  },
+  {
+    "key": "modern_money_11",
+    "titleMm": "ချေးပေးထားတဲ့အကြွေး ပြန်ရနိုင်မလား၊ ဘယ်တော့ပြန်ရနိုင်မလဲ?",
+    "titleEn": "Will the money I lent be repaid, and when?",
+    "groupMm": "ကိုယ်ပိုင်ငွေကြေး",
+    "groupEn": "Personal finance",
+    "cusp": 6,
+    "support": [
+      2,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "key": "modern_sale_01",
+    "titleMm": "မိမိဆိုင်ကယ် အရောင်းထွက်မလား၊ ဘယ်တော့ရောင်းထွက်မလဲ?",
+    "titleEn": "Will my motorcycle sell, and when?",
+    "groupMm": "ပစ္စည်းအရောင်းအဝယ်",
+    "groupEn": "Asset sales",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "property_sale"
+  },
+  {
+    "key": "modern_sale_02",
+    "titleMm": "မိမိကား အရောင်းထွက်မလား၊ ဘယ်တော့ရောင်းထွက်မလဲ?",
+    "titleEn": "Will my car sell, and when?",
+    "groupMm": "ပစ္စည်းအရောင်းအဝယ်",
+    "groupEn": "Asset sales",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "property_sale"
+  },
+  {
+    "key": "modern_sale_03",
+    "titleMm": "မိမိအိမ် အရောင်းထွက်မလား၊ ဘယ်တော့ရောင်းထွက်မလဲ?",
+    "titleEn": "Will my house sell, and when?",
+    "groupMm": "ပစ္စည်းအရောင်းအဝယ်",
+    "groupEn": "Asset sales",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "property_sale"
+  },
+  {
+    "key": "modern_sale_04",
+    "titleMm": "မိမိအိမ်ခြံမြေ အရောင်းထွက်မလား၊ ဘယ်တော့ရောင်းထွက်မလဲ?",
+    "titleEn": "Will my real estate sell, and when?",
+    "groupMm": "ပစ္စည်းအရောင်းအဝယ်",
+    "groupEn": "Asset sales",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "property_sale"
+  },
+  {
+    "key": "modern_sale_05",
+    "titleMm": "မိမိမြေ အရောင်းထွက်မလား၊ ဘယ်တော့ရောင်းထွက်မလဲ?",
+    "titleEn": "Will my land sell, and when?",
+    "groupMm": "ပစ္စည်းအရောင်းအဝယ်",
+    "groupEn": "Asset sales",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "property_sale"
+  },
+  {
+    "key": "modern_family_11",
+    "titleMm": "ပြတ်သွားတဲ့ ရည်းစားဟောင်းနဲ့ပြန်အဆင်ပြေမလား?",
+    "titleEn": "Will I reconcile with my former partner?",
+    "groupMm": "မိသားစုနှင့် ဆက်ဆံရေး",
+    "groupEn": "Family and relationships",
+    "cusp": 7,
+    "support": [
+      3,
+      5,
+      7,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "modern"
+  },
+  {
+    "key": "modern_technology_11",
+    "titleMm": "Google Play Developer အကောင့်အသစ်သို့ လွှဲထားတဲ့ App ဘယ်တော့ ပြီးမြောက်မလဲ?",
+    "titleEn": "When will my app transfer to the new Google Play developer account complete?",
+    "groupMm": "ဒစ်ဂျစ်တယ်နည်းပညာ",
+    "groupEn": "Digital technology",
+    "cusp": 11,
+    "support": [
+      3,
+      7,
+      10,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "play_transfer"
+  },
+  {
+    "key": "modern_home_11",
+    "titleMm": "မိမိတိုက်ခန်း အရောင်းထွက်မလား၊ ဘယ်တော့ရောင်းထွက်မလဲ?",
+    "titleEn": "Will my apartment sell, and when will the sale complete?",
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "cusp": 10,
+    "support": [
+      2,
+      3,
+      5,
+      10,
+      11
+    ],
+    "obstacle": [
+      6,
+      8,
+      12
+    ],
+    "kind": "property_sale"
+  },
+  {
+    "key": "modern_home_12",
+    "titleMm": "ပျက်သွားတဲ့ လျှပ်စစ်မီး ဘယ်အချိန်ပြန်လာမလဲ?",
+    "titleEn": "When will the electricity come back after the outage?",
+    "groupMm": "အိမ်ရာနှင့် နေထိုင်မှု",
+    "groupEn": "Housing and living",
+    "cusp": 4,
+    "support": [
+      4,
+      6,
+      11
+    ],
+    "obstacle": [
+      8,
+      12
+    ],
+    "kind": "power_restore"
+  },
+  {
+    "key": "modern_legal_01",
+    "titleMm": "ထောင်/အချုပ်ကျနိုင်လား၊ ဘယ်အချိန်မှာ သတိထားရမလဲ?",
+    "titleEn": "Could I be detained or imprisoned, and when should I take care?",
+    "groupMm": "ဥပဒေရေးရာ",
+    "groupEn": "Legal matters",
+    "cusp": 12,
+    "support": [
+      2,
+      3,
+      8,
+      12
+    ],
+    "obstacle": [
+      1,
+      4,
+      9,
+      11
+    ],
+    "kind": "custody_risk"
+  }
+]

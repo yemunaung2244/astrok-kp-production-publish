@@ -1,0 +1,10 @@
+World city names, coordinates, and time zone identifiers are derived from
+GeoNames cities5000, countryInfo, admin1CodesASCII, and timeZones data.
+Source: https://download.geonames.org/export/dump/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Downloaded: 2026-10-18
+
+AstroK transformed the source data into a compact JSON catalog, added country
+and region display names, sorted cities by population, and included a standard
+UTC offset. GeoNames is not affiliated with AstroK.
