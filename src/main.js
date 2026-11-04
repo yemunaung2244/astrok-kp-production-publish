@@ -1,5 +1,6 @@
 import './style.css';
 import { mountMMQRSandbox } from './mmqr/dialog.js';
+import { createMMQRRelayClient } from './mmqr/relay-client.js';
 import './kp-ios-ui.css';
 import { planCards, entryNavigation } from './kp-plan-ui.js';
 import { calculate, SIGN_MM, normalize, LORDS, transitLongitudeAt, lordsFor } from './kp-core.js';
@@ -92,7 +93,8 @@ const account={user:null,open:false,mode:'login',busy:false,error:'',notice:''};
 let mmqrReview=null;
 function openMMQRReview(){
   mmqrReview?.destroy();
-  mmqrReview=mountMMQRSandbox({client:authClient,english:state.english,onLogin:()=>{account.open=true;account.error='';account.notice='';render();}});
+  const paymentClient=createMMQRRelayClient(authClient,{origin:'https://astrok-mmqr-gateway.peppydell22.chatgpt.site'});
+  mmqrReview=mountMMQRSandbox({client:paymentClient,english:state.english,onLogin:()=>{account.open=true;account.error='';account.notice='';render();}});
   void mmqrReview.open();
 }
 let channelInviteOpen=false;
