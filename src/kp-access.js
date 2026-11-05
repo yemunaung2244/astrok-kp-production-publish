@@ -1,7 +1,5 @@
-import { authClient } from './auth.js';
+import { authClient, apiOrigin, publishableKey } from './auth.js';
 
-const ORIGIN = 'https://astrok-api-gateway.smartash35.chatgpt.site';
-const API_KEY = 'sb_publishable_1r6_U_5D7Il7hvy686kTxw_krFY0Jtc';
 let entitlement = null;
 if (typeof sessionStorage !== 'undefined') sessionStorage.removeItem('astrok.kp.web.key.v1');
 
@@ -49,9 +47,9 @@ async function currentToken() {
 
 async function kpRpc(name, args = {}) {
   const token = await currentToken();
-  const response = await fetch(`${ORIGIN}/rest/v1/rpc/${name}`, {
+  const response = await fetch(`${apiOrigin}/rest/v1/rpc/${name}`, {
     method: 'POST',
-    headers: { apikey: API_KEY, Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    headers: { apikey: publishableKey, Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(args),
   });
   if (!response.ok) throw new Error('VERIFY_FAILED');
@@ -60,9 +58,9 @@ async function kpRpc(name, args = {}) {
 
 async function kpFunction(name, args = {}) {
   const token = await currentToken();
-  const response = await fetch(`${ORIGIN}/functions/v1/${name}`, {
+  const response = await fetch(`${apiOrigin}/functions/v1/${name}`, {
     method: 'POST',
-    headers: { apikey: API_KEY, Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    headers: { apikey: publishableKey, Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(args),
   });
   const result = await response.json().catch(() => ({}));
