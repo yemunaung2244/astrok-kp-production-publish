@@ -129,6 +129,146 @@ export function renderMultiSystemPlans(english, wallet) {
   `;
 }
 
+export function renderSystemPlansOnly(systemId, english, wallet) {
+  const t = (mm, en) => (english ? en : mm);
+  if (plansState.loading) {
+    return `<div class="chart-pending">${t('Plan စာရင်း ဖတ်နေပါသည်…', 'Loading plans…')}</div>`;
+  }
+  const systems = plansState.data?.systems || [];
+  const activeSys = systems.find(s => s.id === systemId);
+  if (!activeSys) return '';
+  const visiblePlans = activeSys.id === 'kp'
+    ? (activeSys.plans || []).filter(p => p.level !== 'Free')
+    : (activeSys.plans || []);
+
+  return `
+    <h2 class="ios-plans-heading">${escHtml((english ? activeSys.titleEn : activeSys.titleMm) + ' Plans')}</h2>
+    <div class="ak-section-stack">
+      ${visiblePlans.map(plan => {
+        const current = isPlanActive(wallet, activeSys.id, plan.level);
+        const inc = (english ? plan.included?.en : plan.included?.mm) || [];
+        const lck = (english ? plan.locked?.en : plan.locked?.mm) || [];
+        const isFree = plan.level === 'Free';
+        return `
+          <section class="ios-plan-card ${current ? 'active' : ''}">
+            <div class="ios-plan-card-head">
+              <h3>${escHtml(plan.level)}</h3>
+              ${current ? `<span class="ios-current-badge">✓ ${t('လက်ရှိအသုံးပြုနေသော Plan', 'Current plan')}</span>` : ''}
+            </div>
+            <ul class="ios-plan-features">
+              ${inc.map(item => `<li class="inc"><span>✓</span>${escHtml(item)}</li>`).join('')}
+              ${lck.length ? '<li class="div"></li>' : ''}
+              ${lck.map(item => `<li class="lck"><span>×</span>${escHtml(item)}</li>`).join('')}
+            </ul>
+            ${isFree ? `
+              <button type="button" class="ios-plan-buy-btn" disabled>${t('၀ ကျပ် / တစ်လ', '0 Kyat / month')}</button>
+            ` : `
+              <button type="button" class="ios-plan-buy-btn" data-open-price-dialog="${escHtml(activeSys.id)}:${escHtml(plan.level)}">${t('ဝယ်ယူမည်', 'Buy Now')}</button>
+            `}
+          </section>
+        `;
+      }).join('')}
+    </div>
+    ${plansState.dialogPlan ? renderPlanPriceModal(plansState.dialogPlan, english) : ''}
+  `;
+}
+
+export function renderKyatTopUpScreen(appHeader, english, wallet, base) {
+  const t = (mm, en) => (english ? en : mm);
+  const kyat = wallet?.kyatBalance ?? 0;
+  const now = Date.now();
+  const hasVault = Boolean(wallet?.bankVault && (wallet?.bankVaultLifetime || (wallet?.bankVaultExpiresAt && Date.parse(wallet.bankVaultExpiresAt) > now)));
+  const hasKP = Boolean(wallet?.kpSubscriptionLifetime || (wallet?.kpSubscriptionActive && wallet?.kpSubscriptionExpiresAt && Date.parse(wallet.kpSubscriptionExpiresAt) > now));
+  const kpLabel = wallet?.kpSubscriptionLifetime
+    ? t('Standard · KP တစ်သက်တာ', 'Standard · KP Lifetime')
+    : t('Standard · KP အသုံးပြုနေသည်', 'Standard · KP active');
+
+  return `
+    ${appHeader(t('ငွေဖြည့်ရန်', 'Top Up'), true)}
+    <main class="ak-sys-main">
+      <section class="ios-wallet-hero" style="background-image:linear-gradient(90deg,rgba(0,0,0,0.42),rgba(0,0,0,0.08)),url('${escHtml(base)}ios-assets/KyatTopUpHero.png');background-size:cover;background-position:center;border-radius:24px;padding:26px 22px;color:#fff;margin-bottom:14px">
+        <div style="font-size:13px;font-weight:600;opacity:0.9">${t('လက်ကျန် ကျပ်', 'AVAILABLE KYAT')}</div>
+        <div style="font-size:34px;font-weight:800;margin:8px 0">${hasVault ? 'Premium' : escHtml(fmtPrice(kyat, english))}</div>
+        ${!hasVault && hasKP ? `<div style="font-size:13px;font-weight:600;margin-bottom:6px">✦ ${escHtml(kpLabel)}</div>` : ''}
+        <div style="font-size:12.5px;opacity:0.86">${t('ကျပ်မကုန်ခင် · ကျပ်ဝန်ဆောင်မှု အသုံးပြုပါ', 'Kyat balance · use premium services')}</div>
+      </section>
+
+      <div class="ios-topup-actions" style="margin-bottom:16px">
+        <button type="button" id="open-tg-topup" class="ios-violet-action-btn" style="border:none;cursor:pointer;width:100%">
+          <span>✈ ${t('Telegram ဖြင့် ငွေဖြည့်ရန်', 'Top up with Telegram')}</span>
+          <span>›</span>
+        </button>
+      </div>
+
+      ${renderMultiSystemPlans(english, wallet)}
+
+      <h2 class="ios-plans-heading" style="margin-top:20px">${t('အခြားဝန်ဆောင်မှုများ', 'Other services')}</h2>
+      <div class="ak-section-stack">
+        <button type="button" id="wallet-reward-btn" class="ak-card" style="display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer">
+          <span style="width:48px;height:48px;border-radius:14px;background:var(--ak-primary-soft);color:var(--ak-primary);display:grid;place-items:center;font-size:20px;flex-shrink:0">▶</span>
+          <span style="flex:1">
+            <strong style="display:block;font-size:16px;color:var(--ak-ink)">${t('ကျပ်ရယူရန်', 'Earn Kyat')}</strong>
+            <small style="color:var(--ak-secondary-ink)">${t('Reward Video ကြည့်ပြီး ကျပ်ရယူပါ', 'Watch a reward video to earn Kyat')}</small>
+          </span>
+          <span style="color:var(--ak-secondary-ink);font-size:20px">›</span>
+        </button>
+
+        <button type="button" id="wallet-reset-btn" class="ak-card" style="display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;border:1px solid rgba(220,38,38,0.55)">
+          <span style="width:48px;height:48px;border-radius:14px;border:1px solid rgba(220,38,38,0.55);color:#dc2626;display:grid;place-items:center;font-size:20px;flex-shrink:0">🗑</span>
+          <span style="flex:1">
+            <strong style="display:block;font-size:16px;color:#dc2626">${t('ကျပ်လက်ကျန်ဖျက်မည်', 'Clear Kyat wallet')}</strong>
+            <small style="color:var(--ak-secondary-ink)">${t('ကျပ်လက်ကျန်အားလုံးကို 0 ပြန်ထားမည်', 'Set the entire Kyat balance to zero')}</small>
+          </span>
+          <span style="color:#dc2626;font-size:20px">›</span>
+        </button>
+      </div>
+    </main>
+  `;
+}
+
+export function bindKyatTopUpScreen(rerender, onRefreshWallet, english = false) {
+  bindMultiSystemPlans(rerender, onRefreshWallet);
+
+  document.querySelector('#wallet-reward-btn')?.addEventListener('click', () => {
+    window.alert(english
+      ? 'Reward video support is being prepared. Kyat will only be credited after a verified video completion.'
+      : 'Reward Video စနစ်ကို ပြင်ဆင်နေပါတယ်။ Video အဆုံးထိကြည့်ပြီး အတည်ပြုနိုင်မှသာ ကျပ်ထည့်ပေးပါမယ်။');
+  });
+
+  document.querySelector('#wallet-reset-btn')?.addEventListener('click', async () => {
+    const first = window.confirm(english
+      ? 'Clear the Kyat wallet? This permanently sets the Kyat balance to zero and cannot be undone.'
+      : 'ကျပ်လက်ကျန်အားလုံးကို 0 ပြန်ထားပါမည်။ ပြန်လည်ရယူ၍မရပါ။ ဆက်လုပ်မည်လား။');
+    if (!first) return;
+    const second = window.confirm(english
+      ? 'Final confirmation: permanently clear this account’s Kyat balance?'
+      : 'နောက်ဆုံးအတည်ပြုချက် — ဤ Account ရှိ ကျပ်လက်ကျန်ကို အပြီးဖျက်လိုမှသာ ဆက်လုပ်ပါ။');
+    if (!second) return;
+    try {
+      const { data: { session } } = await authClient.auth.getSession();
+      if (!session?.access_token) {
+        window.alert(english ? 'Sign in first.' : 'Account အရင်ဝင်ပေးပါ။');
+        return;
+      }
+      const res = await fetch(`${apiOrigin}/rest/v1/rpc/reset_kyat`, {
+        method: 'POST',
+        headers: {
+          apikey: publishableKey,
+          Authorization: `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      });
+      if (!res.ok) throw new Error('RESET_FAILED');
+      if (onRefreshWallet) await onRefreshWallet();
+      window.alert(english ? 'Kyat balance cleared.' : 'ကျပ်လက်ကျန်ကို 0 ပြန်ထားပြီးပါပြီ။');
+      rerender();
+    } catch {
+      window.alert(english ? 'Could not clear Kyat balance.' : 'ကျပ်လက်ကျန် ဖျက်၍မရပါ။ ထပ်စမ်းပေးပါ။');
+    }
+  });
+}
+
 function renderTopUpModal(english) {
   const t = (mm, en) => (english ? en : mm);
   return `

@@ -1,32 +1,44 @@
 import { calculate, normalize, SIGN_MM } from '../kp-core.js';
 import { FAVORITE_CITIES, loadCityCatalog, searchCities, displayCity } from '../city-catalog.js';
 import { escHtml, toMyDigits } from './script-loader.js';
+import { renderSystemPlansOnly, bindMultiSystemPlans } from './plans-wallet.js';
 
 const today = new Date();
 const pad = n => String(n).padStart(2, '0');
 
 const muhuratState = {
+  mode: 'panchang', // 'panchang' | 'plans'
   date: `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`,
   time: `${pad(today.getHours())}:${pad(today.getMinutes())}`,
   city: FAVORITE_CITIES[0],
   allCities: FAVORITE_CITIES,
   cityPickerOpen: false,
   cityQuery: '',
-  ceremony: 'business',
-  tab: 'panchang',
+  tab: 0,
   showHelp: false,
+  showsAppointment: false,
   loading: false,
   error: '',
   data: null
 };
 
+const IOS_TABS = [
+  'အနှစ်ချုပ်', 'နေ့စဉ် ပဉ္စင်္ဂ', 'ဟိုရာ', 'ချိုဃဒိယာ', 'ဒိုဃဋီ', 'ရာဟုကာလ',
+  'ပဉ္စက', 'ဘဒြာ', 'လဂ်ဇယား',
+  'အိမ်ထောင်မင်္ဂလာ', 'အိမ်သစ်တက်မင်္ဂလာ', 'အမည်ပေးမင်္ဂလာ', 'ပညာစသင်မင်္ဂလာ',
+  'ကလေး အစာစကျွေးမင်္ဂလာ', 'နားထွင်းမင်္ဂလာ', 'ကလေး ပထမဆုံး ဆံပင်ရိတ်မင်္ဂလာ',
+  'ဥပနယနမင်္ဂလာ', 'ယာဉ်ဝယ်ယူမုဟုတ္တ', 'အိမ်ခြံမြေ ဝယ်ယူမုဟုတ္တ',
+  'သဗ္ဗတ္ထသိဒ္ဓိယောဂ', 'အမရိတသိဒ္ဓိယောဂ', 'ခွဲမွေးချိန်း'
+];
+
 const VARA_MM = ['တနင်္ဂနွေ', 'တနင်္လာ', 'အင်္ဂါ', 'ဗုဒ္ဓဟူး', 'ကြာသပတေး', 'သောကြာ', 'စနေ'];
 const VARA_EN = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const NAKSHATRA_MM = [
-  'အဿဝဏီ', 'ဘရဏီ', 'ကြတ္တိကာ', 'ရောဟဏီ', 'မိဂသီ', 'အဒြ', 'ပုဏ္ဏဖုသျှ', 'ဖုသျှ', 'အဿလိသ',
+  'အဿဝနီ', 'ဘရဏီ', 'ကြတ္တိကာ', 'ရောဟိဏီ', 'မိဂသီ', 'အဒြ', 'ပုဏ္ဏဖုသျှ', 'ဖုသျှ', 'အဿလိသ',
   'မာဃ', 'ပြုဗ္ဗဖလဂုဏီ', 'ဥတ္တရဖလဂုဏီ', 'ဟသတ္တ', 'စိတြ', 'သွာတိ', 'ဝိသာခါ', 'အနုရာဓ', 'ဇေဋ္ဌ',
   'မူလ', 'ပြုဗ္ဗာသဠ်', 'ဥတ္တရာသဠ်', 'သရဝဏ်', 'ဓနသိဒ္ဓ', 'သတ္တဘိဿ', 'ပြုဗ္ဗဘဒြပိုဒ်', 'ဥတ္တရာဘဒြပိုဒ်', 'ရေဝတီ'
 ];
+const LUNAR_MONTHS_MM = ['စိတ္တ', 'ဝိသာခ', 'ဇေဋ္ဌ', 'အာသာဠှ', 'သာဝဏ', 'ဘဒ္ဒပဒ', 'အဿယုဇ', 'ကတ္တိက', 'မိဂသိရ', 'ပုဿ', 'မာဃ', 'ဖဂ္ဂုဏ'];
 const TITHI_MM = [
   'ပဋိပဒါ', 'ဒုတိယာ', 'တတိယာ', 'စတုတ္ထီ', 'ပဉ္စမီ', 'ဆဋ္ဌီ', 'သတ္တမီ', 'အဋ္ဌမီ',
   'နဝမီ', 'ဒသမီ', 'ဧကာဒသီ', 'ဒွါဒသီ', 'တြယောဒသီ', 'စတုဒ္ဒသီ', 'လပြည့် / လကွယ်'
@@ -38,18 +50,40 @@ const YOGA_MM = [
 ];
 const KARANA_RECURRING = ['ဗဝ', 'ဗာလဝ', 'ကောလဝ', 'တိုင်တိလ', 'ဂရ', 'ဝဏိဇ', 'ဝိဋ္ဌိ'];
 const HORA_ORDER_MM = ['တနင်္ဂနွေ', 'သောကြာ', 'ဗုဒ္ဓဟူး', 'တနင်္လာ', 'စနေ', 'ကြာသပတေး', 'အင်္ဂါ'];
-const HORA_START_IDX = [0, 3, 6, 2, 5, 1, 4];
-const CHOGHADIYA_DAY = [
-  ['ဥဒွေဂ', 'စလ', 'လာဘ', 'အမရိတ', 'ကာလ', 'သုဘ', 'ရောဂ', 'ဥဒွေဂ'],
-  ['အမရိတ', 'ကာလ', 'သုဘ', 'ရောဂ', 'ဥဒွေဂ', 'စလ', 'လာဘ', 'အမရိတ'],
-  ['ရောဂ', 'ဥဒွေဂ', 'စလ', 'လာဘ', 'အမရိတ', 'ကာလ', 'သုဘ', 'ရောဂ'],
-  ['လာဘ', 'အမရိတ', 'ကာလ', 'သုဘ', 'ရောဂ', 'ဥဒွေဂ', 'စလ', 'လာဘ'],
-  ['သုဘ', 'ရောဂ', 'ဥဒွေဂ', 'စလ', 'လာဘ', 'အမရိတ', 'ကာလ', 'သုဘ'],
-  ['စလ', 'လာဘ', 'အမရိတ', 'ကာလ', 'သုဘ', 'ရောဂ', 'ဥဒွေဂ', 'စလ'],
-  ['ကာလ', 'သုဘ', 'ရောဂ', 'ဥဒွေဂ', 'စလ', 'လာဘ', 'အမရိတ', 'ကာလ']
-];
+const HORA_FIRST = [0, 3, 6, 2, 5, 1, 4];
+const CHOG_NAMES = ['ဥဒွေဂ', 'စလ', 'လာဘ', 'အမရိတ', 'ကာလ', 'သုဘ', 'ရောဂ'];
+const CHOG_NIGHT_FIRST = [5, 1, 4, 0, 3, 6, 2];
+const CHOG_NIGHT_ORDER = [0, 5, 3, 1, 6, 4, 2];
 const GOOD_CHOG = new Set(['အမရိတ', 'သုဘ', 'လာဘ', 'စလ']);
 const DAY_GHATI = ['ရုဒြ', 'သီတ', 'မိတ္တ', 'စာရမထ', 'သာဝိတြ', 'ဝဲရာဇ', 'ဂန္ဓဗ္ဗ', 'အဘိဇိတ်', 'ရောဟိဏီ', 'ဗလ', 'ဝိဇယ', 'နဲရ္ရိတ', 'ဣန္ဒြ', 'ဝရုဏ', 'ဘဂ'];
+const NIGHT_GHATI = ['ရုဒြ', 'ဂန္ဓဗ္ဗ', 'ပက္ခ', 'စာရဏ', 'ဝါယု', 'အဂ္ဂိ', 'ရက္ခသ', 'ဗြဟ္မာ', 'သောမယ', 'ကမလဇ', 'ဂုရု', 'ပေါသ္ဏ', 'ဝဲကုဏ္ဌ', 'သမီရ', 'နိရ္ရိတိ'];
+const RAHU_SLOTS = [7, 1, 6, 4, 5, 3, 2];
+
+// Exact iOS DailyPanchangView ceremony rules (tabs 11..18 -> rules 0..7)
+const CEREMONY_STARS = [
+  [1, 4, 5, 7, 8, 12, 13, 14, 15, 17, 21, 22, 23, 24, 26, 27],
+  [1, 6, 7, 8, 13, 14, 15, 17, 22, 27],
+  [1, 4, 5, 7, 8, 12, 13, 14, 15, 17, 21, 22, 23, 24, 26, 27],
+  [1, 5, 7, 8, 13, 14, 17, 22, 23, 27],
+  [1, 5, 7, 8, 13, 14, 15, 18, 22, 23, 24, 27],
+  [1, 4, 5, 7, 8, 12, 13, 14, 15, 17, 21, 22, 23, 24, 26, 27],
+  [7, 15, 22, 23, 24],
+  [4, 5, 7, 8, 12, 17, 21, 26, 27]
+];
+const CEREMONY_TITHIS = [
+  [1, 2, 3, 5, 6, 7, 10, 11, 12, 13],
+  [2, 3, 5, 6, 10, 11, 12],
+  [2, 3, 5, 7, 10, 13, 15],
+  [2, 3, 5, 7, 10, 11, 13],
+  [2, 3, 5, 7, 10, 11, 13],
+  [2, 3, 5, 6, 7, 10, 11, 12, 13],
+  [1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 15],
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+];
+const CEREMONY_DAYS = [
+  [1, 3, 4, 5], [1, 3, 4, 5], [1, 3, 4, 5], [1, 3, 4, 5],
+  [1, 3, 4, 5], [1, 3, 4, 5], [0, 1, 3, 4, 5], [4, 5]
+];
 const SIDDHI_STARS = [[1, 8, 12, 13, 19, 21, 26], [4, 5, 8, 17, 22], [1, 3, 9, 26], [3, 4, 5, 13, 17], [1, 7, 8, 17, 27], [1, 7, 17, 22, 27], [4, 15, 22]];
 const AMRIT_STARS = [13, 5, 1, 17, 8, 27, 4];
 
@@ -66,15 +100,6 @@ const APPOINTMENT_TRAITS = [
   'သင်ယူလွယ်ခြင်းနှင့် အတွေးအမြင်ကို ရှင်းလင်းစွာ ပြောဆိုတတ်ခြင်း'
 ];
 
-const CEREMONIES = [
-  ['business', 'ဆိုင်ဖွင့် / လုပ်ငန်းသစ်စတင်', 'Business Opening', [0, 3, 7, 10, 11, 12, 14, 16, 20, 21, 22, 25, 26]],
-  ['marriage', 'အိမ်ထောင်မင်္ဂလာ', 'Marriage', [3, 4, 9, 11, 12, 14, 16, 18, 20, 25, 26]],
-  ['house', 'အိမ်သစ်တက်မင်္ဂလာ', 'Housewarming', [0, 3, 4, 11, 16, 20, 25, 26]],
-  ['naming', 'အမည်ပေးမင်္ဂလာ', 'Naming Ceremony', [0, 3, 4, 6, 7, 11, 12, 13, 14, 16, 20, 21, 22, 23, 25, 26]],
-  ['vehicle', 'ယာဉ်ဝယ်ယူမုဟုတ္တ', 'Vehicle Purchase', [6, 14, 21, 22, 23]],
-  ['property', 'အိမ်ခြံမြေ ဝယ်ယူမုဟုတ္တ', 'Property Purchase', [3, 4, 6, 7, 11, 16, 20, 25, 26]]
-];
-
 function fmtMinutes(totalMins) {
   const m = ((Math.round(totalMins) % 1440) + 1440) % 1440;
   return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
@@ -86,7 +111,6 @@ function slotWindow(startMin, endMin, slotIndex, totalSlots) {
 }
 
 function calcSunTimes(dateStr, lat, lon, tz) {
-  // Accurate NOAA-style solar sunrise / noon / sunset approximation in local minutes
   const [y, m, d] = dateStr.split('-').map(Number);
   const startOfYear = new Date(Date.UTC(y, 0, 0));
   const doy = Math.floor((Date.UTC(y, m - 1, d) - startOfYear) / 86400000);
@@ -113,6 +137,27 @@ function calcBala(moonLon, isChandra) {
     }
   }
   return good.join('၊ ');
+}
+
+function checkCeremony(tabIdx, star, pada, tithi, weekday, halfTithi, isBhadra) {
+  if (isBhadra || halfTithi >= 57) return { ok: false, reason: 'ဘဒြာ သို့မဟုတ် အသေကရဏ ကျရောက်နေသည်' };
+  if (tabIdx === 9) { // Marriage
+    const quarter = !(([10, 19].includes(star) && pada === 1) || (star === 27 && pada === 4));
+    const ok = [1, 3, 4, 5].includes(weekday) && quarter
+      && [4, 5, 10, 12, 13, 15, 17, 19, 21, 26, 27].includes(star)
+      && [2, 3, 5, 7, 11, 13].includes(tithi);
+    return { ok, reason: ok ? 'နက္ခတ်၊ တိထိ၊ ပါဒနှင့် နေ့ရက် ကိုက်ညီပါသည်' : 'အိမ်ထောင်မင်္ဂလာ မုဟုတ္တ စည်းမျဉ်းနှင့် မကိုက်ညီသေးပါ' };
+  }
+  if (tabIdx === 10) { // Housewarming
+    const ok = [1, 4, 5, 12, 17, 21, 26, 27].includes(star) && [2, 3, 5, 7, 10, 11, 12, 13].includes(tithi);
+    return { ok, reason: ok ? 'အိမ်သစ်တက်မင်္ဂလာ နက္ခတ်နှင့် တိထိ ကိုက်ညီပါသည်' : 'အိမ်သစ်တက်မင်္ဂလာ စည်းမျဉ်းနှင့် မကိုက်ညီသေးပါ' };
+  }
+  const rule = tabIdx - 11;
+  if (rule >= 0 && rule < CEREMONY_STARS.length) {
+    const ok = CEREMONY_STARS[rule].includes(star) && CEREMONY_TITHIS[rule].includes(tithi) && CEREMONY_DAYS[rule].includes(weekday);
+    return { ok, reason: ok ? 'နက္ခတ်၊ တိထိနှင့် နေ့ရက် ကိုက်ညီပါသည်' : 'သတ်မှတ် နက္ခတ်/တိထိ/နေ့ရက် နှင့် မကိုက်ညီသေးပါ' };
+  }
+  return { ok: false, reason: '' };
 }
 
 async function computeMuhurat(dateStr, timeStr, city) {
@@ -154,32 +199,55 @@ async function computeMuhurat(dateStr, timeStr, city) {
   const yogaIndex = Math.floor(normalize(sunLon + moonLon) / sector);
   const moonSignIndex = Math.floor(moonLon / 30);
 
+  // Hindu Lunar Month (Amanta & Purnimanta)
+  const sunSign = Math.floor(sunLon / 30);
+  const amantaMonth = LUNAR_MONTHS_MM[sunSign % 12];
+  const purnimantaMonth = phase < 180 ? amantaMonth : LUNAR_MONTHS_MM[(sunSign + 1) % 12];
+
   const totalPada = Math.floor(moonLon / (sector / 4));
   const rem = ((totalPada - 96 + 108) % 27) + 1;
   const sightMm = rem <= 6 ? 'နှစ်ဖက်ကန်း' : rem <= 15 ? 'တစ်ဖက်ကန်း' : 'နှစ်ဖက်မြင်';
 
   const solar = calcSunTimes(dateStr, Number(city.lat), Number(city.lon), Number(city.tz));
-  const sunrise = solar.rise, sunset = solar.set;
-  const rahuKalam = slotWindow(sunrise, sunset, [7, 1, 6, 4, 5, 3, 2][wd], 8);
+  const sunrise = solar.rise, sunset = solar.set, nextRise = sunrise + 1440;
+  const rahuKalam = slotWindow(sunrise, sunset, RAHU_SLOTS[wd], 8);
   const yamaganda = slotWindow(sunrise, sunset, [4, 3, 2, 1, 0, 6, 5][wd], 8);
   const gulika = slotWindow(sunrise, sunset, [6, 5, 4, 3, 2, 1, 0][wd], 8);
   const abhijit = wd === 3 ? null : slotWindow(sunrise, sunset, 7, 15);
 
-  const startHora = HORA_START_IDX[wd];
-  const horas = Array.from({ length: 12 }, (_, i) => ({
-    lord: HORA_ORDER_MM[(startHora + i) % 7],
-    window: slotWindow(sunrise, sunset, i, 12)
-  }));
-  const choghadiyas = CHOGHADIYA_DAY[wd].map((name, i) => ({
-    name, good: GOOD_CHOG.has(name), window: slotWindow(sunrise, sunset, i, 8)
-  }));
-  const doghatis = DAY_GHATI.map((name, i) => ({
-    name, window: slotWindow(sunrise, sunset, i, 15)
-  }));
-  // 12 Lagna windows (~2 hours each from sunrise)
+  // 7-day Rahu Kaal schedule (matching iOS tab 5)
+  const rahuWeek = Array.from({ length: 7 }, (_, off) => {
+    const dayIdx = (wd + off) % 7;
+    const d2 = new Date(y, m - 1, d + off);
+    const ds = `${d2.getFullYear()}-${pad(d2.getMonth() + 1)}-${pad(d2.getDate())}`;
+    const s2 = calcSunTimes(ds, Number(city.lat), Number(city.lon), Number(city.tz));
+    return { day: VARA_MM[dayIdx], window: slotWindow(s2.rise, s2.set, RAHU_SLOTS[dayIdx], 8) };
+  });
+
+  // Day + Night Hora (24 slots), Choghadiya (16 slots), Do-Ghati (30 slots) matching iOS
+  const startHora = HORA_FIRST[wd];
+  const horas = [
+    ...Array.from({ length: 12 }, (_, i) => ({ lord: `${HORA_ORDER_MM[(startHora + i) % 7]} (နေ့)`, window: slotWindow(sunrise, sunset, i, 12) })),
+    ...Array.from({ length: 12 }, (_, i) => ({ lord: `${HORA_ORDER_MM[(startHora + 12 + i) % 7]} (ည)`, window: slotWindow(sunset, nextRise, i, 12) }))
+  ];
+  const nightOff = CHOG_NIGHT_ORDER.indexOf(CHOG_NIGHT_FIRST[wd]);
+  const choghadiyas = [
+    ...Array.from({ length: 8 }, (_, i) => {
+      const name = CHOG_NAMES[(HORA_FIRST[wd] + i) % 7];
+      return { name: `${name} (နေ့)`, good: GOOD_CHOG.has(name), window: slotWindow(sunrise, sunset, i, 8) };
+    }),
+    ...Array.from({ length: 8 }, (_, i) => {
+      const name = CHOG_NAMES[CHOG_NIGHT_ORDER[(nightOff + i) % 7]];
+      return { name: `${name} (ည)`, good: GOOD_CHOG.has(name), window: slotWindow(sunset, nextRise, i, 8) };
+    })
+  ];
+  const doghatis = [
+    ...DAY_GHATI.map((name, i) => ({ name: `${name} (နေ့)`, window: slotWindow(sunrise, sunset, i, 15) })),
+    ...NIGHT_GHATI.map((name, i) => ({ name: `${name} (ည)`, window: slotWindow(sunset, nextRise, i, 15) }))
+  ];
   const lagnaRows = Array.from({ length: 12 }, (_, i) => ({
-    sign: SIGN_MM[(Math.floor(sunLon / 30) + i) % 12],
-    window: slotWindow(sunrise, sunrise + 1440, i, 12)
+    sign: SIGN_MM[(sunSign + i) % 12],
+    window: slotWindow(sunrise, nextRise, i, 12)
   }));
 
   const isPanchaka = moonLon >= 300;
@@ -191,15 +259,16 @@ async function computeMuhurat(dateStr, timeStr, city) {
   return {
     dateStr, timeStr, wd, city,
     varaMm: VARA_MM[wd], varaEn: VARA_EN[wd],
-    pakshaMm, tithiNum, tithiName,
+    pakshaMm, tithiNum, tithiName, halfTithi,
     karanaName, yogaNum: yogaIndex + 1, yogaName: YOGA_MM[yogaIndex],
-    nakIndex, nakName: NAKSHATRA_MM[nakIndex], pada,
+    nakIndex, nakNum, nakName: NAKSHATRA_MM[nakIndex], pada,
     moonSign: SIGN_MM[moonSignIndex], ascSign: SIGN_MM[ascSignIdx],
+    amantaMonth, purnimantaMonth,
     tarabala: calcBala(moonLon, false),
     chandrabala: calcBala(moonLon, true),
     sunRise: fmtMinutes(solar.rise), sunNoon: fmtMinutes(solar.noon), sunSet: fmtMinutes(solar.set),
     sightMm, rahuKalam, yamaganda, gulika, abhijit,
-    horas, choghadiyas, doghatis, lagnaRows,
+    rahuWeek, horas, choghadiyas, doghatis, lagnaRows,
     isPanchaka, isBhadra, isSarvartha, isAmrit,
     appointmentLord: APPOINTMENT_LORDS[rulerIdx],
     appointmentTrait: APPOINTMENT_TRAITS[rulerIdx]
@@ -231,40 +300,47 @@ function iosTableCard(titleText, rows, palette = 'purple', threeCol = false) {
   `;
 }
 
-export function renderMuhuratScreen(appHeader, english) {
+export function renderMuhuratScreen(appHeader, english, wallet) {
   const t = (mm, en) => (english ? en : mm);
   const d = muhuratState.data;
-  const tabs = [
-    ['panchang', t('နေ့စဉ် ပဉ္စင်္ဂ', 'Daily Panchang')],
-    ['hora', t('ဟိုရာ', 'Hora')],
-    ['chog', t('ချိုဃဒိယာ', 'Choghadiya')],
-    ['doghati', t('ဒိုဃဋီ', 'Do-Ghati')],
-    ['special', t('ပဉ္စက · ဘဒြာ · ယောဂ', 'Panchaka · Bhadra · Yogas')],
-    ['lagna', t('လဂ်ဇယား', 'Lagna Table')],
-    ['ceremony', t('အခမ်းအနား မုဟုတ္တ', 'Ceremony')],
-    ['cesarean', t('ခွဲမွေးချိန်း', 'Cesarean Timing')]
-  ];
+  const tab = muhuratState.tab;
+
+  if (muhuratState.mode === 'plans') {
+    return `
+      ${appHeader(t('မုဟုတ္တ Premium', 'Muhurat Premium'), true)}
+      <main class="ak-sys-main">
+        <button type="button" id="muh-open-panchang" class="ios-muh-gold-btn" style="width:100%;margin-bottom:14px">
+          📅 ${t('မုဟုတ္တ အသုံးပြုရန်', 'Open Muhurat')}
+        </button>
+        ${renderSystemPlansOnly('muhurat', english, wallet)}
+      </main>
+    `;
+  }
 
   let resultHtml = '';
   if (d) {
-    if (muhuratState.tab === 'panchang') {
+    if (tab <= 1) {
       resultHtml = [
         iosTableCard('ပဉ္စင်္ဂ အခြေခံ', [
           ['တိထိ', `${toMyDigits(d.tithiNum)} (${d.tithiName})`],
           ['ပက္ခ', d.pakshaMm],
           ['ကရဏ', d.karanaName],
-          ['ယောဂ', `${toMyDigits(d.yogaNum)} · ${d.yogaName}`],
+          ['ယောဂ အမှတ်', `${toMyDigits(d.yogaNum)} · ${d.yogaName}`],
           ['နေ့', d.varaMm],
           ['လရာသီ / လဂ်', `${d.moonSign} / ${d.ascSign}`]
         ], 'purple'),
+        iosTableCard('ဟိန္ဒူ လပြက္ခဒိန်', [
+          ['အမာန္တလ', d.amantaMonth],
+          ['ပုဏ္ဏိမာန္တလ', d.purnimantaMonth]
+        ], 'gold'),
         iosTableCard('နက္ခတ် · KP အယနမ်သ', [
-          [`#${toMyDigits(d.nakIndex + 1)}`, d.nakName],
+          [`#${toMyDigits(d.nakNum)}`, d.nakName],
           ['ပါဒ', toMyDigits(d.pada)]
         ], 'blue'),
         iosTableCard('နေ ထွက် / မွန်းတည့် / ဝင်ချိန်', [
-          ['နေထွက်ချိန်', d.sunRise],
+          ['ထွက်ချိန်', d.sunRise],
           ['မွန်းတည့်ချိန်', d.sunNoon],
-          ['နေဝင်ချိန်', d.sunSet]
+          ['ဝင်ချိန်', d.sunSet]
         ], 'gold'),
         iosTableCard('တာရာဗလနှင့် စန္ဒြဗလ', [
           ['တာရာဗလ', d.tarabala],
@@ -276,61 +352,62 @@ export function renderMuhuratScreen(appHeader, english) {
           ['ယမဂဏ္ဍ', d.yamaganda[0], d.yamaganda[1]],
           ['ဂုလိကကာလ', d.gulika[0], d.gulika[1]]
         ], 'teal', true),
-        iosTableCard('အကန်း/အမြင် (မုဟုတ္တမူ)', [['', d.sightMm]], 'rose')
+        iosTableCard('အကန်း/အမြင် (မုဟုတ္တမူ)', [['', d.sightMm]], 'rose'),
+        iosTableCard('အချိန်ရွေးရန် အကြံပြုချက်', [['', 'မုဟုတ္တမူအရ နက္ခတ်တစ်လုံးရဲ့ နောက်ဆုံး ၂၆ လိတ္တာ ၄၀ ဝိလိတ္တာအတွင်း အရေးကြီးကိစ္စ စတင်ခြင်းကို ရှောင်ရန် ဖော်ပြထားပါသည်။']], 'rose')
       ].join('');
-    } else if (muhuratState.tab === 'hora') {
-      resultHtml = iosTableCard('ဟိုရာ (နေ့ပိုင်း ၁၂ ချိန်)', d.horas.map(h => [h.lord, h.window[0], h.window[1]]), 'teal', true);
-    } else if (muhuratState.tab === 'chog') {
-      resultHtml = iosTableCard('ချိုဃဒိယာ (နေ့ပိုင်း ၈ ချိန်)', d.choghadiyas.map(c => [`${c.name} ${c.good ? '✓' : '×'}`, c.window[0], c.window[1]]), 'teal', true);
-    } else if (muhuratState.tab === 'doghati') {
-      resultHtml = iosTableCard('ဒိုဃဋီ (နေ့ပိုင်း ၁၅ ချိန်)', d.doghatis.map(g => [g.name, g.window[0], g.window[1]]), 'teal', true);
-    } else if (muhuratState.tab === 'special') {
-      resultHtml = iosTableCard('ပဉ္စက · ဘဒြာ · အထူးယောဂများ', [
-        ['ပဉ္စက (Panchaka)', d.isPanchaka ? '⚠ ပဉ္စကကျရောက်နေသည် (ကုမ်/မိန် စန်း)' : '✓ ပဉ္စက မရှိပါ'],
-        ['ဘဒြာ (Bhadra)', d.isBhadra ? '⚠ ဘဒြာ (ဝိဋ္ဌိကရဏ) ကျရောက်နေသည်' : '✓ ဘဒြာ မရှိပါ'],
-        ['သဗ္ဗတ္ထသိဒ္ဓိယောဂ', d.isSarvartha ? '✓ သဗ္ဗတ္ထသိဒ္ဓိယောဂ ကျရောက်သည် (အလွန်ကောင်း)' : '— မကျရောက်ပါ'],
-        ['အမရိတသိဒ္ဓိယောဂ', d.isAmrit ? '✓ အမရိတသိဒ္ဓိယောဂ ကျရောက်သည် (အလွန်ကောင်း)' : '— မကျရောက်ပါ']
-      ], 'blue');
-    } else if (muhuratState.tab === 'lagna') {
-      resultHtml = iosTableCard('နေ့စဉ် လဂ်ဇယား (Lagna Table)', d.lagnaRows.map(l => [l.sign, l.window[0], l.window[1]]), 'blue', true);
-    } else if (muhuratState.tab === 'ceremony') {
-      const selected = CEREMONIES.find(c => c[0] === muhuratState.ceremony) || CEREMONIES[0];
-      const nakGood = selected[3].includes(d.nakIndex);
-      const tithiGood = ![4, 9, 14, 19, 24, 29].includes(d.tithiNum - 1);
-      const score = (nakGood ? 60 : 20) + (tithiGood ? 40 : 10);
-      resultHtml = `
-        <section class="ak-card">
-          <label class="ak-field full" style="margin-bottom:10px">
-            <span>${t('အခမ်းအနားအမျိုးအစား', 'Ceremony')}</span>
-            <select id="muhurat-ceremony">
-              ${CEREMONIES.map(([id, mm, en]) => `<option value="${id}" ${muhuratState.ceremony === id ? 'selected' : ''}>${escHtml(english ? en : mm)}</option>`).join('')}
-            </select>
-          </label>
-          <div class="ak-score-banner ${score >= 70 ? 'good' : 'warn'}">
-            <strong>${score >= 70 ? t('✓ သင့်တော်ကောင်းမွန်သော ရက်ဖြစ်ပါသည်', '✓ Suitable Day') : t('△ သာမန် — အခြားရက်စစ်ဆေးပါ', '△ Average')}</strong>
-            <span>${score}%</span>
-          </div>
-        </section>
-        ${iosTableCard(english ? selected[2] : selected[1], [
-          ['နက္ခတ်', `${d.nakName} (${nakGood ? 'သင့်တော်' : 'သာမန်'})`],
-          ['တိထီ', `${d.pakshaMm} ${toMyDigits(d.tithiNum)} ရက် (${d.tithiName})`],
+    } else if (tab === 2) {
+      resultHtml = iosTableCard('ဟိုရာ (နေ့ ၁၂ + ည ၁၂)', d.horas.map(h => [h.lord, h.window[0], h.window[1]]), 'teal', true);
+    } else if (tab === 3) {
+      resultHtml = iosTableCard('ချိုဃဒိယာ (နေ့ ၈ + ည ၈)', d.choghadiyas.map(c => [`${c.name} ${c.good ? '✓' : '×'}`, c.window[0], c.window[1]]), 'teal', true);
+    } else if (tab === 4) {
+      resultHtml = iosTableCard('ဒိုဃဋီ (နေ့ ၁၅ + ည ၁၅)', d.doghatis.map(g => [g.name, g.window[0], g.window[1]]), 'teal', true);
+    } else if (tab === 5) {
+      resultHtml = iosTableCard('ရာဟုကာလ (၇ ရက်စာ)', d.rahuWeek.map(r => [r.day, r.window[0], r.window[1]]), 'teal', true);
+    } else if (tab === 6) {
+      resultHtml = iosTableCard('ပဉ္စက (Panchaka)', [['အခြေအနေ', d.isPanchaka ? '⚠ ပဉ္စကကျရောက်နေသည် (ကုမ်/မိန် စန်း)' : '✓ ဤအချိန်တွင် ပဉ္စက မရှိပါ']], 'blue');
+    } else if (tab === 7) {
+      resultHtml = iosTableCard('ဘဒြာ (Bhadra)', [['အခြေအနေ', d.isBhadra ? '⚠ ဘဒြာ (ဝိဋ္ဌိကရဏ) ကျရောက်နေသည်' : '✓ ဤအချိန်တွင် ဘဒြာ မရှိပါ']], 'blue');
+    } else if (tab === 8) {
+      resultHtml = iosTableCard('လဂ်ဇယား (Lagna Table)', d.lagnaRows.map(l => [l.sign, l.window[0], l.window[1]]), 'blue', true);
+    } else if (tab >= 9 && tab <= 18) {
+      const check = checkCeremony(tab, d.nakNum, d.pada, d.tithiNum, d.wd, d.halfTithi, d.isBhadra);
+      resultHtml = [
+        iosTableCard('အခမ်းအနား မုဟုတ္တ', [['', 'အခမ်းအနားအလိုက် နက္ခတ်၊ တိထိ၊ ကရဏနှင့် သတ်မှတ်နေ့များကို စစ်ထားသော ပဏာမအချိန်များ။ အိမ်ထောင်မင်္ဂလာအတွက် ပါဒကိုပါ စစ်ပါသည်။']], 'gold'),
+        iosTableCard(IOS_TABS[tab], [
+          ['အဖြေ', check.ok ? '✓ သင့်တော်ကောင်းမွန်ပါသည်' : '△ ဤအချိန် မကိုက်ညီပါ — အခြားရက်/အချိန် စစ်ပါ'],
+          ['အသေးစိတ်', check.reason],
+          ['နက္ခတ် / ပါဒ', `${d.nakName} · ပါဒ ${toMyDigits(d.pada)}`],
+          ['တိထိ / နေ့', `${d.pakshaMm} ${toMyDigits(d.tithiNum)} (${d.tithiName}) · ${d.varaMm}`],
           ['အဘိဇိတ်', d.abhijit ? `${d.abhijit[0]} – ${d.abhijit[1]}` : 'ဗုဒ္ဓဟူးနေ့တွင် မယူပါ'],
           ['ရာဟုကာလ (ရှောင်)', `${d.rahuKalam[0]} – ${d.rahuKalam[1]}`]
-        ], 'gold')}
-      `;
+        ], 'gold')
+      ].join('');
+    } else if (tab === 19 || tab === 20) {
+      const hit = tab === 19 ? d.isSarvartha : d.isAmrit;
+      resultHtml = [
+        iosTableCard('အထွေထွေ အခါကောင်းများ', [['', 'ဒေသနေထွက်ချိန်မှ စသည့် နေ့နှင့် လနက္ခတ် ကိုက်ညီသောအချိန်များ။']], 'rose'),
+        iosTableCard(IOS_TABS[tab], [
+          ['အခြေအနေ', hit ? `✓ ${IOS_TABS[tab]} ကျရောက်နေပါသည် (အလွန်ကောင်း)` : '— ရွေးထားသောအချိန်တွင် မကျရောက်ပါ'],
+          ['နေ့ / နက္ခတ်', `${d.varaMm} · ${d.nakName}`]
+        ], 'rose')
+      ].join('');
     } else {
       resultHtml = [
-        iosTableCard('ခွဲမွေးချိန်း ပဉ္စင်္ဂ', [
-          ['ရက်နှင့်အချိန်', `${d.dateStr} · ${d.timeStr}`],
-          ['နက္ခတ် / ပါဒ', `${d.nakName} · ပါဒ ${toMyDigits(d.pada)}`],
-          ['တိထိ / ပက္ခ', `${d.pakshaMm} ${toMyDigits(d.tithiNum)} (${d.tithiName})`],
-          ['လရာသီ', d.moonSign]
-        ], 'rose'),
-        iosTableCard('ရိုးရာဗေဒင်အရ အားသာချက်များ', [
-          ['စန်းနက္ခတ်သခင်', d.appointmentLord],
-          ['အားသာနိုင်သည့် သဘောထား', d.appointmentTrait],
-          ['', 'ဆရာဝန် သတ်မှတ်ထားသည့် ခွဲစိတ်ချိန်ကို ဤဖတ်ချက်အရ မပြောင်းပါနှင့်။']
-        ], 'purple')
+        iosTableCard('ခွဲမွေးချိန်း ပဉ္စင်္ဂ', [['', 'အပေါ်တွင် ဆေးရုံရှိမြို့နှင့် သားဖွားဆရာဝန် သတ်မှတ်ထားသော ရက်၊ အချိန်ကို ရွေးပါ။ ရလဒ်ကို ခွဲစိတ်ချိန် ပြောင်းရန် သို့မဟုတ် လိုအပ်သော ကုသမှုကို နောက်ဆုတ်ရန် အသုံးမပြုပါနှင့်။']], 'rose'),
+        `<button type="button" id="muh-show-appt-btn" class="ios-muh-gold-btn" style="width:100%" ${muhuratState.showsAppointment ? 'disabled' : ''}>📅 ရွေးထားသော ချိန်းဆိုချိန်ကို ကြည့်ရန်</button>`,
+        ...(muhuratState.showsAppointment ? [
+          iosTableCard(`${d.dateStr} · ${d.timeStr}`, [
+            ['တိထိ / ပက္ခ', `${d.pakshaMm} ${toMyDigits(d.tithiNum)} (${d.tithiName})`],
+            ['ကရဏ / ယောဂ', `${d.karanaName} · ${toMyDigits(d.yogaNum)}`],
+            ['နေ့ / လရာသီ', `${d.varaMm} · ${d.moonSign}`],
+            ['နက္ခတ် / ပါဒ', `${d.nakName} · ပါဒ ${toMyDigits(d.pada)}`]
+          ], 'purple'),
+          iosTableCard('ရိုးရာဗေဒင်အရ အားသာချက်များ', [
+            ['စန်းနက္ခတ်သခင်', d.appointmentLord],
+            ['အားသာနိုင်သည့် သဘောထား', d.appointmentTrait],
+            ['', 'ဤဖတ်ချက်သည် စန်းနက္ခတ်သခင်ကို အခြေခံသော ရိုးရာဗေဒင်အမြင်ဖြစ်ပြီး ကလေး၏ အနာဂတ် သို့မဟုတ် ကျန်းမာရေးကို အာမမခံပါ။ ဆရာဝန် သတ်မှတ်ထားသည့် ခွဲစိတ်ချိန်ကို ဤဖတ်ချက်အရ မပြောင်းပါနှင့်။']
+          ], 'purple')
+        ] : [])
       ].join('');
     }
   }
@@ -355,13 +432,14 @@ export function renderMuhuratScreen(appHeader, english) {
           </button>
           <button type="button" id="muh-today-btn" class="ios-muh-sec-btn">${t('ယနေ့', 'Today')}</button>
           <button type="button" id="muh-help-btn" class="ios-muh-sec-btn">${t('အသုံးပြုနည်း', 'Help')}</button>
+          <button type="button" id="muh-open-plans" class="ios-muh-sec-btn">Plans</button>
         </div>
         ${muhuratState.error ? `<p class="form-error">${escHtml(muhuratState.error)}</p>` : ''}
       </form>
 
       ${d ? `
         <nav class="ak-subtabs">
-          ${tabs.map(([id, label]) => `<button type="button" data-muhurat-tab="${id}" class="${muhuratState.tab === id ? 'selected' : ''}">${escHtml(label)}</button>`).join('')}
+          ${IOS_TABS.map((label, idx) => `<button type="button" data-muhurat-tab="${idx}" class="${muhuratState.tab === idx ? 'selected' : ''}">${escHtml(label)}</button>`).join('')}
         </nav>
         <div class="ak-section-stack">${resultHtml}</div>
       ` : ''}
@@ -394,9 +472,9 @@ export function renderMuhuratScreen(appHeader, english) {
             <button type="button" id="muh-help-close">×</button>
           </header>
           <p class="ak-reading-text" style="margin-top:10px">
-            ၁။ မြို့ရွေးပြီး ယနေ့ကို နှိပ်ပါ၊ သို့မဟုတ် ရက်နှင့်အချိန် ရွေးပါ။<br><br>
-            ၂။ နက္ခတ်နှင့် ပါဒသည် ရွေးထားသောအချိန်ရှိ လ၏တည်နေရာ (KP အယနမ်သ) ဖြစ်ပါသည်။<br><br>
-            ၃။ တာရာဗလ၊ စန္ဒြဗလ၊ ဒိုဃဋီ၊ ပဉ္စက၊ ဘဒြာနှင့် သဗ္ဗတ္ထသိဒ္ဓိ/အမရိတသိဒ္ဓိယောဂများကို Tab အလိုက် စစ်ဆေးနိုင်ပါသည်။
+            ၁။ မြို့ရွေးပြီး ယနေ့ကို နှိပ်ပါ၊ သို့မဟုတ် ရက်နှင့်အချိန် ရွေးပါ။ အချိန်များသည် ရွေးထားသောမြို့၏ ဒေသစံတော်ချိန် ဖြစ်ပါသည်။<br><br>
+            ၂။ နက္ခတ်နှင့် ပါဒသည် ရွေးထားသောအချိန်ရှိ လ၏တည်နေရာ ဖြစ်ပါသည်။<br><br>
+            ၃။ အခမ်းအနား ၁၀ မျိုး၊ ဟိုရာ၊ ချိုဃဒိယာ၊ ဒိုဃဋီ၊ ရာဟုကာလ (၇ ရက်)၊ ပဉ္စက၊ ဘဒြာ၊ လဂ်ဇယား၊ သဗ္ဗတ္ထသိဒ္ဓိ/အမရိတသိဒ္ဓိယောဂနှင့် ခွဲမွေးချိန်းတို့ကို Tab အလိုက် စစ်ဆေးနိုင်ပါသည်။
           </p>
         </section>
       </div>
@@ -404,10 +482,20 @@ export function renderMuhuratScreen(appHeader, english) {
   `;
 }
 
-export function bindMuhuratScreen(rerender) {
+export function bindMuhuratScreen(rerender, onRefreshWallet) {
+  if (muhuratState.mode === 'plans') {
+    bindMultiSystemPlans(rerender, onRefreshWallet);
+    document.querySelector('#muh-open-panchang')?.addEventListener('click', () => {
+      muhuratState.mode = 'panchang';
+      rerender();
+    });
+    return;
+  }
+
   const runCalc = async () => {
     muhuratState.loading = true;
     muhuratState.error = '';
+    muhuratState.showsAppointment = false;
     rerender();
     try {
       muhuratState.data = await computeMuhurat(muhuratState.date, muhuratState.time, muhuratState.city);
@@ -422,6 +510,15 @@ export function bindMuhuratScreen(rerender) {
   if (!muhuratState.data && !muhuratState.loading && !muhuratState.error) {
     void runCalc();
   }
+
+  document.querySelector('#muh-open-plans')?.addEventListener('click', () => {
+    muhuratState.mode = 'plans';
+    rerender();
+  });
+  document.querySelector('#muh-show-appt-btn')?.addEventListener('click', () => {
+    muhuratState.showsAppointment = true;
+    rerender();
+  });
 
   document.querySelector('#muh-open-city')?.addEventListener('click', () => {
     muhuratState.cityPickerOpen = true;
@@ -468,6 +565,8 @@ export function bindMuhuratScreen(rerender) {
   document.querySelector('#muh-help-btn')?.addEventListener('click', () => { muhuratState.showHelp = true; rerender(); });
   document.querySelector('#muh-help-close')?.addEventListener('click', () => { muhuratState.showHelp = false; rerender(); });
   document.querySelector('#muh-help-backdrop')?.addEventListener('click', e => { if (e.target.id === 'muh-help-backdrop') { muhuratState.showHelp = false; rerender(); } });
-  document.querySelectorAll('[data-muhurat-tab]').forEach(btn => btn.addEventListener('click', () => { muhuratState.tab = btn.dataset.muhuratTab; rerender(); }));
-  document.querySelector('#muhurat-ceremony')?.addEventListener('change', e => { muhuratState.ceremony = e.target.value; rerender(); });
+  document.querySelectorAll('[data-muhurat-tab]').forEach(btn => btn.addEventListener('click', () => {
+    muhuratState.tab = Number(btn.dataset.muhuratTab);
+    rerender();
+  }));
 }

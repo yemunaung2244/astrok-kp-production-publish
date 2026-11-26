@@ -54,6 +54,9 @@ export function renderIOSFloatingTabBar(screen, english) {
   `;
 }
 
+const CHANNEL_URL = `https://${'t.me'}/${'sayahtunlinnAstroK718'}`;
+let channelInviteOpen = typeof sessionStorage !== 'undefined' ? !sessionStorage.getItem('astrok.web.channelInviteShown') : false;
+
 export function renderHomeScreen({ english, user, wallet, base }) {
   const t = (mm, en) => (english ? en : mm);
   const kyat = wallet?.kyatBalance ?? 0;
@@ -75,7 +78,7 @@ export function renderHomeScreen({ english, user, wallet, base }) {
           </div>
 
           <div class="ios-top-right-pills">
-            <button type="button" class="ios-kyat-capsule" data-entry-tab="plans">
+            <button type="button" class="ios-kyat-capsule" data-entry-tab="wallet">
               <span class="ios-kyat-icon" aria-hidden="true">💵</span>
               <strong>${escHtml(compactKyat(kyat, english))}</strong>
             </button>
@@ -115,5 +118,38 @@ export function renderHomeScreen({ english, user, wallet, base }) {
         </div>
       </main>
     </div>
+
+    ${channelInviteOpen ? `
+      <div class="ios-modal-backdrop" id="ios-channel-invite-backdrop" style="background:rgba(8,10,28,0.76)">
+        <section role="dialog" aria-modal="true" style="width:min(420px,92vw);padding:30px 24px 24px;border-radius:26px;background:linear-gradient(135deg,#33427a,#0d1736);border:1px solid #d6b36b;box-shadow:0 18px 40px rgba(0,0,0,0.45);text-align:center;color:#fff">
+          <div style="width:98px;height:98px;margin:0 auto 18px;border-radius:50%;background:rgba(59,76,135,0.5);border:1px solid #d6b36b;display:grid;place-items:center;position:relative">
+            <div style="position:absolute;inset:9px;border-radius:50%;border:1px dashed rgba(214,179,107,0.65)"></div>
+            <span style="font-size:52px;line-height:1;color:#f5d694">☾</span>
+          </div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#debf7a">✦ ASTROK PRO · KP ASTROLOGY ✦</div>
+          <h2 style="font-size:23px;font-weight:800;margin:12px 0 10px;color:#fff">${t('KP နက္ခတ်ဗေဒင်ပညာ', 'KP Astrology')}</h2>
+          <p style="font-size:15px;line-height:1.55;color:#e3e8f2;margin:0 0 22px">${t('KP နက္ခတ်ဗေဒင်ပညာနဲ့ပတ်သက်ပြီး ပိုမိုလေ့လာချင်ပါက ကျွန်တော့်ရဲ့ Channel ကို Join ပေးပါခင်ဗျာ', 'If you would like to learn more about KP astrology, please join my Telegram channel.')}</p>
+          <a href="${escHtml(CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" id="ios-channel-join-btn" style="display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:#e8c47a;color:#172445;font-size:15.5px;font-weight:800;text-decoration:none">
+            ${t('Telegram Channel ကို Join မည် ↗', 'Join Telegram Channel ↗')}
+          </a>
+          <button type="button" id="ios-channel-later-btn" style="margin-top:16px;background:transparent;border:none;color:#ccd1e6;font-size:14px;cursor:pointer;padding:6px 12px">
+            ${t('နောက်မှ ကြည့်မည်', 'Maybe later')}
+          </button>
+        </section>
+      </div>
+    ` : ''}
   `;
+}
+
+export function bindHomeScreen(rerender) {
+  const dismiss = () => {
+    channelInviteOpen = false;
+    try { sessionStorage.setItem('astrok.web.channelInviteShown', '1'); } catch {}
+    rerender();
+  };
+  document.querySelector('#ios-channel-later-btn')?.addEventListener('click', dismiss);
+  document.querySelector('#ios-channel-join-btn')?.addEventListener('click', dismiss);
+  document.querySelector('#ios-channel-invite-backdrop')?.addEventListener('click', e => {
+    if (e.target.id === 'ios-channel-invite-backdrop') dismiss();
+  });
 }

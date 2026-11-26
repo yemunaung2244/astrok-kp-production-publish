@@ -1,7 +1,9 @@
 import { loadJson, escHtml, toMyDigits } from './script-loader.js';
+import { renderSystemPlansOnly, bindMultiSystemPlans } from './plans-wallet.js';
 
 const today = new Date();
 const numState = {
+  entryTab: 'calc',
   name: '',
   day: String(today.getDate()),
   month: String(today.getMonth() + 1),
@@ -291,38 +293,62 @@ function renderNumerologyResult(res, book, english) {
   `;
 }
 
-export function renderNumerologyScreen(appHeader, english) {
+export function renderNumerologyScreen(appHeader, english, wallet) {
   const t = (mm, en) => (english ? en : mm);
   return `
     ${appHeader(t('ဂဏန်းဗေဒင်', 'Numerology'), true)}
     <main class="ak-sys-main">
-      <form id="num-form" class="ak-form-card">
-        <div class="ak-form-row">
-          <label class="ak-field full">
-            <span>${t('အမည် (အင်္ဂလိပ်စာလုံးဖြင့် — အမည်ဇာတာခွင်အတွက်)', 'Name (English letters for Name Grid)')}</span>
-            <input name="name" value="${escHtml(numState.name)}" placeholder="e.g. Aung Aung">
-          </label>
-        </div>
-        <div class="ak-form-row three">
-          <label class="ak-field"><span>${t('မွေးရက်', 'Day')}</span><input name="day" type="number" min="1" max="31" value="${escHtml(numState.day)}" required></label>
-          <label class="ak-field"><span>${t('မွေးလ', 'Month')}</span><input name="month" type="number" min="1" max="12" value="${escHtml(numState.month)}" required></label>
-          <label class="ak-field"><span>${t('မွေးနှစ်', 'Year')}</span><input name="year" type="number" min="1850" max="2150" value="${escHtml(numState.year)}" required></label>
-        </div>
-        <div class="ak-form-row two">
-          <label class="ak-field"><span>${t('တွက်လိုသောနှစ်', 'Target Year')}</span><input name="targetYear" type="number" min="1950" max="2150" value="${escHtml(numState.targetYear)}"></label>
-          <label class="ak-field"><span>${t('တွက်လိုသောလ', 'Target Month')}</span><input name="targetMonth" type="number" min="1" max="12" value="${escHtml(numState.targetMonth)}"></label>
-        </div>
-        ${numState.error ? `<p class="form-error">${escHtml(numState.error)}</p>` : ''}
-        <button type="submit" class="calculate-button" ${numState.loading ? 'disabled' : ''}>
-          ${numState.loading ? t('တွက်ချက်နေပါသည်…', 'Calculating…') : t('ဂဏန်းဗေဒင်တွက်မည်', 'Calculate Numerology')}
-        </button>
-      </form>
-      ${numState.result ? renderNumerologyResult(numState.result, numState.data, english) : ''}
+      <nav class="ak-subtabs" style="margin-bottom:12px">
+        <button type="button" data-num-entry="calc" class="${numState.entryTab === 'calc' ? 'selected' : ''}">${t('တွက်ရန်', 'Calculate')}</button>
+        <button type="button" data-num-entry="plans" class="${numState.entryTab === 'plans' ? 'selected' : ''}">Plans</button>
+      </nav>
+
+      ${numState.entryTab === 'plans' ? renderSystemPlansOnly('numerology', english, wallet) : `
+        <section class="ios-num-hero" style="display:flex;align-items:center;gap:14px;padding:18px;border-radius:22px;background:linear-gradient(135deg,#171a40,#5938b8,#7d3dad);border:1px solid rgba(219,158,59,0.65);color:#fff;margin-bottom:14px;box-shadow:0 8px 20px rgba(89,56,184,0.2)">
+          <div style="width:72px;height:72px;border-radius:50%;border:1px solid rgba(219,158,59,0.6);display:grid;place-items:center;flex-shrink:0;font-size:28px;font-weight:800;color:#db9e3b">1–9</div>
+          <div>
+            <h2 style="margin:0 0 6px;font-size:19px;font-weight:800;color:#fff">${t('ဂဏန်းများထဲက သင့်ဇာတာ', 'Your Chart in Numbers')}</h2>
+            <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.85)">${t('မွေးသက္ကရာဇ်၊ အမည်နဲ့ နှစ်အလိုက် သင့်အတွက် အဟောများ', 'Readings from your birth date, name, and target year')}</p>
+          </div>
+        </section>
+        <form id="num-form" class="ak-form-card">
+          <div class="ak-form-row">
+            <label class="ak-field full">
+              <span>${t('အမည် (English)', 'Name (English)')}</span>
+              <input name="name" value="${escHtml(numState.name)}" placeholder="${t('အမည်ထည့်ပါ', 'Enter name')}">
+            </label>
+          </div>
+          <div class="ak-form-row three">
+            <label class="ak-field"><span>${t('ရက်', 'Day')}</span><input name="day" type="number" min="1" max="31" value="${escHtml(numState.day)}" required></label>
+            <label class="ak-field"><span>${t('လ', 'Month')}</span><input name="month" type="number" min="1" max="12" value="${escHtml(numState.month)}" required></label>
+            <label class="ak-field"><span>${t('နှစ်', 'Year')}</span><input name="year" type="number" min="1850" max="2150" value="${escHtml(numState.year)}" required></label>
+          </div>
+          <div class="ak-form-row two">
+            <label class="ak-field"><span>${t('ဟောမည့်နှစ်', 'Target Year')}</span><input name="targetYear" type="number" min="1950" max="2150" value="${escHtml(numState.targetYear)}"></label>
+            <label class="ak-field"><span>${t('ဟောမည့်လ', 'Target Month')}</span><input name="targetMonth" type="number" min="1" max="12" value="${escHtml(numState.targetMonth)}"></label>
+          </div>
+          ${numState.error ? `<p class="form-error">${escHtml(numState.error)}</p>` : ''}
+          <button type="submit" class="calculate-button" ${numState.loading ? 'disabled' : ''}>
+            ${numState.loading ? t('တွက်ချက်နေပါသည်…', 'Calculating…') : t('ဂဏန်းဇာတာတွက်မည်', 'Calculate Numerology')}
+          </button>
+        </form>
+        ${numState.result ? renderNumerologyResult(numState.result, numState.data, english) : ''}
+      `}
     </main>
   `;
 }
 
-export function bindNumerologyScreen(rerender) {
+export function bindNumerologyScreen(rerender, onRefreshWallet) {
+  document.querySelectorAll('[data-num-entry]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      numState.entryTab = btn.dataset.numEntry;
+      rerender();
+    });
+  });
+  if (numState.entryTab === 'plans') {
+    bindMultiSystemPlans(rerender, onRefreshWallet);
+    return;
+  }
   document.querySelector('#num-form')?.addEventListener('submit', async e => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);

@@ -1,4 +1,5 @@
 import { loadClassicScript, escHtml, toMyDigits } from './script-loader.js';
+import { renderSystemPlansOnly, bindMultiSystemPlans } from './plans-wallet.js';
 
 const MSANN_SAVED_KEY = 'astrok.web.msann.saved.v1';
 const today = new Date();
@@ -230,14 +231,15 @@ function renderSavedTab(english) {
   `).join('');
 }
 
-export function renderMSannScreen(appHeader, english) {
+export function renderMSannScreen(appHeader, english, wallet) {
   const t = (mm, en) => (english ? en : mm);
   const subtabs = [
-    ['sann', t('မဟာဘုတ် & ဆန်း', 'Mahabote & Sann')],
-    ['anga', t('အင်္ဂဝိဇ္ဇာ ၅ တိုင်', 'Anga Vissa 5-Col')],
+    ['sann', t('ဆန်းတွက်ရိုး', 'Sann')],
+    ['anga', t('အင်္ဂဝိဇ္ဇာ', 'Anga')],
+    ['calendar', t('ပြက္ခဒိန်', 'Calendar')],
     ['kala', t('မဟာကာလကြီး', 'Maha Kala')],
-    ['calendar', t('မြန်မာ/သင်္ကြန်ပြက္ခဒိန်', 'Calendar')],
-    ['saved', `${t('သိမ်းထားသောဇာတာ', 'Saved')} (${msannState.saved.length})`]
+    ['saved', `${t('သိမ်းထားသောဇာတာ', 'Saved')} (${msannState.saved.length})`],
+    ['plans', 'Plans']
   ];
 
   const showForm = ['sann', 'anga', 'kala'].includes(msannState.subtab);
@@ -306,12 +308,16 @@ export function renderMSannScreen(appHeader, english) {
         ${msannState.subtab === 'kala' && msannState.kalaOut ? renderKalaResult(msannState.kalaOut, english) : ''}
         ${msannState.subtab === 'calendar' ? renderCalendarTab(english) : ''}
         ${msannState.subtab === 'saved' ? renderSavedTab(english) : ''}
+        ${msannState.subtab === 'plans' ? renderSystemPlansOnly('myanmar', english, wallet) : ''}
       </div>
     </main>
   `;
 }
 
-export function bindMSannScreen(rerender) {
+export function bindMSannScreen(rerender, onRefreshWallet) {
+  if (msannState.subtab === 'plans') {
+    bindMultiSystemPlans(rerender, onRefreshWallet);
+  }
   document.querySelectorAll('[data-msann-tab]').forEach(btn => {
     btn.addEventListener('click', () => {
       msannState.subtab = btn.dataset.msannTab;
