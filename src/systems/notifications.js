@@ -5,13 +5,48 @@ const notifState = {
   items: [],
   loading: false,
   loadedForUser: null,
+  unreadCount: 0,
   error: ''
 };
+
+const READ_AT_KEY = uid => `astrok.notifications.readAt.${uid}`;
+
+function computeUnread(items, userId) {
+  if (!userId || !Array.isArray(items) || !items.length) return 0;
+  let lastRead = 0;
+  try { lastRead = Number(localStorage.getItem(READ_AT_KEY(userId)) || 0); } catch {}
+  return items.filter(item => {
+    const ts = Number(item.created_at) > 1e12 ? Number(item.created_at)
+      : (Number(item.created_at) > 1e9 ? Number(item.created_at) * 1000 : Date.parse(item.created_at));
+    return Number.isFinite(ts) && ts > lastRead;
+  }).length;
+}
+
+export function getUnreadNotificationCount() {
+  return notifState.unreadCount || 0;
+}
+
+export function markNotificationsRead(userId) {
+  if (!userId) return;
+  try { localStorage.setItem(READ_AT_KEY(userId), String(Date.now())); } catch {}
+  notifState.unreadCount = 0;
+}
+
+export async function refreshUnreadNotifications(userId) {
+  if (!userId) { notifState.unreadCount = 0; return 0; }
+  try {
+    await fetchNotifications();
+    return notifState.unreadCount;
+  } catch {
+    return notifState.unreadCount;
+  }
+}
 
 async function fetchNotifications() {
   const { data: { session } } = await authClient.auth.getSession();
   if (!session?.access_token) {
     notifState.items = [];
+    notifState.unreadCount = 0;
     notifState.error = 'အသိပေးချက်များ ကြည့်ရန် Account ဝင်ပါ။';
     return;
   }
@@ -29,6 +64,7 @@ async function fetchNotifications() {
   const rows = await res.json();
   notifState.items = Array.isArray(rows) ? rows : [];
   notifState.loadedForUser = session.user?.id || 'loaded';
+  notifState.unreadCount = computeUnread(notifState.items, session.user?.id);
   notifState.error = '';
 }
 
@@ -76,6 +112,8 @@ export function bindNotificationsScreen(rerender) {
     rerender();
     try {
       await fetchNotifications();
+      const { data: { session } } = await authClient.auth.getSession();
+      if (session?.user?.id) markNotificationsRead(session.user.id);
     } catch (err) {
       notifState.error = err?.message || 'Unable to load notifications';
     } finally {
@@ -86,6 +124,10 @@ export function bindNotificationsScreen(rerender) {
 
   if (!notifState.loading && !notifState.loadedForUser && !notifState.error) {
     void refresh();
+  } else {
+    authClient.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user?.id) markNotificationsRead(session.user.id);
+    }).catch(() => {});
   }
 
   document.querySelector('#notif-refresh-btn')?.addEventListener('click', () => void refresh());

@@ -1,5 +1,6 @@
 import { escHtml, toMyDigits } from './script-loader.js';
 import { getSavedProfileName, getSavedProfilePhoto } from './profile.js';
+import { getUnreadNotificationCount } from './notifications.js';
 
 export const HOME_SYSTEMS = [
   { id: 'entry', img: 'KPGoldCardV2.jpg', titleMm: 'KP စနစ်', titleEn: 'KP System', bottomPad: 6 },
@@ -65,9 +66,12 @@ export function renderHomeScreen({ english, user, wallet, base }) {
   const displayName = getSavedProfileName(user);
   const photo = getSavedProfilePhoto();
   const initial = displayName.slice(0, 1).toUpperCase();
+  const unread = getUnreadNotificationCount();
 
   return `
-    <div class="ios-home-bg" style="--dawn-bg: url('${escHtml(base)}ios-assets/HomeDawnBackground.jpg')">
+    <div class="ios-home-bg">
+      <img class="ios-home-dawn-img" src="${escHtml(base)}ios-assets/HomeDawnBackground.jpg" alt="" aria-hidden="true">
+      <div class="ios-home-dawn-veil" aria-hidden="true"></div>
       <main class="ios-home-scroll">
         <div class="ios-home-top-controls">
           <div class="ios-lang-capsule" role="group" aria-label="Language">
@@ -86,6 +90,7 @@ export function renderHomeScreen({ english, user, wallet, base }) {
             </button>
             <button type="button" class="ios-bell-circle" data-entry-tab="notifications" aria-label="${t('အသိပေးချက်များ', 'Notifications')}" title="${t('အသိပေးချက်များ', 'Notifications')}">
               <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg>
+              ${unread > 0 ? `<span class="ios-bell-badge">${unread > 99 ? '99+' : unread}</span>` : ''}
             </button>
           </div>
         </div>

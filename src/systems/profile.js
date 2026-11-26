@@ -119,7 +119,7 @@ export function renderProfileScreen({ english, user, base }) {
     return `
       <main class="ios-profile-page ios-login-page">
         <div class="ios-login-brand">
-          <img src="${escHtml(base)}icons/astrok-pro-mark-192.png" alt="AstroK Pro" class="ios-login-logo">
+          <img src="${escHtml(base)}ios-assets/LoginAstroKLogo.jpg" alt="AstroK Pro" class="ios-login-logo" style="width:135px;height:108px;object-fit:cover;border-radius:20px">
           <h1>AstroK <span>Pro</span></h1>
           <p class="ios-login-sub">${t('Password အသစ်သတ်မှတ်ရန်', 'Set a new password')}</p>
         </div>
@@ -150,7 +150,7 @@ export function renderProfileScreen({ english, user, base }) {
     return `
       <main class="ios-profile-page ios-login-page">
         <div class="ios-login-brand">
-          <img src="${escHtml(base)}icons/astrok-pro-mark-192.png" alt="AstroK Pro" class="ios-login-logo">
+          <img src="${escHtml(base)}ios-assets/LoginAstroKLogo.jpg" alt="AstroK Pro" class="ios-login-logo" style="width:135px;height:108px;object-fit:cover;border-radius:20px">
           <h1>AstroK <span>Pro</span></h1>
           <p class="ios-login-sub">${t('သင့်ရဲ့ ဗေဒင်အဖော်', 'Your Astrology Companion')}</p>
           <span class="ios-ver-pill">${t('ဗားရှင်း 5.0', 'Version 5.0')}</span>
