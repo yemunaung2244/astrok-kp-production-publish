@@ -1,6 +1,7 @@
 import { authClient, apiOrigin, publishableKey } from './auth.js';
 
 let entitlement = null;
+let cachedWallet = null;
 if (typeof sessionStorage !== 'undefined') sessionStorage.removeItem('astrok.kp.web.key.v1');
 
 export function hasKPAccess(value = entitlement, now = Date.now()) {
@@ -10,8 +11,9 @@ export function hasKPAccess(value = entitlement, now = Date.now()) {
   return Number.isFinite(expiry) && expiry > now;
 }
 
-export function clearKPAccess() { entitlement = null; }
+export function clearKPAccess() { entitlement = null; cachedWallet = null; }
 export function currentKPPlan() { return hasKPAccess() ? entitlement.plan || 'standard' : 'free'; }
+export function currentWallet() { return cachedWallet; }
 
 export function kpPlanFromKey(rawCode) {
   const match = /^ASTROK-(STANDARD|PREMIUM)-KP-(MONTH|YEAR|LIFETIME)-[A-Z2-9]{16}$/i.exec(String(rawCode || '').trim());
@@ -96,7 +98,8 @@ export async function restoreKPAccess() {
         }),
     ]);
     const { data: { session: currentSession } } = await authClient.auth.getSession();
-    if (currentSession?.user?.id !== startingSession.user.id) { entitlement = null; return false; }
+    if (currentSession?.user?.id !== startingSession.user.id) { entitlement = null; cachedWallet = null; return false; }
+    cachedWallet = planResult.status === 'fulfilled' ? planResult.value : null;
     const plan = planResult.status === 'fulfilled' ? kpPlanAccess(planResult.value) : null;
     const legacy = legacyResult.status === 'fulfilled' && hasKPAccess(legacyResult.value)
       ? legacyResult.value : null;

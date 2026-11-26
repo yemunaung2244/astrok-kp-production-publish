@@ -21,12 +21,13 @@ export function planCards(english, active = 'free') {
 }
 
 const navIcons = {
+ home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/>',
  entry:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>',
  plans:'<rect x="2" y="5" width="20" height="15" rx="3"/><path d="M2 10h20M6 15h5"/>',
  key:'<circle cx="8" cy="9" r="5"/><path d="m12 13 8 8m-4-4 3-3m-6 0 3-3"/>'
 };
 export function entryNavigation(screen, english) {
-  return `<nav class="kp-entry-navigation" aria-label="${english?'KP navigation':'KP စနစ်'}">${[
-    ['entry','တွက်ရန်','Calculate','▦'],['plans','Plans','Plans','◇'],['key','Key ထည့်ရန်','Enter Key','⚿']
-  ].map(([id,mm,en,symbol])=>`<button type="button" data-entry-tab="${id}" ${screen===id?'aria-current="page"':''}><span aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${navIcons[id]}</svg></span><b>${english?en:mm}</b></button>`).join('')}</nav>`;
+  return `<nav class="kp-entry-navigation" aria-label="${english?'AstroK Pro navigation':'AstroK Pro လမ်းညွှန်'}">${[
+    ['home','မူလ','Home'],['entry','KP စနစ်','KP'],['plans','Plans','Plans'],['key','Key ထည့်ရန်','Key']
+  ].map(([id,mm,en])=>`<button type="button" data-entry-tab="${id}" ${screen===id?'aria-current="page"':''}><span aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${navIcons[id]}</svg></span><b>${english?en:mm}</b></button>`).join('')}</nav>`;
 }

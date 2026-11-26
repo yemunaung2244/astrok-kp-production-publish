@@ -1,0 +1,508 @@
+/* AstroK Pro Multi-System Web App Styles */
+.home-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.home-brand-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.home-brand-left strong {
+  display: block;
+  font-size: 16px;
+  color: #17255c;
+  line-height: 1.2;
+}
+.home-brand-left small {
+  display: block;
+  font-size: 11.5px;
+  color: #6b7280;
+}
+.home-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.language-toggle.compact {
+  transform: scale(0.92);
+}
+
+.ak-home-main,
+.ak-sys-main {
+  padding: 14px 16px 96px;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ak-hero-card {
+  background: linear-gradient(135deg, #2b1457 0%, #5B1B77 55%, #17255c 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 12px 28px rgba(43, 20, 87, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ak-hero-kicker {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  opacity: 0.8;
+  font-weight: 700;
+}
+.ak-hero-card h1 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.ak-hero-card p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  opacity: 0.92;
+}
+.ak-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.ak-wallet-pill {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ak-wallet-pill span {
+  font-size: 11px;
+  opacity: 0.85;
+}
+.ak-wallet-pill strong {
+  font-size: 14px;
+}
+.ak-hero-login-btn {
+  background: #fff;
+  color: #2b1457;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ak-system-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (min-width: 720px) {
+  .ak-system-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.ak-system-card {
+  background: #fff;
+  border: 1px solid #e7e3f3;
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(23, 37, 92, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.ak-system-card:hover {
+  transform: translateY(-2px);
+  border-color: #b79de0;
+  box-shadow: 0 8px 20px rgba(91, 27, 119, 0.12);
+}
+.ak-system-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+}
+.ak-system-info strong {
+  display: block;
+  font-size: 15px;
+  color: #17255c;
+  margin-bottom: 3px;
+}
+.ak-system-info small {
+  display: block;
+  font-size: 12px;
+  color: #667085;
+  line-height: 1.4;
+}
+.ak-system-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 18px;
+  color: #9ca3af;
+}
+
+.ak-quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.ak-quick-btn {
+  background: #f8f6fd;
+  border: 1px solid #e3dcf5;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+.ak-quick-btn span { font-size: 22px; }
+.ak-quick-btn strong { display: block; font-size: 14px; color: #2b1457; }
+.ak-quick-btn small { display: block; font-size: 12px; color: #667085; }
+
+/* Shared System Forms & Cards */
+.ak-form-card,
+.ak-card {
+  background: #fff;
+  border: 1px solid #e6e2f0;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 10px rgba(23, 37, 92, 0.04);
+}
+.ak-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #17255c;
+}
+.ak-card.ak-highlight {
+  background: #f6f1fc;
+  border-color: #d6c3ef;
+}
+.ak-form-row {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ak-form-row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ak-form-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ak-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ak-field span {
+  font-size: 12px;
+  color: #4b5563;
+  font-weight: 600;
+}
+.ak-field input,
+.ak-field select,
+.ak-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d5d0e5;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #faf9fd;
+  color: #111827;
+}
+.ak-subtabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.ak-subtabs button {
+  flex: 0 0 auto;
+  border: 1px solid #dcd6ec;
+  background: #fff;
+  color: #374151;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ak-subtabs button.selected {
+  background: #5B1B77;
+  color: #fff;
+  border-color: #5B1B77;
+}
+.ak-section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ak-reading-text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1f2937;
+}
+.ak-kv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.ak-kv-grid > div {
+  background: #f9f8fc;
+  border: 1px solid #ece8f5;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.ak-kv-grid small {
+  display: block;
+  font-size: 11.5px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.ak-kv-grid strong {
+  font-size: 14px;
+  color: #17255c;
+}
+.ak-kv-grid .good-box { background: #ecfdf5; border-color: #a7f3d0; }
+.ak-kv-grid .warn-box { background: #fef2f2; border-color: #fecaca; }
+
+/* Numerology Grid */
+.num-summary-pills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .num-summary-pills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.num-pill {
+  background: linear-gradient(135deg, #f5f0fb 0%, #fff 100%);
+  border: 1px solid #dfd3f2;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+}
+.num-pill span { display: block; font-size: 12px; color: #6b7280; }
+.num-pill strong { font-size: 22px; color: #5B1B77; }
+.num-grids-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.num-grid-card {
+  background: #fff;
+  border: 1px solid #e6e2f0;
+  border-radius: 16px;
+  padding: 14px;
+}
+.num-grid-card h3 { margin: 0 0 10px; font-size: 15px; color: #17255c; text-align: center; }
+.num-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.num-cell {
+  aspect-ratio: 1.25 / 1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.num-cell.filled { background: #5B1B77; color: #fff; }
+.num-cell.empty { background: #f3f1f9; color: #9ca3af; }
+.ak-peak-grid, .ak-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+.ak-peak-item, .ak-cycle-cell {
+  background: #f8f6fd;
+  border: 1px solid #e6dff5;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.ak-cycle-cell.active {
+  background: #5B1B77;
+  color: #fff;
+  border-color: #5B1B77;
+}
+.ak-peak-item small, .ak-cycle-cell small { display: block; font-size: 11.5px; opacity: 0.8; }
+.ak-peak-item strong, .ak-cycle-cell strong { display: block; font-size: 15px; margin: 2px 0; }
+
+/* M-Sann */
+.msann-house-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+.msann-house-cell {
+  background: #fdfaf3;
+  border: 1px solid #ebdcb9;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+.msann-house-cell small { display: block; font-size: 12px; color: #8a5a10; }
+.msann-house-cell strong { display: block; font-size: 16px; color: #1f2937; margin-top: 4px; }
+.ak-highlight-line {
+  background: #f5f0fb;
+  border-left: 4px solid #5B1B77;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 12px 0 0;
+  font-size: 14px;
+}
+.ak-accordion summary { cursor: pointer; font-size: 15px; color: #17255c; }
+.ak-accordion[open] summary { margin-bottom: 10px; }
+.ak-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.ak-data-table th, .ak-data-table td {
+  border-bottom: 1px solid #ece8f5;
+  padding: 9px 10px;
+  text-align: left;
+}
+.ak-data-table th {
+  background: #f6f3fc;
+  color: #2b1457;
+  font-weight: 700;
+}
+.ak-active-row { background: #ecfdf5; }
+
+/* Tags, Books, Courses, Plans */
+.ak-badge-row, .ak-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+.ak-chip-row { margin-top: 10px; }
+.ak-chip {
+  border: 1px solid #dad3ec;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.ak-chip.selected { background: #17255c; color: #fff; border-color: #17255c; }
+.ak-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #ede9fe;
+  color: #4c1d95;
+}
+.ak-tag.good { background: #dcfce7; color: #166534; }
+.ak-tag.warn { background: #fee2e2; color: #991b1b; }
+.ak-score-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+.ak-score-banner.good { background: #dcfce7; color: #14532d; }
+.ak-score-banner.warn { background: #fef3c7; color: #92400e; }
+
+.ak-book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+}
+.ak-book-card {
+  background: #fff;
+  border: 1px solid #e6e2f0;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ak-book-card h3 { margin: 0; font-size: 14.5px; color: #17255c; line-height: 1.4; }
+.ak-book-author { margin: 0; font-size: 12.5px; color: #6b7280; }
+.ak-book-btn, .ak-course-cta {
+  margin-top: auto;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: #5B1B77;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ak-course-inc { font-size: 13px; color: #166534; font-weight: 600; margin: 6px 0 12px; }
+.ak-price-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.ak-price-tile {
+  background: #f8f6fd;
+  border: 1px solid #e3dcf5;
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+}
+.ak-price-tile small { display: block; font-size: 11px; color: #6b7280; }
+.ak-price-tile del { display: block; font-size: 11px; color: #9ca3af; }
+.ak-price-tile strong { display: block; font-size: 13px; color: #5B1B77; }
+.ak-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+}
+.ak-feature-list li.inc { color: #1f2937; }
+.ak-feature-list li.lck { color: #9ca3af; text-decoration: line-through; }
+
+/* Tarot Iframe */
+.ak-tarot-wrap {
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+.ak-tarot-frame {
+  width: 100%;
+  flex: 1;
+  border: none;
+  background: #f6f4fb;
+}

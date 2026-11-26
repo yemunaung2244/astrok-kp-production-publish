@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="my">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' file:; script-src 'self' file:; style-src 'self' file:">
+<title>AstroK Pro တားရော့</title>
+<link rel="stylesheet" href="style.css">
+<main>
+<header><small>AstroK Pro</small><h1>တားရော့</h1><p>Rider–Waite–Smith · ကတ် ၇၈ ချပ်</p></header>
+<section id="menu">
+<div class="modes">
+<button type="button" data-mode="one">တစ်ကတ်ဟောစနစ်</button>
+<button type="button" data-mode="three">၃ ကတ်ဟောစနစ်</button>
+<button type="button" data-mode="twelve">၁၂ ကတ်ဟောစနစ်</button>
+<button type="button" data-mode="question">သိလိုရာမေးစနစ်</button>
+<button type="button" data-mode="yatra">တားရော့ယတြာ</button>
+</div>
+</section>
+<section id="selection" hidden>
+<div class="actions">
+<button id="menu-back" type="button">ဖတ်နည်းများ</button>
+<button id="reset" type="button">ပြန်မွှေမည်</button>
+</div>
+<h2 id="mode-title"></h2>
+<p id="status" role="status"></p>
+<section id="picked" aria-label="ရွေးထားသော ကတ်များ"></section>
+<div id="question-box" hidden>
+<label for="question">သိချင်တဲ့အကြောင်း</label>
+<textarea id="question" maxlength="300" rows="2"></textarea>
+<button id="yatra-submit" type="button" hidden>ယတြာနှင့် အဆောင်ကတ် ကြည့်မည်</button>
+</div>
+<button id="read-selected" type="button" hidden>အဟောဖတ်ရန်</button>
+<section id="grid" aria-label="ရွေးချယ်နိုင်သော ကတ်များ"></section>
+</section>
+<section id="result" hidden>
+<div class="actions">
+<button id="selection-back" type="button">ကတ်အသစ်ရွေးရန်</button>
+<button id="result-home" type="button">ဖတ်နည်းများ</button>
+</div>
+<h2>တားရော့အဟော</h2>
+<p id="result-question" hidden></p>
+<section id="result-cards" aria-label="အဟောတွင်ပါသော ကတ်များ"></section>
+<p id="ai-answer" role="status"></p>
+<button id="retry" type="button" hidden>ပြန်စမ်းရန်</button>
+</section>
+</main>
+<script src="deck.js"></script>
+<script src="one_card_readings.js"></script>
+<script src="question_engine.js"></script>
+<script src="reading.js"></script>
+</html>

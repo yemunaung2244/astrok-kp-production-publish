@@ -1,0 +1,435 @@
+{
+  "systems": [
+    {
+      "id": "kp",
+      "titleEn": "KP Astrology",
+      "titleMm": "KP နက္ခတ်",
+      "plans": [
+        {
+          "level": "Free",
+          "included": {
+            "en": [
+              "Natal and horary chart calculations",
+              "Chart designs",
+              "Planet and house sign/star/sub/sub-sub tables",
+              "Vimshottari Dasha: Maha, Bhukti, Antara and Sukshma",
+              "Ruling planets",
+              "Significators",
+              "Planetary aspects",
+              "Fortuna position and details"
+            ],
+            "mm": [
+              "မူလဇာတာ/ဟူးရားဇာတာတွက်ကိန်းများ",
+              "Chart Design",
+              "ဂြိုဟ်/ဘာဝ ရာသီ၊ နက္ခတ်၊ ဘုတ္တိ၊ ဝိဘုတ္တိဇယား",
+              "ဝိသောတ္ထရီဒသာ (ထူလ၊ ဘုတ္တိ၊ အန္တရ၊ သုခုမ)",
+              "စိုးမိုးဂြိုဟ်များ",
+              "အကျိုးဆောင်များ",
+              "ဂြိုဟ်မြင်များ",
+              "ကံလဂ် တည်နေရာနှင့် အချက်အလက်များ"
+            ]
+          },
+          "locked": {
+            "en": [
+              "Fortuna readings",
+              "House rotation",
+              "Timing search",
+              "All readings",
+              "Ebook export",
+              "Planetary transits"
+            ],
+            "mm": [
+              "ကံလဂ်အဟော",
+              "ဘာဝလှည့်စနစ်",
+              "အချိန်ရှာစနစ်",
+              "အဟောများအားလုံး",
+              "Ebook File ထုတ်ခြင်း",
+              "ဂြိုဟ်သွား"
+            ]
+          },
+          "oldPrices": [],
+          "prices": []
+        },
+        {
+          "level": "Standard",
+          "included": {
+            "en": [
+              "Natal and horary chart calculations",
+              "Chart designs",
+              "Planet and house sign/star/sub/sub-sub tables",
+              "Vimshottari Dasha: Maha, Bhukti, Antara and Sukshma",
+              "Ruling planets",
+              "Significators",
+              "Planetary aspects",
+              "Fortuna position and details",
+              "Natal readings",
+              "Horary readings",
+              "House rotation",
+              "Planetary transits"
+            ],
+            "mm": [
+              "မူလဇာတာ/ဟူးရားဇာတာတွက်ကိန်းများ",
+              "Chart Design",
+              "ဂြိုဟ်/ဘာဝ ရာသီ၊ နက္ခတ်၊ ဘုတ္တိ၊ ဝိဘုတ္တိဇယား",
+              "ဝိသောတ္ထရီဒသာ (ထူလ၊ ဘုတ္တိ၊ အန္တရ၊ သုခုမ)",
+              "စိုးမိုးဂြိုဟ်များ",
+              "အကျိုးဆောင်များ",
+              "ဂြိုဟ်မြင်များ",
+              "ကံလဂ် တည်နေရာနှင့် အချက်အလက်များ",
+              "မူလဇာတာအဟောများ",
+              "ဟူးရားဇာတာအဟောများ",
+              "ဘာဝလှည့်စနစ်",
+              "ဂြိုဟ်သွား"
+            ]
+          },
+          "locked": {
+            "en": [
+              "Fortuna readings",
+              "Timing search",
+              "Birth-time rectification",
+              "Ebook export"
+            ],
+            "mm": [
+              "ကံလဂ်အဟော",
+              "အချိန်ရှာစနစ်",
+              "မွေးချိန်မှန်ရှာဖွေခြင်း",
+              "Ebook File ထုတ်ခြင်း"
+            ]
+          },
+          "oldPrices": [
+            30000,
+            150000,
+            250000
+          ],
+          "prices": [
+            20000,
+            120000,
+            200000
+          ]
+        },
+        {
+          "level": "Premium",
+          "included": {
+            "en": [
+              "Natal and horary chart calculations",
+              "Chart designs",
+              "Planet and house sign/star/sub/sub-sub tables",
+              "Vimshottari Dasha: Maha, Bhukti, Antara and Sukshma",
+              "Ruling planets",
+              "Significators",
+              "Planetary aspects",
+              "Fortuna position and details",
+              "Natal readings",
+              "Horary readings",
+              "House rotation",
+              "Planetary transits",
+              "All KP features",
+              "Fortuna readings and timing search",
+              "Birth-time rectification",
+              "Ebook export"
+            ],
+            "mm": [
+              "မူလဇာတာ/ဟူးရားဇာတာတွက်ကိန်းများ",
+              "Chart Design",
+              "ဂြိုဟ်/ဘာဝရပ်တည်ရာ ရာသီ/နက္ခတ်/ဘုတ္တိ/ဝိဘုတ္တိဇယား",
+              "ဝိသောတ္ထရီဒသာ (ထူလ၊ ဘုတ္တိ၊ အန္တရ၊ သုခုမ)",
+              "စိုးမိုးဂြိုဟ်များ",
+              "အကျိုးဆောင်များ",
+              "ဂြိုဟ်မြင်များ",
+              "ကံလဂ်",
+              "မူလဇာတာအဟောများ",
+              "ဟူးရားဇာတာအဟောများ",
+              "ဘာဝလှည့်စနစ်",
+              "ဂြိုဟ်သွား",
+              "KP စနစ်အတွင်း အချက်အလက်အားလုံး",
+              "ကံလဂ်အဟောနှင့် အချိန်ရှာစနစ်",
+              "မွေးချိန်မှန်ရှာဖွေခြင်း",
+              "Ebook File ထုတ်ခြင်း"
+            ]
+          },
+          "locked": {
+            "en": [],
+            "mm": []
+          },
+          "oldPrices": [
+            50000,
+            200000,
+            500000
+          ],
+          "prices": [
+            40000,
+            180000,
+            400000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trisakka",
+      "titleEn": "Trisakka",
+      "titleMm": "တြိစက္က",
+      "plans": [
+        {
+          "level": "Free",
+          "included": {
+            "mm": [
+              "ရာသီ၊ ဘာဝ၊ နဝင်းစက်",
+              "ကောဇာဇာတာ",
+              "စာညှင်း",
+              "Chart Design",
+              "ဂြိုဟ်တို့ရာသီဂုဏ်အဆင့်",
+              "ဇာတာအချက်အလက်အသေးစိတ်နှင့် ဒသာ/ဂြိုဟ်မြင်ဂြိုဟ်ယှဉ်များ",
+              "ဂြဟဗလအသေးစိတ်တွက်ကိန်း",
+              "ဘာဝဗလအသေးစိတ်တွက်ကိန်း"
+            ],
+            "en": [
+              "Rasi, Bhava and Navamsa charts",
+              "Transit chart",
+              "Sanyin",
+              "Chart Design",
+              "Planetary dignity by sign",
+              "Detailed chart data, Dasha, aspects and conjunctions",
+              "Detailed Graha Bala calculations",
+              "Detailed Bhava Bala calculations"
+            ]
+          },
+          "locked": {
+            "mm": [
+              "ဝဂ္ဂစက်များ",
+              "ဂြဟဗလ/ဘာဝဗလအသေးစိတ်အဟော",
+              "မူလဇာတာဟောစာတမ်းများ",
+              "ယုဂ်အသေးစိတ်အဟော",
+              "ဝိသောတ္ထရီဒသာနှင့် ကောဇာဂြိုဟ်အစီးအနင်းအဟော",
+              "တြိစက္ကဟောစာတမ်း Ebook File ထုတ်ခြင်း"
+            ],
+            "en": [
+              "Varga charts",
+              "Detailed Graha Bala and Bhava Bala readings",
+              "Natal chart readings",
+              "Detailed Yuga readings",
+              "Vimshottari Dasha and transit readings",
+              "Trisakka report Ebook export"
+            ]
+          },
+          "oldPrices": [],
+          "prices": []
+        },
+        {
+          "level": "Premium",
+          "included": {
+            "mm": [
+              "ရာသီ၊ ဘာဝ၊ နဝင်းစက်",
+              "ကောဇာဇာတာ",
+              "စာညှင်း",
+              "Chart Design",
+              "ဂြိုဟ်တို့ရာသီဂုဏ်အဆင့်",
+              "ဇာတာအချက်အလက်အသေးစိတ်နှင့် ဒသာ/ဂြိုဟ်မြင်ဂြိုဟ်ယှဉ်များ",
+              "ဂြဟဗလအသေးစိတ်တွက်ကိန်း",
+              "ဘာဝဗလအသေးစိတ်တွက်ကိန်း",
+              "ဝဂ္ဂစက်များ",
+              "ဂြဟဗလ/ဘာဝဗလအသေးစိတ်အဟော",
+              "မူလဇာတာဟောစာတမ်းများ",
+              "ယုဂ်အသေးစိတ်အဟော",
+              "ဝိသောတ္ထရီဒသာနှင့် ကောဇာဂြိုဟ်အစီးအနင်းအဟော",
+              "တြိစက္ကဟောစာတမ်း Ebook File ထုတ်ခြင်း"
+            ],
+            "en": [
+              "Rasi, Bhava and Navamsa charts",
+              "Transit chart",
+              "Sanyin",
+              "Chart Design",
+              "Planetary dignity by sign",
+              "Detailed chart data, Dasha, aspects and conjunctions",
+              "Detailed Graha Bala calculations",
+              "Detailed Bhava Bala calculations",
+              "Varga charts",
+              "Detailed Graha Bala and Bhava Bala readings",
+              "Natal chart readings",
+              "Detailed Yuga readings",
+              "Vimshottari Dasha and transit readings",
+              "Trisakka report Ebook export"
+            ]
+          },
+          "locked": {
+            "en": [],
+            "mm": []
+          },
+          "oldPrices": [
+            20000,
+            100000,
+            200000
+          ],
+          "prices": [
+            15000,
+            80000,
+            150000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "myanmar",
+      "titleEn": "Myanmar Traditional",
+      "titleMm": "မြန်မာ့ရိုးရာ",
+      "plans": [
+        {
+          "level": "Premium",
+          "included": {
+            "en": [
+              "Maha Bote calculations and readings",
+              "Five-column Anga Vissa system",
+              "Anga Vissa studies",
+              "Gana Suddhi Vimala Sann",
+              "Three-tier forecasts",
+              "Detailed Eight Worldly Conditions star report",
+              "Detailed Ahta Lagna chart",
+              "Myanmar, English and Thingyan calendar",
+              "Maha Kala calculations and readings",
+              "Chart Print"
+            ],
+            "mm": [
+              "မဟာဘုတ်တွက်ကိန်း/ဟောကိန်း",
+              "အင်္ဂဝိဇ္ဇာ ၅တိုင်စနစ်",
+              "အင်္ဂဝိဇ္ဇာပညာရပ်ဆိုင်ရာများ",
+              "ဂဏသုဒ္ဓိဝိမလဆန်းပညာ",
+              "သုံးတန်ပေါ်နိစ်ဟောကိန်းများ",
+              "လောကဓံ ၈ ပါးသက္ခတ်ဟောစာတမ်းအသေးစိတ်",
+              "အသေးစိတ်အဌလဂ်ခွင်",
+              "မြန်မာ/အင်္ဂလိပ်/သင်္ကြန်ပြက္ခဒိန်",
+              "မဟာကာလကြီးတွက်ကိန်းဟောကိန်းများ",
+              "Chart Print"
+            ]
+          },
+          "locked": {
+            "en": [],
+            "mm": []
+          },
+          "oldPrices": [
+            10000,
+            60000,
+            100000
+          ],
+          "prices": [
+            8000,
+            40000,
+            70000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "numerology",
+      "titleEn": "Numerology",
+      "titleMm": "ဂဏန်းဗေဒင်",
+      "plans": [
+        {
+          "level": "Premium",
+          "included": {
+            "en": [
+              "Numerology birth chart",
+              "Name chart",
+              "Ruling and birth-day number readings",
+              "Numerology birth-chart report",
+              "Three-plane report",
+              "Personality arrows",
+              "Nine-year cycle",
+              "Monthly and yearly readings",
+              "Pyramid pinnacle years"
+            ],
+            "mm": [
+              "ဂဏန်းဇာတာခွင်",
+              "အမည်ဇာတာခွင်",
+              "အုပ်စိုးကိန်းနှင့်မွေးရက်ကိန်းအဟော",
+              "ဂဏန်းဇာတာဟောစာတမ်း",
+              "အလွှာ ၃ လွှာဟောစာတမ်း",
+              "ကိုယ်ရည်ကိုယ်သွေးမြှားတံများ",
+              "၉ နှစ်တာပြောင်းလဲမှုစက်ဝန်း",
+              "လအလိုက်/နှစ်အလိုက်ဟောစာတမ်းများ",
+              "ပိရမစ်အထွတ်အထိပ်နှစ်များ"
+            ]
+          },
+          "locked": {
+            "en": [],
+            "mm": []
+          },
+          "oldPrices": [
+            5000,
+            40000,
+            80000
+          ],
+          "prices": [
+            3000,
+            20000,
+            50000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muhurat",
+      "titleEn": "Muhurat",
+      "titleMm": "မုဟုတ္တ",
+      "plans": [
+        {
+          "level": "Premium",
+          "included": {
+            "en": [
+              "Daily Panchang and planetary time tables",
+              "Auspicious dates and times by ceremony",
+              "Date and city selection"
+            ],
+            "mm": [
+              "နေ့စဉ် ပဉ္စင်္ဂနှင့် ဂြိုဟ်အချိန်ဇယားများ",
+              "အခမ်းအနားအလိုက် နေ့ရက်နှင့် အချိန်ရွေးချယ်ခြင်း",
+              "နေ့စွဲနှင့် မြို့ရွေးချယ်ခြင်း"
+            ]
+          },
+          "locked": {
+            "en": [],
+            "mm": []
+          },
+          "oldPrices": [],
+          "prices": [
+            3000,
+            20000,
+            50000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarot",
+      "titleEn": "Tarot",
+      "titleMm": "တားရော့",
+      "plans": [
+        {
+          "level": "Premium",
+          "included": {
+            "en": [
+              "One-card, three-card and twelve-card readings",
+              "One-card answers to your questions",
+              "Tarot yatra and talisman readings"
+            ],
+            "mm": [
+              "တစ်ကတ်၊ သုံးကတ်နှင့် ဆယ့်နှစ်ကတ် အဟောများ",
+              "သိလိုရာမေးခွန်းအတွက် တစ်ကတ်အဟော",
+              "တားရော့ယတြာနှင့် အဆောင်ကတ်အဟော"
+            ]
+          },
+          "locked": {
+            "en": [],
+            "mm": []
+          },
+          "oldPrices": [],
+          "prices": [
+            10000,
+            60000,
+            150000
+          ]
+        }
+      ]
+    }
+  ],
+  "telegram": "https://t.me/htoomyatastro2635",
+  "phone": "09699031718"
+}
