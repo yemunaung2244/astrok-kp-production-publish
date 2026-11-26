@@ -1,4 +1,5 @@
 import { loadJson, escHtml, fmtKyat } from './script-loader.js';
+import { buildTelegramStartUrl } from './telegram.js';
 
 const coursesState = {
   courses: null,
@@ -21,7 +22,7 @@ export function renderCoursesScreen(appHeader, english) {
   const isKP = coursesState.tab === 1;
   const trackKey = isKP ? 'KP နက္ခတ်' : 'မြန်မာ့ရိုးရာ';
   const list = data?.[trackKey] || [];
-  const contactUrl = 'https://t.me/htoomyatastro2635';
+  const contactUrl = buildTelegramStartUrl(isKP ? 'course_kp' : 'course_myanmar');
 
   return `
     ${appHeader(t('သင်တန်း', 'Courses'), true)}
