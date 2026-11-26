@@ -15,92 +15,98 @@ const numState = {
   result: null
 };
 
-const PYTHAGOREAN_MAP = {
-  A: 1, J: 1, S: 1, B: 2, K: 2, T: 2, C: 3, L: 3, U: 3,
-  D: 4, M: 4, V: 4, E: 5, N: 5, W: 5, F: 6, O: 6, X: 6,
-  G: 7, P: 7, Y: 7, H: 8, Q: 8, Z: 8, I: 9, R: 9
-};
-
-function sumDigits(num) {
-  return String(Math.abs(Math.floor(num))).split('').reduce((acc, ch) => acc + Number(ch || 0), 0);
-}
-
-function reduceToSingle(num) {
-  let n = sumDigits(num);
-  while (n > 9) n = sumDigits(n);
-  return n;
-}
-
-function computeRulingNumber(day, month, year) {
-  const digits = `${day}${month}${year}`.replace(/\D/g, '').split('').map(Number);
-  let total = digits.reduce((a, b) => a + b, 0);
-  if (total === 22) return { key: '22/4', display: '22/4', base: 4 };
-  while (total > 11) {
-    total = sumDigits(total);
-    if (total === 22) return { key: '22/4', display: '22/4', base: 4 };
+function digitSum(str) {
+  let sum = 0;
+  for (const ch of String(str || '')) {
+    const code = ch.charCodeAt(0);
+    if (code >= 48 && code <= 57) sum += code - 48;
   }
-  if (total === 10) return { key: '10', display: '10', base: 1 };
-  if (total === 11) return { key: '11', display: '11', base: 2 };
-  return { key: String(total), display: String(total), base: total };
+  return sum;
 }
 
-function buildGridCounts(digitStr) {
-  const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 };
-  for (const ch of String(digitStr || '').replace(/\D/g, '')) {
-    const d = Number(ch);
-    if (d >= 1 && d <= 9) counts[d]++;
-  }
-  return counts;
+function reduceNum(val) {
+  let r = val;
+  while (r > 9) r = digitSum(String(r));
+  return r;
 }
 
-function nameToDigits(name) {
-  const clean = String(name || '').toUpperCase().replace(/[^A-Z]/g, '');
-  let digits = '';
-  for (const ch of clean) {
-    if (PYTHAGOREAN_MAP[ch]) digits += String(PYTHAGOREAN_MAP[ch]);
+function reduceSpecial(val) {
+  return (val === 10 || val === 11) ? val : reduceNum(val);
+}
+
+function numberLabel(total, ruling) {
+  if (total === 22) return '22/4';
+  let value = total;
+  while (value > 11) value = digitSum(String(value));
+  if (value === 11) return '11';
+  if (value === 10 || (ruling && value === 1)) return '10';
+  return String(value);
+}
+
+function paragraphsHtml(value, fallback = '') {
+  if (Array.isArray(value)) {
+    const items = value.map(s => String(s || '').trim()).filter(Boolean);
+    if (items.length) return items.map(p => `<p>${escHtml(p)}</p>`).join('');
+  } else if (typeof value === 'string' && value.trim()) {
+    return value.split('\n\n').map(p => `<p>${escHtml(p.trim())}</p>`).join('');
   }
-  return digits;
+  return fallback ? `<p>${escHtml(fallback)}</p>` : '';
 }
 
 function computeNumerology(day, month, year, name, targetYear, targetMonth) {
   const d = Number(day), m = Number(month), y = Number(year);
-  if (!d || !m || !y || d < 1 || d > 31 || m < 1 || m > 12 || y < 1800 || y > 2200) {
+  if (!d || !m || !y || d < 1 || d > 31 || m < 1 || m > 12 || y < 1 || y > 9999) {
     throw new Error('မွေးနေ့၊ လ၊ နှစ် မှန်ကန်စွာ ထည့်ပါ။');
   }
-  const birthDigits = `${d}${m}${y}`;
-  const birthCounts = buildGridCounts(birthDigits);
-  const ruling = computeRulingNumber(d, m, y);
-  const dayNumber = reduceToSingle(d);
-  const nameDigits = nameToDigits(name);
-  const nameCounts = buildGridCounts(nameDigits);
-  const nameTotal = nameDigits ? reduceToSingle(nameDigits.split('').reduce((a, b) => a + Number(b), 0)) : null;
+  const counts = Array(10).fill(0);
+  for (const ch of `${m}${d}${y}`) {
+    const n = Number(ch);
+    if (n >= 0 && n <= 9) counts[n]++;
+  }
 
+  const rulingTotal = digitSum(`${m}${d}${y}`);
+  const ruling = numberLabel(rulingTotal, true);
+  const birthDay = numberLabel(d, false);
   const ty = Number(targetYear) || today.getFullYear();
   const tm = Number(targetMonth) || (today.getMonth() + 1);
-  const personalYear = reduceToSingle(d + m + sumDigits(ty));
-  const personalMonth = reduceToSingle(personalYear + tm);
+  const personalYear = reduceNum(digitSum(String(ty)) + digitSum(String(m)) + digitSum(String(d)));
+  const personalMonth = reduceNum(personalYear + tm);
 
-  // Pyramid pinnacle ages (standard David Phillips / Burmese numerology)
-  const firstPeakAge = 36 - ruling.base;
-  const peaks = [
-    { index: 1, age: firstPeakAge, year: y + firstPeakAge, value: reduceToSingle(d + m) },
-    { index: 2, age: firstPeakAge + 9, year: y + firstPeakAge + 9, value: reduceToSingle(d + sumDigits(y)) },
-    { index: 3, age: firstPeakAge + 18, year: y + firstPeakAge + 18, value: reduceToSingle(reduceToSingle(d + m) + reduceToSingle(d + sumDigits(y))) },
-    { index: 4, age: firstPeakAge + 27, year: y + firstPeakAge + 27, value: reduceToSingle(m + sumDigits(y)) }
-  ];
+  const mr = reduceNum(m);
+  const dr = reduceNum(digitSum(String(d)));
+  const yr = reduceNum(digitSum(String(y)));
+  const first = reduceNum(mr + dr);
+  const second = reduceNum(dr + yr);
+  const pinnacles = [first, second, reduceSpecial(first + second), reduceSpecial(mr + yr)];
+  const rulingBase = ruling === '22/4' ? 4 : (Number(ruling) || 0);
+  const pinnacleAges = [36, 45, 54, 63].map(a => a - rulingBase);
 
-  // Isolated numbers (1, 3, 7, 9)
+  const nameCounts = Array(10).fill(0);
+  let soulTotal = 0, outerTotal = 0;
+  for (const ch of String(name || '').trim().toUpperCase()) {
+    const code = ch.charCodeAt(0);
+    if (code >= 65 && code <= 90) {
+      const val = ((code - 65) % 9) + 1;
+      nameCounts[val]++;
+      if ([65, 69, 73, 79, 85].includes(code)) soulTotal += val;
+      else outerTotal += val;
+    }
+  }
+  const fullNameTotal = soulTotal + outerTotal;
+  const soul = soulTotal > 0 ? numberLabel(soulTotal, false) : '';
+  const outer = outerTotal > 0 ? numberLabel(outerTotal, false) : '';
+  const fullName = fullNameTotal > 0 ? numberLabel(fullNameTotal, false) : '';
+
   const isolated = [];
-  if (birthCounts[1] > 0 && birthCounts[2] === 0 && birthCounts[4] === 0 && birthCounts[5] === 0) isolated.push('1');
-  if (birthCounts[3] > 0 && birthCounts[2] === 0 && birthCounts[5] === 0 && birthCounts[6] === 0) isolated.push('3');
-  if (birthCounts[7] > 0 && birthCounts[4] === 0 && birthCounts[5] === 0 && birthCounts[8] === 0) isolated.push('7');
-  if (birthCounts[9] > 0 && birthCounts[5] === 0 && birthCounts[6] === 0 && birthCounts[8] === 0) isolated.push('9');
+  if (counts[1] > 0 && counts[2] === 0 && counts[4] === 0 && counts[5] === 0) isolated.push('1');
+  if (counts[3] > 0 && counts[2] === 0 && counts[5] === 0 && counts[6] === 0) isolated.push('3');
+  if (counts[7] > 0 && counts[4] === 0 && counts[5] === 0 && counts[8] === 0) isolated.push('7');
+  if (counts[9] > 0 && counts[5] === 0 && counts[6] === 0 && counts[8] === 0) isolated.push('9');
 
   return {
-    day: d, month: m, year: y, name: name.trim(),
-    birthCounts, nameCounts, nameDigits, nameTotal,
-    ruling, dayNumber, personalYear, personalMonth,
-    targetYear: ty, targetMonth: tm, peaks, isolated
+    day: d, month: m, year: y, targetYear: ty, targetMonth: tm, name: name.trim(),
+    counts, nameCounts, ruling, birthDay, personalYear, personalMonth,
+    pinnacles, pinnacleAges, soul, outer, fullName, fullNameTotal, isolated
   };
 }
 
@@ -128,107 +134,110 @@ function renderNumerologyResult(res, book, english) {
   const t = (mm, en) => (english ? en : mm);
   const tabs = [
     ['chart', t('ဇာတာခွင်', 'Charts')],
-    ['ruling', t('အုပ်စိုးကိန်း & မွေးရက်', 'Ruling & Day')],
+    ['ruling', t('အုပ်စိုး & မွေးရက်', 'Ruling & Day')],
     ['digits', t('ဂဏန်းအဟော', 'Digits')],
     ['arrows', t('မြှားတံ & အလွှာ', 'Arrows & Planes')],
-    ['cycle', t('၉ နှစ်စက်ဝန်း', '9-Year Cycle')]
+    ['cycle', t('၉ နှစ် & ပိရမစ်', 'Cycle & Peaks')],
+    ...(res.fullName ? [['name', t('အမည်အဟော', 'Name Reading')]] : [])
   ];
 
   let body = '';
   if (numState.tab === 'chart') {
     body = `
       <div class="num-summary-pills">
-        <div class="num-pill"><span>${t('အုပ်စိုးကိန်း', 'Ruling Number')}</span><strong>${escHtml(res.ruling.display)}</strong></div>
-        <div class="num-pill"><span>${t('မွေးရက်ကိန်း', 'Birth Day')}</span><strong>${escHtml(english ? res.dayNumber : toMyDigits(res.dayNumber))}</strong></div>
-        <div class="num-pill"><span>${t('ကိုယ်ပိုင်နှစ်ကိန်း', 'Personal Year')} (${escHtml(res.targetYear)})</span><strong>${escHtml(english ? res.personalYear : toMyDigits(res.personalYear))}</strong></div>
-        <div class="num-pill"><span>${t('ကိုယ်ပိုင်လကိန်း', 'Personal Month')}</span><strong>${escHtml(english ? res.personalMonth : toMyDigits(res.personalMonth))}</strong></div>
+        <div class="num-pill"><span>${t('အုပ်စိုးကိန်း', 'Ruling')}</span><strong>${escHtml(res.ruling)}</strong></div>
+        <div class="num-pill"><span>${t('မွေးရက်ကိန်း', 'Birth Day')}</span><strong>${escHtml(res.birthDay)}</strong></div>
+        <div class="num-pill"><span>${t('ကိုယ်ပိုင်နှစ်', 'Personal Year')} (${res.targetYear})</span><strong>${escHtml(english ? res.personalYear : toMyDigits(res.personalYear))}</strong></div>
+        <div class="num-pill"><span>${t('ကိုယ်ပိုင်လ', 'Personal Month')}</span><strong>${escHtml(english ? res.personalMonth : toMyDigits(res.personalMonth))}</strong></div>
       </div>
       <div class="num-grids-row">
-        ${render3x3Grid(res.birthCounts, t('မွေးနေ့ ဂဏန်းဇာတာခွင်', 'Birth Numerology Grid'), english)}
-        ${res.nameDigits ? render3x3Grid(res.nameCounts, `${t('အမည်ဇာတာခွင်', 'Name Grid')} (${res.nameTotal})`, english) : ''}
+        ${render3x3Grid(res.counts, t('မွေးနေ့ ဂဏန်းဇာတာခွင်', 'Birth Numerology Grid'), english)}
+        ${res.fullName ? render3x3Grid(res.nameCounts, `${t('အမည်ဇာတာခွင်', 'Name Grid')} (${res.fullName})`, english) : ''}
       </div>
       <section class="ak-card">
         <h3>${t('ပိရမစ် အထွတ်အထိပ်နှစ်များ', 'Pyramid Pinnacle Years')}</h3>
         <div class="ak-peak-grid">
-          ${res.peaks.map(pk => `
+          ${res.pinnacles.map((val, i) => `
             <div class="ak-peak-item">
-              <small>${t(`အထွတ်အထိပ် ${toMyDigits(pk.index)}`, `Peak ${pk.index}`)}</small>
-              <strong>${t(`အသက် ${toMyDigits(pk.age)} နှစ် (${toMyDigits(pk.year)})`, `Age ${pk.age} (${pk.year})`)}</strong>
-              <span>${t('ကိန်း', 'Number')}: ${escHtml(english ? pk.value : toMyDigits(pk.value))}</span>
+              <small>${t(`အထွတ်အထိပ် ${toMyDigits(i + 1)}`, `Peak ${i + 1}`)}</small>
+              <strong>${t(`အသက် ${toMyDigits(res.pinnacleAges[i])} နှစ် (${toMyDigits(res.year + res.pinnacleAges[i])})`, `Age ${res.pinnacleAges[i]} (${res.year + res.pinnacleAges[i]})`)}</strong>
+              <span>${t('ကိန်း', 'Number')}: ${escHtml(english ? val : toMyDigits(val))}</span>
             </div>
           `).join('')}
         </div>
       </section>
     `;
   } else if (numState.tab === 'ruling') {
-    const rulingText = book?.rulingReadings?.[res.ruling.key] || book?.rulingReadings?.[String(res.ruling.base)] || '';
-    const dayMeaning = book?.numberMeanings?.[String(res.dayNumber)] || '';
+    const rulingParas = book?.rulingReadings?.[res.ruling] || book?.rulingReadings?.[String(Number(res.ruling) || 4)];
+    const dayParas = book?.birthDayReadings?.[res.birthDay] || book?.numberMeanings?.[res.birthDay];
     body = `
       <section class="ak-card">
-        <h3>${t(`အုပ်စိုးကိန်း ${res.ruling.display} အဟော`, `Ruling Number ${res.ruling.display}`)}</h3>
-        <div class="ak-reading-text">${escHtml(rulingText || t('အဟောဒေတာ မတွေ့ပါ။', 'Reading unavailable.')).replace(/\n/g, '<br>')}</div>
+        <h3>${t(`အုပ်စိုးကိန်း ${res.ruling} အဟော`, `Ruling Number ${res.ruling}`)}</h3>
+        <div class="ak-reading-text">${paragraphsHtml(rulingParas, t('အဟောဒေတာ မတွေ့ပါ။', 'Reading unavailable.'))}</div>
       </section>
       <section class="ak-card">
-        <h3>${t(`မွေးရက်ကိန်း ${toMyDigits(res.dayNumber)} အဓိပ္ပာယ်`, `Birth Day Number ${res.dayNumber}`)}</h3>
-        <div class="ak-reading-text">${escHtml(dayMeaning).replace(/\n/g, '<br>')}</div>
+        <h3>${t(`မွေးရက်ကိန်း ${res.birthDay} အဟော`, `Birth Day Number ${res.birthDay}`)}</h3>
+        <div class="ak-reading-text">${paragraphsHtml(dayParas)}</div>
       </section>
     `;
   } else if (numState.tab === 'digits') {
-    const digitBlocks = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => {
-      const count = res.birthCounts[n];
-      const map = book?.digitReadings?.[String(n)] || {};
-      const key = count === 0 ? '0' : String(Math.min(count, 5));
-      const text = map[key] || book?.numberMeanings?.[String(n)] || '';
-      return `
-        <article class="ak-card">
-          <h3>${t(`ဂဏန်း ${toMyDigits(n)} (${count ? toMyDigits(count) + ' လုံးပါဝင်' : 'မပါဝင်'})`, `Digit ${n} (${count ? count + 'x' : 'Absent'})`)}</h3>
-          <div class="ak-reading-text">${escHtml(text).replace(/\n/g, '<br>')}</div>
-        </article>
-      `;
-    }).join('');
     const isoBlocks = res.isolated.map(d => {
       const txt = book?.isolatedReadings?.[d];
       if (!txt) return '';
-      return `<article class="ak-card ak-highlight"><h3>${t(`သီးခြားရပ်တည်နေသော ဂဏန်း ${toMyDigits(d)}`, `Isolated Digit ${d}`)}</h3><div class="ak-reading-text">${escHtml(txt).replace(/\n/g, '<br>')}</div></article>`;
+      return `<article class="ak-card ak-highlight"><h3>${t(`သီးခြားရပ်တည်နေသော ဂဏန်း ${toMyDigits(d)}`, `Isolated Digit ${d}`)}</h3><div class="ak-reading-text">${paragraphsHtml(txt)}</div></article>`;
+    }).join('');
+    const digitBlocks = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => {
+      const count = res.counts[n];
+      const map = book?.digitReadings?.[String(n)] || {};
+      const key = count === 0 ? '0' : String(Math.min(count, 5));
+      const paras = map[key] || book?.numberMeanings?.[String(n)];
+      return `
+        <article class="ak-card">
+          <h3>${t(`ဂဏန်း ${toMyDigits(n)} (${count ? toMyDigits(count) + ' လုံးပါဝင်' : 'မပါဝင်'})`, `Digit ${n} (${count ? count + 'x' : 'Absent'})`)}</h3>
+          <div class="ak-reading-text">${paragraphsHtml(paras)}</div>
+        </article>
+      `;
     }).join('');
     body = isoBlocks + digitBlocks;
   } else if (numState.tab === 'arrows') {
     const arrows = (book?.arrows || []).map(arrow => {
-      const digits = arrow.digits || [];
-      const allPresent = digits.every(d => (res.birthCounts[d] || 0) > 0);
-      const allAbsent = digits.every(d => (res.birthCounts[d] || 0) === 0);
+      const digitList = String(arrow.digits || '').split('').map(Number).filter(n => n >= 1 && n <= 9);
+      const allPresent = digitList.length > 0 && digitList.every(d => (res.counts[d] || 0) > 0);
+      const allAbsent = digitList.length > 0 && digitList.every(d => (res.counts[d] || 0) === 0);
       if (!allPresent && !allAbsent) return '';
       const heading = allPresent ? arrow.presentTitle : arrow.absentTitle;
-      const text = allPresent ? arrow.present : arrow.absent;
+      const paras = allPresent ? arrow.present : arrow.absent;
+      if (!heading && (!paras || !paras.length)) return '';
       return `
-        <article class="ak-card ${allPresent ? 'ak-good' : 'ak-warn'}">
+        <article class="ak-card">
           <div class="ak-badge-row">
-            <span class="ak-tag">${digits.join('-')}</span>
+            <span class="ak-tag">${escHtml(digitList.join('-'))}</span>
             <span class="ak-tag ${allPresent ? 'good' : 'warn'}">${allPresent ? t('ပါဝင်သောမြှားတံ', 'Present Arrow') : t('လစ်ဟာသောမြှားတံ', 'Absent Arrow')}</span>
           </div>
           <h3>${escHtml(heading || '')}</h3>
-          <div class="ak-reading-text">${escHtml(text || '').replace(/\n/g, '<br>')}</div>
+          <div class="ak-reading-text">${paragraphsHtml(paras)}</div>
         </article>
       `;
     }).filter(Boolean).join('') || `<section class="ak-card"><p>${t('အထူးမြှားတံ (အပြည့်ပါဝင်/အပြည့်လစ်ဟာ) မရှိပါ။', 'No complete present or absent arrows found.')}</p></section>`;
 
     const planes = book?.planes ? `
       <section class="ak-card">
-        <h3>${t('အလွှာ ၃ လွှာ (စိတ်၊ နှလုံးသား၊ ရုပ်ပိုင်း)', 'Three Planes (Mind, Soul, Physical)')}</h3>
-        <div class="ak-plane-counts">
-          <span><strong>${t('စိတ်ပိုင်း (3-6-9)', 'Mind (3-6-9)')}:</strong> ${res.birthCounts[3] + res.birthCounts[6] + res.birthCounts[9]}</span>
-          <span><strong>${t('နှလုံးသား (2-5-8)', 'Soul (2-5-8)')}:</strong> ${res.birthCounts[2] + res.birthCounts[5] + res.birthCounts[8]}</span>
-          <span><strong>${t('ရုပ်ပိုင်း (1-4-7)', 'Physical (1-4-7)')}:</strong> ${res.birthCounts[1] + res.birthCounts[4] + res.birthCounts[7]}</span>
-        </div>
-        ${['mind', 'soul', 'physical'].map(k => book.planes[k] ? `<details class="ak-details"><summary>${k === 'mind' ? t('စိတ်ပိုင်းအလွှာ (3-6-9)', 'Mind Plane') : k === 'soul' ? t('နှလုံးသားအလွှာ (2-5-8)', 'Soul Plane') : t('ရုပ်ပိုင်းအလွှာ (1-4-7)', 'Physical Plane')}</summary><div class="ak-reading-text">${escHtml(book.planes[k]).replace(/\n/g, '<br>')}</div></details>` : '').join('')}
+        <h3>${t('အလွှာ ၃ လွှာ (စိတ်၊ နှလုံးသား၊ ရုပ်ပိုင်း)', 'Three Planes')}</h3>
+        ${Object.entries(book.planes).map(([k, val]) => `
+          <details class="ak-accordion" style="margin-top:8px">
+            <summary><strong>${k === 'mind' ? t('စိတ်ပိုင်းအလွှာ (3-6-9)', 'Mind Plane (3-6-9)') : k === 'soul' ? t('နှလုံးသားအလွှာ (2-5-8)', 'Soul Plane (2-5-8)') : t('ရုပ်ပိုင်းအလွှာ (1-4-7)', 'Physical Plane (1-4-7)')}</strong></summary>
+            <div class="ak-reading-text">${paragraphsHtml(val)}</div>
+          </details>
+        `).join('')}
       </section>
     ` : '';
     body = arrows + planes;
   } else if (numState.tab === 'cycle') {
-    const cycleMeaning = book?.numberMeanings?.[String(res.personalYear)] || '';
+    const pyParas = book?.personalYearReadings?.[String(res.personalYear)] || book?.numberMeanings?.[String(res.personalYear)];
+    const pmParas = book?.personalMonthReadings?.[String(res.personalYear)]?.[String(res.targetMonth)] || book?.numberMeanings?.[String(res.personalMonth)];
     const years = Array.from({ length: 9 }, (_, i) => {
       const yr = res.targetYear - 2 + i;
-      const py = reduceToSingle(res.day + res.month + sumDigits(yr));
+      const py = reduceNum(digitSum(String(yr)) + digitSum(String(res.month)) + digitSum(String(res.day)));
       return { yr, py, current: yr === res.targetYear };
     });
     body = `
@@ -244,8 +253,32 @@ function renderNumerologyResult(res, book, english) {
         </div>
       </section>
       <section class="ak-card">
-        <h3>${t(`${toMyDigits(res.targetYear)} ခုနှစ် ကိုယ်ပိုင်နှစ်ကိန်း (${toMyDigits(res.personalYear)}) အဓိပ္ပာယ်`, `Personal Year ${res.personalYear} (${res.targetYear})`)}</h3>
-        <div class="ak-reading-text">${escHtml(cycleMeaning).replace(/\n/g, '<br>')}</div>
+        <h3>${t(`${toMyDigits(res.targetYear)} ခုနှစ် ကိုယ်ပိုင်နှစ်ကိန်း (${toMyDigits(res.personalYear)})`, `Personal Year ${res.personalYear} (${res.targetYear})`)}</h3>
+        <div class="ak-reading-text">${paragraphsHtml(pyParas)}</div>
+      </section>
+      <section class="ak-card">
+        <h3>${t(`${toMyDigits(res.targetMonth)} လပိုင်း ဟောစာတမ်း (ကိုယ်ပိုင်လကိန်း ${toMyDigits(res.personalMonth)})`, `Personal Month ${res.personalMonth}`)}</h3>
+        <div class="ak-reading-text">${paragraphsHtml(pmParas)}</div>
+      </section>
+      <section class="ak-card">
+        <h3>${t('ပိရမစ် အထွတ်အထိပ် ဟောစာတမ်းများ', 'Pyramid Pinnacle Readings')}</h3>
+        ${res.pinnacles.map((val, i) => `
+          <details class="ak-accordion" style="margin-top:8px">
+            <summary><strong>${t(`အထွတ်အထိပ် ${toMyDigits(i + 1)} · အသက် ${toMyDigits(res.pinnacleAges[i])} နှစ် (ကိန်း ${toMyDigits(val)})`, `Peak ${i + 1} · Age ${res.pinnacleAges[i]} (Number ${val})`)}</strong></summary>
+            <div class="ak-reading-text">${paragraphsHtml(book?.pinnacleReadings?.[String(val)])}</div>
+          </details>
+        `).join('')}
+      </section>
+    `;
+  } else if (numState.tab === 'name' && res.fullName) {
+    body = `
+      <section class="ak-card">
+        <h3>${t(`ဝိညာဉ်ကိန်း / စိတ်တွင်းကိန်း (Soul: ${res.soul})`, `Soul Number (${res.soul})`)}</h3>
+        <div class="ak-reading-text">${paragraphsHtml(book?.nameSoulReadings?.[res.soul])}</div>
+      </section>
+      <section class="ak-card">
+        <h3>${t(`ပြင်ပပုံရိပ်ကိန်း (Outer: ${res.outer})`, `Outer Expression (${res.outer})`)}</h3>
+        <div class="ak-reading-text">${paragraphsHtml(book?.nameOuterReadings?.[res.outer])}</div>
       </section>
     `;
   }

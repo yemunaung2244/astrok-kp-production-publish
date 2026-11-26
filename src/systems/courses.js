@@ -4,47 +4,69 @@ const coursesState = {
   courses: null,
   loading: false,
   error: '',
-  track: 'မြန်မာ့ရိုးရာ'
+  tab: 0, // 0 = Myanmar Traditional, 1 = KP Astrology
+  selectedCourse: null
 };
 
-export function renderCoursesScreen(appHeader, english, wallet) {
+function courseAccent(level, isKP) {
+  if (isKP) return '#4254AB';
+  if (level <= 3) return '#7861CC';
+  if (level <= 5) return '#5280C9';
+  return '#B58A3D';
+}
+
+export function renderCoursesScreen(appHeader, english) {
   const t = (mm, en) => (english ? en : mm);
   const data = coursesState.courses;
-  const tracks = data ? Object.keys(data) : ['မြန်မာ့ရိုးရာ', 'KP နက္ခတ်'];
-  const list = data?.[coursesState.track] || [];
+  const isKP = coursesState.tab === 1;
+  const trackKey = isKP ? 'KP နက္ခတ်' : 'မြန်မာ့ရိုးရာ';
+  const list = data?.[trackKey] || [];
   const contactUrl = 'https://t.me/htoomyatastro2635';
 
   return `
-    ${appHeader(t('ဗေဒင်သင်တန်းများ', 'Astrology Courses'), true)}
-    <main class="ak-sys-main">
-      ${wallet ? `
-        <section class="ak-card ak-highlight">
-          <strong>${t('သင်တန်းတက်ရောက်ရန်', 'Course Enrollment')}</strong>
-          <p style="margin:6px 0 0">${t(`လက်ရှိ AstroK Pro ကျပ်ငွေလက်ကျန်: ${fmtKyat(wallet.kyatBalance || 0, false)} — Telegram မှတစ်ဆင့် တိုက်ရိုက်စာရင်းသွင်းနိုင်ပါသည်။`, `Current Wallet Balance: ${fmtKyat(wallet.kyatBalance || 0, true)} — Enroll directly via Telegram.`)}</p>
-        </section>
-      ` : ''}
-      <nav class="ak-subtabs">
-        ${tracks.map(track => `<button type="button" data-course-track="${escHtml(track)}" class="${coursesState.track === track ? 'selected' : ''}">${escHtml(track)}</button>`).join('')}
-      </nav>
+    ${appHeader(t('သင်တန်း', 'Courses'), true)}
+    <div class="ios-underline-tabs">
+      <button type="button" data-course-tab="0" class="${!isKP ? 'selected' : ''}">${t('မြန်မာ့ရိုးရာ', 'Myanmar Traditional')}</button>
+      <button type="button" data-course-tab="1" class="${isKP ? 'selected' : ''}">${t('KP နက္ခတ်', 'KP Astrology')}</button>
+    </div>
+    <main class="ak-sys-main" style="padding-top:18px">
+      <h2 class="ios-plans-heading" style="margin-top:0">
+        ${isKP ? t('KP နက္ခတ်ဗေဒင်ပညာသင်တန်းများ', 'KP Astrology Courses') : t('မြန်မာ့ရိုးရာဗေဒင်ပညာသင်တန်းများ', 'Myanmar Traditional Astrology Courses')}
+      </h2>
       ${coursesState.loading ? `<div class="chart-pending">${t('သင်တန်းစာရင်း ဖတ်နေပါသည်…', 'Loading courses…')}</div>` : ''}
       ${coursesState.error ? `<p class="form-error">${escHtml(coursesState.error)}</p>` : ''}
       <div class="ak-section-stack">
-        ${list.map(course => `
-          <article class="ak-card ak-course-card">
-            <div class="ak-badge-row">
-              <span class="ak-tag">Level ${escHtml(course.level)}</span>
-              <span class="ak-tag good">${escHtml(fmtKyat(course.feeMMK, english))}</span>
-            </div>
-            <h3>${escHtml(course.title)}</h3>
-            <p class="ak-reading-text">${escHtml(course.description)}</p>
-            ${course.includes ? `<p class="ak-course-inc">📘 ${escHtml(course.includes)}</p>` : ''}
-            <a class="ak-course-cta" href="${contactUrl}" target="_blank" rel="noopener noreferrer">
-              ${t('Telegram မှ သင်တန်းအပ်မည် ↗', 'Enroll via Telegram ↗')}
-            </a>
-          </article>
-        `).join('')}
+        ${list.map((course, idx) => {
+          const accent = courseAccent(course.level, isKP);
+          return `
+            <button type="button" class="ios-course-row" data-open-course="${idx}" style="--course-accent:${accent}">
+              <span class="ios-course-num">${String(course.level).padStart(2, '0')}</span>
+              <span class="ios-course-meta">
+                <strong>${escHtml(course.title)}</strong>
+                <small>Level ${escHtml(course.level)}${english ? '' : ' အဆင့်'}</small>
+                ${isKP ? `<b>${escHtml(fmtKyat(course.feeMMK, english))}</b>` : ''}
+              </span>
+              <span class="ios-course-chev" aria-hidden="true">›</span>
+            </button>
+          `;
+        }).join('')}
       </div>
     </main>
+    ${coursesState.selectedCourse ? `
+      <div class="ios-modal-backdrop" id="course-modal-backdrop">
+        <section class="ios-modal-sheet" role="dialog" aria-modal="true">
+          <header class="ios-modal-head">
+            <strong>${escHtml(coursesState.selectedCourse.title)} · Level ${escHtml(coursesState.selectedCourse.level)}</strong>
+            <button type="button" id="course-modal-close" aria-label="Close">×</button>
+          </header>
+          <p class="ak-reading-text" style="margin:12px 0">${escHtml(coursesState.selectedCourse.description)}</p>
+          ${coursesState.selectedCourse.includes ? `<p class="ak-course-inc">📘 ${escHtml(coursesState.selectedCourse.includes)}</p>` : ''}
+          <a class="ios-primary-rect-btn" style="display:flex;justify-content:center;align-items:center;text-decoration:none" href="${contactUrl}" target="_blank" rel="noopener noreferrer">
+            ${t('သင်တန်းတက်မယ် ↗', 'Join the course ↗')}
+          </a>
+        </section>
+      </div>
+    ` : ''}
   `;
 }
 
@@ -58,10 +80,31 @@ export function bindCoursesScreen(rerender) {
       .finally(() => { coursesState.loading = false; rerender(); });
   }
 
-  document.querySelectorAll('[data-course-track]').forEach(btn => {
+  document.querySelectorAll('[data-course-tab]').forEach(btn => {
     btn.addEventListener('click', () => {
-      coursesState.track = btn.dataset.courseTrack;
+      coursesState.tab = Number(btn.dataset.courseTab);
+      coursesState.selectedCourse = null;
       rerender();
     });
+  });
+
+  document.querySelectorAll('[data-open-course]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isKP = coursesState.tab === 1;
+      const list = coursesState.courses?.[isKP ? 'KP နက္ခတ်' : 'မြန်မာ့ရိုးရာ'] || [];
+      coursesState.selectedCourse = list[Number(btn.dataset.openCourse)] || null;
+      rerender();
+    });
+  });
+
+  document.querySelector('#course-modal-close')?.addEventListener('click', () => {
+    coursesState.selectedCourse = null;
+    rerender();
+  });
+  document.querySelector('#course-modal-backdrop')?.addEventListener('click', e => {
+    if (e.target.id === 'course-modal-backdrop') {
+      coursesState.selectedCourse = null;
+      rerender();
+    }
   });
 }
