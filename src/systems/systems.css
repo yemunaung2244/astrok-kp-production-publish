@@ -15,13 +15,30 @@
 
 /* Home Dawn Background & Scroll Container */
 .ios-home-bg {
-  min-height: 100vh;
-  background-image: linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)), var(--dawn-bg);
-  background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
+  position: relative;
+  min-height: 100dvh;
+  background: #F4EFE9;
+}
+.ios-home-dawn-img {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  pointer-events: none;
+}
+.ios-home-dawn-veil {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  z-index: 1;
+  pointer-events: none;
 }
 .ios-home-scroll {
+  position: relative;
+  z-index: 2;
   max-width: 640px;
   margin: 0 auto;
   padding: 18px 20px 104px;
@@ -84,6 +101,7 @@
   cursor: pointer;
 }
 .ios-bell-circle {
+  position: relative;
   width: 43px;
   height: 45px;
   border-radius: 999px;
@@ -94,6 +112,23 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.ios-bell-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  border: 2px solid #fff;
+  box-sizing: border-box;
 }
 
 /* Home Profile Hero Card */
@@ -219,7 +254,7 @@
   border-radius: 18px;
   overflow: hidden;
   border: 1.4px solid rgba(255, 255, 255, 0.95);
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.65);
   padding: 0;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(214, 153, 31, 0.16);
@@ -963,20 +998,30 @@
 .ak-tarot-frame { width: 100%; flex: 1; border: none; background: #f6f4fb; }
 
 /* Unified iOS Page Background on Sub-Screens */
+.ios-app[data-screen="home"] {
+  background: transparent;
+  min-height: 100dvh;
+}
+.ios-app[data-screen="entry"],
 .ios-app[data-screen="numerology"],
 .ios-app[data-screen="msann"],
 .ios-app[data-screen="trisakka"],
+.ios-app[data-screen="key"] {
+  background: #F2F4FF;
+  min-height: 100dvh;
+}
+.ios-app[data-screen="wallet"],
+.ios-app[data-screen="profile"],
 .ios-app[data-screen="muhurat"],
 .ios-app[data-screen="books"],
 .ios-app[data-screen="courses"],
-.ios-app[data-screen="notifications"],
-.ios-app[data-screen="key"] {
-  background: #F2F4FF;
-  min-height: 100vh;
+.ios-app[data-screen="notifications"] {
+  background: #F7FAFF;
+  min-height: 100dvh;
 }
 .ios-app[data-screen="plans"] {
   background: #F2F0FF;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* AstroKPlanKeyScreen.swift 1-to-1 Design */
