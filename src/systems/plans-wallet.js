@@ -61,6 +61,10 @@ function isPlanActive(wallet, systemId, level) {
   return systemId === 'kp' ? (!hasSystemPremium && !hasKPStandard) : !hasSystemPremium;
 }
 
+export function hasSystemPremiumAccess(wallet, systemId) {
+  return isPlanActive(wallet, systemId, 'Premium');
+}
+
 export function renderMultiSystemPlans(english, wallet, { hideTopActions = false } = {}) {
   const t = (mm, en) => (english ? en : mm);
   const systems = plansState.data?.systems || [];

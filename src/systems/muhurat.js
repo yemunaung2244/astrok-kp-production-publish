@@ -1,13 +1,13 @@
 import { calculate, normalize, SIGN_MM } from '../kp-core.js';
 import { FAVORITE_CITIES, loadCityCatalog, searchCities, displayCity } from '../city-catalog.js';
 import { escHtml, toMyDigits } from './script-loader.js';
-import { renderSystemPlansOnly, bindMultiSystemPlans } from './plans-wallet.js';
+import { renderSystemPlansOnly, bindMultiSystemPlans, hasSystemPremiumAccess } from './plans-wallet.js';
 
 const today = new Date();
 const pad = n => String(n).padStart(2, '0');
 
 const muhuratState = {
-  mode: 'panchang', // 'panchang' | 'plans'
+  mode: 'plans', // 'plans' | 'panchang' (matches iOS MuhuratPlansView entry)
   date: `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`,
   time: `${pad(today.getHours())}:${pad(today.getMinutes())}`,
   city: FAVORITE_CITIES[0],
@@ -302,6 +302,8 @@ function iosTableCard(titleText, rows, palette = 'purple', threeCol = false) {
 
 export function renderMuhuratScreen(appHeader, english, wallet) {
   const t = (mm, en) => (english ? en : mm);
+  const hasAccess = hasSystemPremiumAccess(wallet, 'muhurat');
+  if (!hasAccess) muhuratState.mode = 'plans';
   const d = muhuratState.data;
   const tab = muhuratState.tab;
 
@@ -309,9 +311,11 @@ export function renderMuhuratScreen(appHeader, english, wallet) {
     return `
       ${appHeader(t('မုဟုတ္တ Premium', 'Muhurat Premium'), true)}
       <main class="ak-sys-main">
-        <button type="button" id="muh-open-panchang" class="ios-muh-gold-btn" style="width:100%;margin-bottom:14px">
-          📅 ${t('မုဟုတ္တ အသုံးပြုရန်', 'Open Muhurat')}
-        </button>
+        ${hasAccess ? `
+          <button type="button" id="muh-open-panchang" class="ios-muh-gold-btn" style="width:100%;margin-bottom:14px">
+            📅 ${t('မုဟုတ္တ အသုံးပြုရန်', 'Open Muhurat')}
+          </button>
+        ` : ''}
         ${renderSystemPlansOnly('muhurat', english, wallet)}
       </main>
     `;
