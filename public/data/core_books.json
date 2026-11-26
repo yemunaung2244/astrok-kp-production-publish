@@ -8,7 +8,8 @@
     "meta": "PDF • ၃၄၇ မျက်နှာ • ၂၅ MB • မြန်မာ",
     "metaEn": "PDF • 347 pages • 25 MB • Burmese",
     "priceKyat": 18000,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Nakhat_Linkar_Cover"
   },
   {
     "id": "kp-horary-lottery",
@@ -19,7 +20,8 @@
     "meta": "PDF • ၃၅ မျက်နှာ • ၂.၃ MB • မြန်မာ",
     "metaEn": "PDF • 35 pages • 2.3 MB • Burmese",
     "priceKyat": 4500,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "KP_Horary_Lottery_Cover"
   },
   {
     "id": "kp-business",
@@ -30,7 +32,8 @@
     "meta": "PDF • ၂၂၈ မျက်နှာ • ၃.၁ MB • မြန်မာ",
     "metaEn": "PDF • 228 pages • 3.1 MB • Burmese",
     "priceKyat": 4500,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "KP_Business_Cover"
   },
   {
     "id": "astrok-user-guide",
@@ -41,7 +44,8 @@
     "meta": "PDF • ၇၆၅ KB • မြန်မာ",
     "metaEn": "PDF • 765 KB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "AstroK_User_Guide_Cover"
   },
   {
     "id": "kp-level-1",
@@ -52,7 +56,8 @@
     "meta": "PDF • ၂၁၈ မျက်နှာ • ၃ MB • မြန်မာ",
     "metaEn": "PDF • 218 pages • 3 MB • Burmese",
     "priceKyat": 18000,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "KP_Level_1_Cover"
   },
   {
     "id": "kp-astrology-guide",
@@ -63,7 +68,8 @@
     "meta": "PDF • ၁၁၃ မျက်နှာ • ၁၇ MB • မြန်မာ",
     "metaEn": "PDF • 113 pages • 17 MB • Burmese",
     "priceKyat": 8000,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "KP_Astrology_Guide_Cover"
   },
   {
     "id": "modern-mahabote-volume-1",
@@ -74,7 +80,8 @@
     "meta": "PDF • ၈၅ မျက်နှာ • ၁၃ MB • မြန်မာ",
     "metaEn": "PDF • 85 pages • 13 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Modern_Mahabote_Volume_1_Cover"
   },
   {
     "id": "modern-mahabote-volume-2",
@@ -85,7 +92,8 @@
     "meta": "PDF • ၁၅၃ မျက်နှာ • ၂၆ MB • မြန်မာ",
     "metaEn": "PDF • 153 pages • 26 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Modern_Mahabote_Volume_2_Cover"
   },
   {
     "id": "modern-mahabote-volume-3",
@@ -96,7 +104,8 @@
     "meta": "PDF • ၈၄ မျက်နှာ • ၂၃ MB • မြန်မာ",
     "metaEn": "PDF • 84 pages • 23 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Modern_Mahabote_Volume_3_Cover"
   },
   {
     "id": "modern-mahasan-volume-1",
@@ -107,7 +116,8 @@
     "meta": "PDF • ၁၇၅ မျက်နှာ • ၄၇ MB • မြန်မာ",
     "metaEn": "PDF • 175 pages • 47 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Modern_Mahasan_Volume_1_Cover"
   },
   {
     "id": "modern-mahasan-volume-2",
@@ -118,7 +128,8 @@
     "meta": "PDF • ၄၇ မျက်နှာ • ၈.၄ MB • မြန်မာ",
     "metaEn": "PDF • 47 pages • 8.4 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Modern_Mahasan_Volume_2_Cover"
   },
   {
     "id": "modern-mahasan-volume-3",
@@ -129,7 +140,8 @@
     "meta": "PDF • ၃၆ မျက်နှာ • ၇.၄ MB • မြန်မာ",
     "metaEn": "PDF • 36 pages • 7.4 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Modern_Mahasan_Volume_3_Cover"
   },
   {
     "id": "inga-wizza-mahakala-secrets",
@@ -140,7 +152,8 @@
     "meta": "PDF • ၆၂ မျက်နှာ • ၁၂ MB • မြန်မာ",
     "metaEn": "PDF • 62 pages • 12 MB • Burmese",
     "priceKyat": 4500,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Inga_Wizza_Mahakala_Secrets_Cover"
   },
   {
     "id": "mahabote-course-level-1",
@@ -151,7 +164,8 @@
     "meta": "PDF • ၃၁ မျက်နှာ • ၄.၇ MB • မြန်မာ",
     "metaEn": "PDF • 31 pages • 4.7 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_1_Cover"
   },
   {
     "id": "mahabote-course-level-2",
@@ -162,7 +176,8 @@
     "meta": "PDF • ၄၃ မျက်နှာ • ၈.၈ MB • မြန်မာ",
     "metaEn": "PDF • 43 pages • 8.8 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_2_Cover"
   },
   {
     "id": "mahabote-course-level-3",
@@ -173,7 +188,8 @@
     "meta": "PDF • ၂၈ မျက်နှာ • ၅.၂ MB • မြန်မာ",
     "metaEn": "PDF • 28 pages • 5.2 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_3_Cover"
   },
   {
     "id": "mahabote-course-level-4",
@@ -184,7 +200,8 @@
     "meta": "PDF • ၂၀ မျက်နှာ • ၃.၆ MB • မြန်မာ",
     "metaEn": "PDF • 20 pages • 3.6 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_4_Cover"
   },
   {
     "id": "mahabote-course-level-5",
@@ -195,7 +212,8 @@
     "meta": "PDF • ၁၉ မျက်နှာ • ၂.၉ MB • မြန်မာ",
     "metaEn": "PDF • 19 pages • 2.9 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_5_Cover"
   },
   {
     "id": "mahabote-course-level-6",
@@ -206,7 +224,8 @@
     "meta": "PDF • ၂၅ မျက်နှာ • ၄.၄ MB • မြန်မာ",
     "metaEn": "PDF • 25 pages • 4.4 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_6_Cover"
   },
   {
     "id": "mahabote-course-level-7",
@@ -217,7 +236,8 @@
     "meta": "PDF • ၂၀ မျက်နှာ • ၃.၁ MB • မြန်မာ",
     "metaEn": "PDF • 20 pages • 3.1 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_7_Cover"
   },
   {
     "id": "mahabote-course-level-8",
@@ -228,7 +248,8 @@
     "meta": "PDF • ၃၄ မျက်နှာ • ၆.၅ MB • မြန်မာ",
     "metaEn": "PDF • 34 pages • 6.5 MB • Burmese",
     "priceKyat": 4500,
-    "category": "သင်တန်းမူ"
+    "category": "သင်တန်းမူ",
+    "coverName": "Mahabote_Course_Level_8_Cover"
   },
   {
     "id": "east-west-volume-1",
@@ -239,7 +260,8 @@
     "meta": "PDF • ၉၁ မျက်နှာ • ၇.၅ MB • မြန်မာ",
     "metaEn": "PDF • 91 pages • 7.5 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "East_West_Volume_1_Cover"
   },
   {
     "id": "east-west-volume-2",
@@ -250,7 +272,8 @@
     "meta": "PDF • ၁၇၂ မျက်နှာ • ၁၅.၄ MB • မြန်မာ",
     "metaEn": "PDF • 172 pages • 15.4 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "East_West_Volume_2_Cover"
   },
   {
     "id": "east-west-volume-3",
@@ -261,7 +284,8 @@
     "meta": "PDF • ၈၂ မျက်နှာ • ၆.၆ MB • မြန်မာ",
     "metaEn": "PDF • 82 pages • 6.6 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "East_West_Volume_3_Cover"
   },
   {
     "id": "east-west-volume-4",
@@ -272,7 +296,8 @@
     "meta": "PDF • ၂၂၉ မျက်နှာ • ၁၇.၈ MB • မြန်မာ",
     "metaEn": "PDF • 229 pages • 17.8 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "East_West_Volume_4_Cover"
   },
   {
     "id": "kp-reader-notes-1-4",
@@ -283,7 +308,8 @@
     "meta": "PDF • ၃၄၄ မျက်နှာ • ၂၃.၉ MB • မြန်မာ",
     "metaEn": "PDF • 344 pages • 23.9 MB • Burmese",
     "priceKyat": 0,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "KP_Reader_Notes_1_4_Cover"
   },
   {
     "id": "nakshatra-volume-1",
@@ -294,7 +320,8 @@
     "meta": "PDF • ၃၃၁ မျက်နှာ • ၃၉ MB • မြန်မာ",
     "metaEn": "PDF • 331 pages • 39 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Nakshatra_Volume_1_Cover"
   },
   {
     "id": "nakshatra-volume-2",
@@ -305,7 +332,8 @@
     "meta": "PDF • ၁၂၁ မျက်နှာ • ၉.၇ MB • မြန်မာ",
     "metaEn": "PDF • 121 pages • 9.7 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Nakshatra_Volume_2_Cover"
   },
   {
     "id": "nakshatra-volume-3",
@@ -316,7 +344,8 @@
     "meta": "PDF • ၂၄၀ မျက်နှာ • ၁၉.၆ MB • မြန်မာ",
     "metaEn": "PDF • 240 pages • 19.6 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Nakshatra_Volume_3_Cover"
   },
   {
     "id": "u-tin-aung-volume-1",
@@ -327,7 +356,8 @@
     "meta": "PDF • ၁၅၁ မျက်နှာ • ၁၄ MB • မြန်မာ",
     "metaEn": "PDF • 151 pages • 14 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "U_Tin_Aung_Volume_1_Cover"
   },
   {
     "id": "u-tin-aung-volume-2",
@@ -338,7 +368,8 @@
     "meta": "PDF • ၁၅၄ မျက်နှာ • ၁၄ MB • မြန်မာ",
     "metaEn": "PDF • 154 pages • 14 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "U_Tin_Aung_Volume_2_Cover"
   },
   {
     "id": "u-tin-aung-volume-3",
@@ -349,7 +380,8 @@
     "meta": "PDF • ၁၅၆ မျက်နှာ • ၁၄ MB • မြန်မာ",
     "metaEn": "PDF • 156 pages • 14 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "U_Tin_Aung_Volume_3_Cover"
   },
   {
     "id": "u-tin-win-kp-astrology",
@@ -360,7 +392,8 @@
     "meta": "PDF • ၆၇ မျက်နှာ • ၄၂ MB • မြန်မာ",
     "metaEn": "PDF • 67 pages • 42 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Z_Tin_Win_Cover"
   },
   {
     "id": "aung-set-astrology",
@@ -371,7 +404,8 @@
     "meta": "PDF • ၂၄၈ မျက်နှာ • ၂၃ MB • မြန်မာ",
     "metaEn": "PDF • 248 pages • 23 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "AungSet_KP_Cover"
   },
   {
     "id": "dictionary-of-astrology",
@@ -382,7 +416,8 @@
     "meta": "PDF • ၂၀၁ မျက်နှာ • ၂၁ MB • အင်္ဂလိပ်/မြန်မာ",
     "metaEn": "PDF • 201 pages • 21 MB • English/Myanmar",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Dictionary_of_Astrology_Cover"
   },
   {
     "id": "transit-astrology",
@@ -393,7 +428,8 @@
     "meta": "PDF • ၂၉၉ မျက်နှာ • ၁၉.၄ MB • မြန်မာ",
     "metaEn": "PDF • 299 pages • 19.4 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Transit_Astrology_Cover"
   },
   {
     "id": "marriage-reader",
@@ -404,7 +440,8 @@
     "meta": "PDF • ၄၀၃ မျက်နှာ • ၃၈.၈ MB • မြန်မာ",
     "metaEn": "PDF • 403 pages • 38.8 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Marriage_Reader_Cover"
   },
   {
     "id": "horary-astrology",
@@ -415,7 +452,8 @@
     "meta": "PDF • ၃၂၈ မျက်နှာ • ၃၁.၇ MB • မြန်မာ",
     "metaEn": "PDF • 328 pages • 31.7 MB • Burmese",
     "priceKyat": 0,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "Horary_Astrology_Cover"
   },
   {
     "id": "ruling-planets",
@@ -426,7 +464,8 @@
     "meta": "PDF • ၁၉၆ မျက်နှာ • ၁၂.၆ MB • မြန်မာ",
     "metaEn": "PDF • 196 pages • 12.6 MB • Burmese",
     "priceKyat": 0,
-    "category": "KP"
+    "category": "KP",
+    "coverName": "Ruling_Planets_Cover"
   },
   {
     "id": "hmw-system",
@@ -437,7 +476,8 @@
     "meta": "PDF • ၁၆ မျက်နှာ • ၁.၂ MB • မြန်မာ",
     "metaEn": "PDF • 16 pages • 1.2 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "HMW_System_Cover"
   },
   {
     "id": "myanmar-traditional-planetary-riding",
@@ -448,7 +488,8 @@
     "meta": "PDF • ၁၄၅ မျက်နှာ • ၆၀၁ KB • မြန်မာ",
     "metaEn": "PDF • 145 pages • 601 KB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Myanmar_Traditional_Planetary_Riding_Cover"
   },
   {
     "id": "inga-wizza",
@@ -459,7 +500,8 @@
     "meta": "PDF • ၇၃ မျက်နှာ • ၅.၉ MB • မြန်မာ",
     "metaEn": "PDF • 73 pages • 5.9 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Inga_Wizza_Cover"
   },
   {
     "id": "inga-yoke-astrology",
@@ -470,7 +512,8 @@
     "meta": "PDF • ၃၄၈ မျက်နှာ • ၂၂.၃ MB • မြန်မာ",
     "metaEn": "PDF • 348 pages • 22.3 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Inga_Yoke_Astrology_Cover"
   },
   {
     "id": "cheiro-numerology-palmistry",
@@ -481,7 +524,8 @@
     "meta": "PDF • ၇၁ မျက်နှာ • ၃.၉ MB • မြန်မာ",
     "metaEn": "PDF • 71 pages • 3.9 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Cheiro_Numerology_Palmistry_Cover"
   },
   {
     "id": "shwe-lan-ngwe-lan-padaythar",
@@ -492,7 +536,8 @@
     "meta": "PDF • ၂၂၄ မျက်နှာ • ၁၇ MB • မြန်မာ",
     "metaEn": "PDF • 224 pages • 17 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Shwe_Lan_Ngwe_Lan_Padaythar_Cover"
   },
   {
     "id": "gatha-mantra-collection",
@@ -503,7 +548,8 @@
     "meta": "PDF • ၈၃ မျက်နှာ • ၆.၇ MB • မြန်မာ",
     "metaEn": "PDF • 83 pages • 6.7 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Gatha_Mantra_Collection_Cover"
   },
   {
     "id": "mantra-treatise",
@@ -514,7 +560,8 @@
     "meta": "PDF • ၃၄ မျက်နှာ • ၁.၅ MB • မြန်မာ",
     "metaEn": "PDF • 34 pages • 1.5 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Mantra_Treatise_Cover"
   },
   {
     "id": "maha-siddhi-treatise",
@@ -525,7 +572,8 @@
     "meta": "PDF • ၁၄၃ မျက်နှာ • ၄.၉ MB • မြန်မာ",
     "metaEn": "PDF • 143 pages • 4.9 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Maha_Siddhi_Treatise_Cover"
   },
   {
     "id": "daily-gatha-mantra",
@@ -536,7 +584,8 @@
     "meta": "PDF • ၁၆၈ မျက်နှာ • ၉.၂ MB • မြန်မာ",
     "metaEn": "PDF • 168 pages • 9.2 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Daily_Gatha_Mantra_Cover"
   },
   {
     "id": "kama-shastra",
@@ -547,7 +596,8 @@
     "meta": "PDF • ၁၀၄ မျက်နှာ • ၄.၂ MB • မြန်မာ",
     "metaEn": "PDF • 104 pages • 4.2 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Kama_Shastra_Cover"
   },
   {
     "id": "u-punya-astrology-verses",
@@ -558,7 +608,8 @@
     "meta": "PDF • ၁၆၄ မျက်နှာ • ၁၂.၄ MB • မြန်မာ",
     "metaEn": "PDF • 164 pages • 12.4 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "U_Punya_Astrology_Verses_Cover"
   },
   {
     "id": "traditional-medicine-dictionary",
@@ -569,6 +620,7 @@
     "meta": "PDF • ၅၅ မျက်နှာ • ၃.၉ MB • မြန်မာ",
     "metaEn": "PDF • 55 pages • 3.9 MB • Burmese",
     "priceKyat": 0,
-    "category": "အခြားကျမ်းများ"
+    "category": "အခြားကျမ်းများ",
+    "coverName": "Traditional_Medicine_Dictionary_Cover"
   }
 ]

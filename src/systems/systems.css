@@ -993,6 +993,100 @@
 .ak-book-card h3 { margin: 0; font-size: 14.5px; color: var(--ak-ink); line-height: 1.4; }
 .ak-book-author { margin: 0; font-size: 12.5px; color: var(--ak-secondary-ink); }
 .ak-book-btn { margin-top: auto; background: var(--ak-primary); color: #fff; border: none; border-radius: 10px; padding: 10px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+
+/* iOS AstrologyBooksView.swift 1-to-1 Layout */
+.ios-books-main { display: flex; flex-direction: column; gap: 14px; }
+.ios-books-intro {
+  display: flex; align-items: center; gap: 14px;
+  background: #fff; border: 1px solid var(--ak-divider); border-radius: 18px;
+  padding: 16px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+.ios-books-intro-icon {
+  width: 58px; height: 58px; border-radius: 16px;
+  background: var(--ak-primary); color: #fff;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.ios-books-intro-copy h2 { margin: 0 0 5px; font-size: 17px; font-weight: 700; color: var(--ak-ink); }
+.ios-books-intro-copy p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ak-secondary-ink); }
+.ios-books-search-wrap {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--ak-divider); border-radius: 12px;
+  padding: 0 12px; height: 42px;
+}
+.ios-books-search-icon { font-size: 14px; opacity: 0.65; }
+.ios-books-search-input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-size: 14.5px; color: var(--ak-ink);
+}
+.ios-books-cats {
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+}
+.ios-books-cat-btn {
+  flex: 0 0 auto; height: 38px; padding: 0 14px; border: none; border-radius: 999px;
+  background: var(--ak-primary-soft); color: var(--ak-primary);
+  font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.ios-books-cat-btn.selected { background: var(--ak-primary); color: #fff; }
+.ios-books-list { display: flex; flex-direction: column; gap: 14px; }
+.ios-book-row {
+  background: #fff; border: 1px solid var(--ak-divider); border-radius: 18px;
+  padding: 16px; display: flex; flex-direction: column; gap: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+.ios-book-row-top { display: flex; align-items: flex-start; gap: 14px; }
+.ios-book-cover-wrap {
+  width: 90px; height: 124px; border-radius: 8px; overflow: hidden; flex-shrink: 0;
+  background: var(--ak-primary-soft); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.ios-book-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ios-book-cover-fallback {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  color: var(--ak-primary);
+}
+.ios-book-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.ios-book-info h3 { margin: 0; font-size: 15px; font-weight: 700; color: var(--ak-ink); line-height: 1.4; }
+.ios-book-desc { margin: 0; font-size: 12.5px; color: var(--ak-secondary-ink); line-height: 1.5; }
+.ios-book-meta { margin: 0; font-size: 11.5px; color: var(--ak-secondary-ink); }
+.ios-book-price { margin: 0; font-size: 12.5px; font-weight: 700; }
+.ios-book-price.free { color: var(--ak-accent); }
+.ios-book-price.paid { color: var(--ak-gold); }
+.ios-book-action-btn {
+  width: 100%; height: 42px; border: none; border-radius: 9px;
+  background: var(--ak-primary); color: #fff;
+  font-size: 14.5px; font-weight: 700; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.ios-book-action-btn.ready { background: var(--ak-accent); }
+.ios-book-action-btn:disabled { opacity: 0.65; cursor: default; }
+.ios-online-books-section { display: flex; flex-direction: column; gap: 12px; padding-top: 10px; }
+.ios-online-books-intro h2 { margin: 0 0 6px; font-size: 17px; font-weight: 700; color: var(--ak-ink); }
+.ios-online-books-intro p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ak-secondary-ink); }
+.ios-online-cover-wrap {
+  width: 66px; height: 80px; border-radius: 9px; overflow: hidden; flex-shrink: 0;
+  background: var(--ak-primary-soft); display: flex; align-items: center; justify-content: center;
+}
+.ios-online-cover { width: 100%; height: 100%; object-fit: contain; display: block; }
+.ios-online-cover-icon { color: var(--ak-primary); display: flex; align-items: center; justify-content: center; }
+.ios-online-meta { margin: 0; font-size: 11.5px; color: var(--ak-accent); font-weight: 500; }
+.ios-online-btn-row { display: flex; gap: 8px; align-items: center; }
+.ios-online-btn-row .ios-book-action-btn { flex: 1; }
+.ios-online-ext-btn {
+  width: 42px; height: 42px; border-radius: 9px; flex-shrink: 0;
+  background: var(--ak-primary-soft); color: var(--ak-primary);
+  display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+}
+.ios-books-footer-note { margin: 2px 0 0; font-size: 12px; line-height: 1.5; color: var(--ak-secondary-ink); }
+.ios-books-modal-msg { margin: 14px 0 18px; font-size: 14.5px; line-height: 1.6; color: var(--ak-ink); }
+.ios-books-modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.ios-books-modal-cancel {
+  border: 1px solid var(--ak-divider); background: #fff; color: var(--ak-ink);
+  border-radius: 10px; padding: 10px 16px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.ios-books-modal-confirm {
+  border: none; background: var(--ak-primary); color: #fff;
+  border-radius: 10px; padding: 10px 18px; font-size: 14px; font-weight: 700; cursor: pointer;
+}
 .ak-course-inc { font-size: 13px; color: #166534; font-weight: 600; margin: 6px 0 12px; }
 .ak-tarot-wrap { width: 100%; height: calc(100vh - 64px); display: flex; flex-direction: column; }
 .ak-tarot-frame { width: 100%; flex: 1; border: none; background: #f6f4fb; }
