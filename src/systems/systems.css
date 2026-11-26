@@ -478,6 +478,55 @@
 .ios-notice-banner.info { background: var(--ak-primary-soft); color: var(--ak-primary); }
 .ios-notice-banner.error { background: #fee2e2; color: #991b1b; }
 .ios-version-footer { text-align: center; font-size: 12px; color: var(--ak-secondary-ink); margin-top: 16px; }
+.ios-forgot-row { display: flex; justify-content: flex-end; }
+.ios-text-link-btn {
+  background: transparent;
+  border: none;
+  color: var(--ak-primary);
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 6px 2px;
+  cursor: pointer;
+}
+.ios-oauth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+  color: var(--ak-secondary-ink);
+  font-size: 13px;
+}
+.ios-oauth-divider::before,
+.ios-oauth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ak-divider);
+}
+.ios-oauth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.ios-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--ak-divider);
+  background: #fff;
+  color: var(--ak-ink);
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.ios-social-btn:hover {
+  background: var(--ak-page);
+  border-color: #c8b9f2;
+}
 
 /* Top Up & Subscription Plans (KyatTopUpView.swift / SubscriptionPlansView.swift) */
 .ios-topup-hero {
