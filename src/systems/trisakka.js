@@ -3,20 +3,35 @@ import { renderKPChart } from '../chart-renderers.js';
 import { dashaTimeline } from '../kp-dasha.js';
 import { FAVORITE_CITIES } from '../city-catalog.js';
 import { planetLabel, degreeLabel } from '../locale.js';
-import { escHtml, toMyDigits } from './script-loader.js';
+import { loadClassicScript, escHtml, toMyDigits } from './script-loader.js';
 
+const TRI_SAVED_KEY = 'astrok.web.trisakka.saved.v1';
 const today = new Date();
-const pad = n => String(n).padStart(2, '0');
+
+function loadSavedTri() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(TRI_SAVED_KEY) || '[]');
+    return Array.isArray(raw) ? raw : [];
+  } catch { return []; }
+}
+function persistSavedTri(list) {
+  try { localStorage.setItem(TRI_SAVED_KEY, JSON.stringify(list.slice(0, 40))); } catch {}
+}
 
 const triState = {
   name: '',
+  gender: 'male',
   day: String(today.getDate()),
   month: String(today.getMonth() + 1),
   year: '1995',
   time: '12:00',
   cityIndex: 0,
   tab: 'charts',
+  varga: 'D9',
+  saved: loadSavedTri(),
   loading: false,
+  readingsLoading: false,
+  readings: null,
   error: '',
   result: null
 };
@@ -28,21 +43,30 @@ const OWN_SIGNS = {
   'ကြာသပတေး': [8, 11], 'သောကြာ': [1, 6], 'စနေ': [9, 10], 'ရာဟု': [10], 'ကိတ်': [7]
 };
 const NAKSHATRA_MM = [
-  'အဿဝဏီ', 'ဘရဏီ', 'ကြတ္တိကာ', 'ရောဟဏီ', 'မိဂသီ', 'အဒြ', 'ပုန္နဖုသျှ', 'ဖုသျှ', 'အသလိဿ',
-  'မာဃ', 'ပြုဗ္ဗဖလဂုနီ', 'ဥတ္တရဖလဂုနီ', 'ဟဿတ', 'စိတြ', 'သွာတိ', 'ဝိသာခါ', 'အနုရာဓ', 'ဇေဋ္ဌ',
-  'မူလ', 'ပြုဗ္ဗာသဠ်', 'ဥတ္တရာသဠ်', 'သရဝဏ်', 'ဓနသိဒ္ဓ', 'သတ္တဘိသျှ', 'ပြုဗ္ဗာဘဒြပိုဒ်', 'ဥတ္တရာဘဒြပိုဒ်', 'ရေဝတီ'
+  'အဿဝဏီ', 'ဘရဏီ', 'ကြတ္တိကာ', 'ရောဟဏီ', 'မိဂသီ', 'အဒြ', 'ပုဏ္ဏဖုသျှ', 'ဖုသျှ', 'အဿလိသ',
+  'မာဃ', 'ပြုဗ္ဗဖလဂုနီ', 'ဥတ္တရဖလဂုဏီ', 'ဟသတ္တ', 'စိတြ', 'သွာတိ', 'ဝိသာခါ', 'အနုရာဓ', 'ဇေဋ္ဌ',
+  'မူလ', 'ပြုဗ္ဗာသဠ်', 'ဥတ္တရာသဠ်', 'သရဝဏ်', 'ဓနသိဒ္ဓ', 'သတ္တဘိဿ', 'ပြုဗ္ဗဘဒြပိုဒ်', 'ဥတ္တရာဘဒြပိုဒ်', 'ရေဝတီ'
 ];
 
-function navamsaSignIndex(longitude) {
+function vargaSignIndex(longitude, division) {
   const lon = normalize(longitude);
   const sign = Math.floor(lon / 30);
-  const pada = Math.floor((lon % 30) / (30 / 9)); // 0..8
-  const startByElement = [0, 9, 6, 3]; // Fire=Aries, Earth=Capricorn, Air=Libra, Water=Cancer
-  return (startByElement[sign % 4] + pada) % 12;
+  const deg = lon % 30;
+  const odd = sign % 2 === 0;
+  switch (division) {
+    case 'D2': return deg < 15 ? (odd ? 4 : 3) : (odd ? 3 : 4);
+    case 'D3': return (sign + Math.floor(deg / 10) * 4) % 12;
+    case 'D4': return (sign + Math.floor(deg / 7.5) * 3) % 12;
+    case 'D7': return ((odd ? sign : (sign + 6) % 12) + Math.floor(deg / (30 / 7))) % 12;
+    case 'D9': return ([0, 9, 6, 3][sign % 4] + Math.floor(deg / (30 / 9))) % 12;
+    case 'D10': return ((odd ? sign : (sign + 8) % 12) + Math.floor(deg / 3)) % 12;
+    case 'D12': return (sign + Math.floor(deg / 2.5)) % 12;
+    default: return sign;
+  }
 }
 
-function buildNavamsaChartData(r) {
-  const ascSign = navamsaSignIndex(r.cusps[0].longitude);
+function buildVargaChartData(r, division) {
+  const ascSign = vargaSignIndex(r.cusps[0].longitude, division);
   const cusps = Array.from({ length: 12 }, (_, i) => ({
     ...r.cusps[i],
     number: i + 1,
@@ -50,7 +74,7 @@ function buildNavamsaChartData(r) {
   }));
   const planets = r.planets.map(p => ({
     ...p,
-    longitude: navamsaSignIndex(p.longitude) * 30 + 15
+    longitude: vargaSignIndex(p.longitude, division) * 30 + 15
   }));
   return { ...r, cusps, planets };
 }
@@ -68,14 +92,79 @@ function houseOfPlanet(planetLon, ascLon) {
   return ((pSign - ascSign + 12) % 12) + 1;
 }
 
+function computeYogas(r, english) {
+  const ascSign = Math.floor(normalize(r.cusps[0].longitude) / 30);
+  const signs = r.planets.map(p => Math.floor(normalize(p.longitude) / 30));
+  const yogas = [];
+  // Gajakesari: Jupiter in Kendra (1,4,7,10) from Moon
+  const jupFromMoon = ((signs[4] - signs[1] + 12) % 12) + 1;
+  if ([1, 4, 7, 10].includes(jupFromMoon)) {
+    yogas.push([english ? 'Gajakesari Yoga' : 'ဂဇကေသရီယုဂ်', english ? 'Jupiter in Kendra from Moon — wisdom, reputation, and lasting prosperity.' : 'ကြာသပတေးသည် စန်းမှ ကိန်းအိမ် (၁၊ ၄၊ ၇၊ ၁၀) တွင် ရပ်တည်၍ ဉာဏ်ပညာ၊ ဂုဏ်သိက္ခာနှင့် ကြွယ်ဝမှုကို ပေးသည်။']);
+  }
+  // Budhaditya: Sun + Mercury same sign
+  if (signs[0] === signs[3]) {
+    yogas.push([english ? 'Budhaditya Yoga' : 'ဗုဓာဒိတျယုဂ်', english ? 'Sun and Mercury conjoined — sharp intellect, communication skill, and leadership.' : 'တနင်္ဂနွေနှင့် ဗုဒ္ဓဟူး ပူးယှဉ်၍ ဉာဏ်ထက်မြက်ခြင်း၊ စကားပြောကောင်းခြင်းနှင့် စီမံခန့်ခွဲနိုင်စွမ်း ရှိသည်။']);
+  }
+  // Pancha Mahapurusha Yogas (Mars, Mercury, Jupiter, Venus, Saturn in Kendra in Own/Exalt)
+  const pmNames = [
+    [2, 'ရုစကယုဂ် (Ruchaka Yoga)', 'အင်္ဂါသည် ကိန်းအိမ်တွင် ဥစ်/ကသစ်ရပ်၍ ရဲရင့်မှု၊ ခေါင်းဆောင်မှုနှင့် စွမ်းရည်ထက်မြက်သည်။'],
+    [3, 'ဘဒြယုဂ် (Bhadra Yoga)', 'ဗုဒ္ဓဟူးသည် ကိန်းအိမ်တွင် ဥစ်/ကသစ်ရပ်၍ ပညာဉာဏ်၊ စီးပွားရေးနှင့် ဟောပြောစွမ်းရည် ထူးချွန်သည်။'],
+    [4, 'ဟံသယုဂ် (Hamsa Yoga)', 'ကြာသပတေးသည် ကိန်းအိမ်တွင် ဥစ်/ကသစ်ရပ်၍ ကိုယ်ကျင့်တရား၊ ပညာနှင့် ချမ်းသာသုခ ပြည့်စုံသည်။'],
+    [5, 'မာလဗျယုဂ် (Malavya Yoga)', 'သောကြာသည် ကိန်းအိမ်တွင် ဥစ်/ကသစ်ရပ်၍ စည်းစိမ်၊ အနုပညာနှင့် အိမ်ထောင်ရေးသာယာသည်။'],
+    [6, 'သသယုဂ် (Sasa Yoga)', 'စနေသည် ကိန်းအိမ်တွင် ဥစ်/ကသစ်ရပ်၍ ဩဇာအာဏာ၊ ဇွဲလုံ့လနှင့် ရေရှည်အောင်မြင်မှု ရရှိသည်။']
+  ];
+  for (const [idx, title, desc] of pmNames) {
+    const p = r.planets[idx];
+    const h = ((signs[idx] - ascSign + 12) % 12) + 1;
+    if ([1, 4, 7, 10].includes(h) && (EXALT_SIGN[p.name] === signs[idx] || (OWN_SIGNS[p.name] || []).includes(signs[idx]))) {
+      yogas.push([title, desc]);
+    }
+  }
+  return yogas;
+}
+
+async function computeFullTrisakkaReadings(r, english) {
+  await loadClassicScript('engines/TrisakkaAndroidReadings.js');
+  if (typeof window.buildReadings !== 'function') return [];
+  const p = r.profile;
+  const order = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // Sun, Moon, Mars, Merc, Jup, Ven, Sat, Rahu, Ketu
+  const planets = order.map(i => ({
+    longitude: normalize(r.planets[i].longitude),
+    speed: Number(r.planets[i].speed || 0),
+    retrograde: Number(r.planets[i].speed || 0) < 0
+  }));
+  const cusps = r.cusps.map(c => normalize(c.longitude));
+  window.input = { planets, cusps, ayanamsa: r.ayanamsa };
+  window.en = Boolean(english);
+  window.maleNative = triState.gender !== 'female';
+  window.readingBirthDay = Number(p.day);
+  window.readingBirthMonth = Number(p.month);
+  window.readingBirthYear = Number(p.year);
+  window.selectedHour = Number(p.hour);
+  window.selectedMinute = Number(p.min);
+  window.selectedSecond = Number(p.sec || 0);
+  window.readingTimeZone = Number(p.tz);
+  window.categories = [];
+  if (typeof window.astrokTransit !== 'function') {
+    window.astrokTransit = () => NaN;
+  }
+  try {
+    window.buildReadings();
+  } catch (e) {
+    console.warn('Trisakka readings partial:', e);
+  }
+  return Array.isArray(window.categories) ? [...window.categories] : [];
+}
+
 function renderTrisakkaResult(r, english) {
   const t = (mm, en) => (english ? en : mm);
-  const d9 = buildNavamsaChartData(r);
+  const d9 = buildVargaChartData(r, 'D9');
   const tabs = [
     ['charts', t('ရာသီ · ဘာဝ · နဝင်း', 'Rashi · Bhava · D9')],
-    ['dignity', t('ဂြိုဟ်ဂုဏ်အဆင့်', 'Dignity')],
+    ['vargas', t('ဝဂ္ဂစက်များ', 'Varga Charts')],
+    ['dignity', t('ဂုဏ်အဆင့် & ဗလ', 'Dignity & Bala')],
     ['dasha', t('ဝိသောတ္ထရီဒသာ', 'Dasha')],
-    ['summary', t('ဇာတာသုံးသပ်ချက်', 'Analysis')]
+    ['readings', t('ယုဂ် & အဟောအပြည့်အစုံ', 'Yogas & Readings')]
   ];
 
   let body = '';
@@ -94,11 +183,31 @@ function renderTrisakkaResult(r, english) {
         ${renderKPChart(d9, 'East Indian', 'Lavender', 1, english)}
       </section>
     `;
+  } else if (triState.tab === 'vargas') {
+    const vargaList = [
+      ['D2', 'D2 ဟိုရာ (Hora)'],
+      ['D3', 'D3 တြိင်း (Drekkana)'],
+      ['D4', 'D4 စတုတ္ထံသ (Chaturthamsa)'],
+      ['D7', 'D7 သတ္တံသ (Saptamsa)'],
+      ['D9', 'D9 နဝင်း (Navamsa)'],
+      ['D10', 'D10 ဒသံသ (Dasamsa)'],
+      ['D12', 'D12 ဒွါဒသံသ (Dwadasamsa)']
+    ];
+    const vChart = buildVargaChartData(r, triState.varga);
+    body = `
+      <section class="ak-card">
+        <div class="ak-chip-row" style="margin-top:0;margin-bottom:12px">
+          ${vargaList.map(([id, label]) => `<button type="button" class="ak-chip ${triState.varga === id ? 'selected' : ''}" data-tri-varga="${id}">${escHtml(label)}</button>`).join('')}
+        </div>
+        <h3>${escHtml(vargaList.find(v => v[0] === triState.varga)?.[1] || triState.varga)}</h3>
+        ${renderKPChart(vChart, 'East Indian', 'Lavender', 1, english)}
+      </section>
+    `;
   } else if (triState.tab === 'dignity') {
     const ascLon = r.cusps[0].longitude;
     body = `
       <section class="ak-card">
-        <h3>${t('ဂြိုဟ်တည်နေရာ နှင့် ရာသီဂုဏ်အဆင့်', 'Planetary Positions & Dignity')}</h3>
+        <h3>${t('ဂြိုဟ်တည်နေရာ၊ ရာသီဂုဏ်အဆင့် နှင့် ဂြဟဗလ', 'Planetary Dignity & Strength')}</h3>
         <div class="table-scroll">
           <table class="ak-data-table">
             <thead>
@@ -114,7 +223,7 @@ function renderTrisakkaResult(r, english) {
             <tbody>
               ${r.planets.map(p => {
                 const signIdx = Math.floor(normalize(p.longitude) / 30);
-                const d9Idx = navamsaSignIndex(p.longitude);
+                const d9Idx = vargaSignIndex(p.longitude, 'D9');
                 const nakIdx = Math.floor(normalize(p.longitude) / (360 / 27));
                 const house = houseOfPlanet(p.longitude, ascLon);
                 return `
@@ -157,28 +266,24 @@ function renderTrisakkaResult(r, english) {
       </section>
     `;
   } else {
-    const ascSign = Math.floor(normalize(r.cusps[0].longitude) / 30);
-    const moonSign = Math.floor(normalize(r.planets[1].longitude) / 30);
-    const sunSign = Math.floor(normalize(r.planets[0].longitude) / 30);
-    const strong = r.planets.filter(p => {
-      const s = Math.floor(normalize(p.longitude) / 30);
-      return EXALT_SIGN[p.name] === s || (OWN_SIGNS[p.name] || []).includes(s);
-    });
-    const weak = r.planets.filter(p => DEBIL_SIGN[p.name] === Math.floor(normalize(p.longitude) / 30));
+    const yogas = computeYogas(r, english);
     body = `
       <section class="ak-card">
-        <h3>${t('တြိစက္က အခြေခံ ဇာတာသုံးသပ်ချက်', 'Trisakka Core Chart Summary')}</h3>
-        <div class="ak-kv-grid">
-          <div><small>${t('လဂ်ရာသီ', 'Ascendant')}</small><strong>${escHtml(SIGN_MM[ascSign])}</strong></div>
-          <div><small>${t('စန်းရာသီ', 'Moon Sign')}</small><strong>${escHtml(SIGN_MM[moonSign])}</strong></div>
-          <div><small>${t('နေရာသီ', 'Sun Sign')}</small><strong>${escHtml(SIGN_MM[sunSign])}</strong></div>
-          <div><small>${t('အယနံသ (Lahiri)', 'Ayanamsa (Lahiri)')}</small><strong>${r.ayanamsa.toFixed(4)}°</strong></div>
-        </div>
-        <div class="ak-reading-text" style="margin-top:14px">
-          <p><strong>${t('အားကောင်းသော ဂြိုဟ်များ (ဥစ် / ကသစ်)', 'Strong Planets (Exalted / Own Sign)')}:</strong> ${strong.length ? strong.map(p => escHtml(planetLabel(p.name, english))).join(english ? ', ' : '၊ ') : t('မရှိပါ', 'None')}</p>
-          <p><strong>${t('အားနည်းသော ဂြိုဟ်များ (နိစ်)', 'Debilitated Planets')}:</strong> ${weak.length ? weak.map(p => escHtml(planetLabel(p.name, english))).join(english ? ', ' : '၊ ') : t('မရှိပါ', 'None')}</p>
-        </div>
+        <h3>${t('ဇာတာတွင် ပါဝင်သော ယုဂ်များ (Yogas)', 'Detected Yogas')}</h3>
+        ${yogas.length ? yogas.map(([title, desc]) => `
+          <div style="margin-bottom:10px;padding:10px 12px;background:var(--ak-primary-soft);border-radius:12px">
+            <strong style="display:block;color:var(--ak-primary);margin-bottom:3px">✦ ${escHtml(title)}</strong>
+            <span style="font-size:13.5px;color:var(--ak-ink)">${escHtml(desc)}</span>
+          </div>
+        `).join('') : `<p style="margin:0;color:var(--ak-secondary-ink)">${t('အထူးယုဂ် (ဂဇကေသရီ / ဗုဓာဒိတျ / ပဉ္စမဟာပုရိသ) မတွေ့ပါ။', 'No primary classical yogas detected.')}</p>`}
       </section>
+      ${triState.readingsLoading ? `<div class="chart-pending">${t('တြိစက္က အဟောစာတမ်းအပြည့်အစုံ တွက်နေပါသည်…', 'Generating full Trisakka readings…')}</div>` : ''}
+      ${(triState.readings || []).map(cat => `
+        <details class="ak-card ak-accordion">
+          <summary><strong>${escHtml(cat.title || '')}</strong>${cat.subtitle ? ` <small style="color:var(--ak-secondary-ink)">· ${escHtml(cat.subtitle)}</small>` : ''}</summary>
+          <div class="ak-reading-text">${escHtml(cat.content || '').replace(/\n/g, '<br>')}</div>
+        </details>
+      `).join('')}
     `;
   }
 
@@ -196,8 +301,15 @@ export function renderTrisakkaScreen(appHeader, english) {
     ${appHeader(t('တြိစက္ကဇာတာ', 'Trisakka Chart'), true)}
     <main class="ak-sys-main">
       <form id="tri-form" class="ak-form-card">
-        <div class="ak-form-row">
-          <label class="ak-field full"><span>${t('ဇာတာရှင်အမည်', 'Name')}</span><input name="name" value="${escHtml(triState.name)}" placeholder="${t('အမည်ထည့်ပါ', 'Enter name')}"></label>
+        <div class="ak-form-row two">
+          <label class="ak-field"><span>${t('ဇာတာရှင်အမည်', 'Name')}</span><input name="name" value="${escHtml(triState.name)}" placeholder="${t('အမည်ထည့်ပါ', 'Enter name')}"></label>
+          <label class="ak-field">
+            <span>${t('ကျား / မ', 'Gender')}</span>
+            <select name="gender">
+              <option value="male" ${triState.gender === 'male' ? 'selected' : ''}>${t('ကျား', 'Male')}</option>
+              <option value="female" ${triState.gender === 'female' ? 'selected' : ''}>${t('မ', 'Female')}</option>
+            </select>
+          </label>
         </div>
         <div class="ak-form-row three">
           <label class="ak-field"><span>${t('ရက်', 'Day')}</span><input name="day" type="number" min="1" max="31" value="${escHtml(triState.day)}" required></label>
@@ -218,6 +330,24 @@ export function renderTrisakkaScreen(appHeader, english) {
           ${triState.loading ? t('တွက်ချက်နေပါသည်…', 'Calculating…') : t('တြိစက္ကဇာတာတွက်မည်', 'Calculate Trisakka Chart')}
         </button>
       </form>
+
+      ${triState.saved.length ? `
+        <details class="ak-card ak-accordion">
+          <summary><strong>📂 ${t(`သိမ်းထားသော တြိစက္ကဇာတာများ (${toMyDigits(triState.saved.length)})`, `Saved Trisakka Charts (${triState.saved.length})`)}</strong></summary>
+          <div class="ak-section-stack" style="margin-top:8px">
+            ${triState.saved.map((item, idx) => `
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--ak-divider)">
+                <button type="button" data-open-tri-saved="${idx}" style="flex:1;text-align:left;background:transparent;border:none;cursor:pointer;padding:0">
+                  <strong style="display:block;color:var(--ak-ink)">${escHtml(item.name)}</strong>
+                  <small style="color:var(--ak-secondary-ink)">${escHtml(item.day)}/${escHtml(item.month)}/${escHtml(item.year)} · ${escHtml(item.time)}</small>
+                </button>
+                <button type="button" class="ak-chip" data-del-tri-saved="${idx}">×</button>
+              </div>
+            `).join('')}
+          </div>
+        </details>
+      ` : ''}
+
       ${triState.result ? renderTrisakkaResult(triState.result, english) : ''}
     </main>
   `;
@@ -228,6 +358,7 @@ export function bindTrisakkaScreen(rerender) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     triState.name = String(fd.get('name') || '');
+    triState.gender = String(fd.get('gender') || 'male');
     triState.day = String(fd.get('day') || '');
     triState.month = String(fd.get('month') || '');
     triState.year = String(fd.get('year') || '');
@@ -238,6 +369,7 @@ export function bindTrisakkaScreen(rerender) {
 
     triState.loading = true;
     triState.error = '';
+    triState.readings = null;
     rerender();
     try {
       triState.result = await calculate({
@@ -246,9 +378,14 @@ export function bindTrisakkaScreen(rerender) {
         hour, min, sec: '0',
         lat: String(city.lat), lon: String(city.lon), tz: String(city.tz),
         cityName: city.name,
-        ayanamsaIndex: 1, // Lahiri
+        ayanamsaIndex: 1,
         isHorary: false, isTSPHorary: false
       });
+      const entry = { name: triState.name || `${triState.day}/${triState.month}/${triState.year}`, gender: triState.gender, day: triState.day, month: triState.month, year: triState.year, time: triState.time, cityIndex: triState.cityIndex };
+      if (!triState.saved.some(x => x.day === entry.day && x.month === entry.month && x.year === entry.year && x.time === entry.time && x.name === entry.name)) {
+        triState.saved.unshift(entry);
+        persistSavedTri(triState.saved);
+      }
     } catch (err) {
       triState.error = err?.message || 'Calculation failed';
     } finally {
@@ -258,8 +395,45 @@ export function bindTrisakkaScreen(rerender) {
   });
 
   document.querySelectorAll('[data-tri-tab]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       triState.tab = btn.dataset.triTab;
+      if (triState.tab === 'readings' && triState.result && !triState.readings && !triState.readingsLoading) {
+        triState.readingsLoading = true;
+        rerender();
+        try {
+          triState.readings = await computeFullTrisakkaReadings(triState.result, document.documentElement.lang === 'en');
+        } catch {
+          triState.readings = [];
+        } finally {
+          triState.readingsLoading = false;
+          rerender();
+        }
+      } else {
+        rerender();
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-tri-varga]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      triState.varga = btn.dataset.triVarga;
+      rerender();
+    });
+  });
+
+  document.querySelectorAll('[data-open-tri-saved]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = triState.saved[Number(btn.dataset.openTriSaved)];
+      if (!item) return;
+      Object.assign(triState, { name: item.name, gender: item.gender || 'male', day: item.day, month: item.month, year: item.year, time: item.time, cityIndex: item.cityIndex || 0 });
+      rerender();
+    });
+  });
+
+  document.querySelectorAll('[data-del-tri-saved]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      triState.saved.splice(Number(btn.dataset.delTriSaved), 1);
+      persistSavedTri(triState.saved);
       rerender();
     });
   });

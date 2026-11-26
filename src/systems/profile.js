@@ -1,5 +1,7 @@
 import {
   authClient,
+  apiOrigin,
+  publishableKey,
   emailSignIn,
   emailSignUp,
   signInWithGoogle,
@@ -207,6 +209,10 @@ export function renderProfileScreen({ english, user, base }) {
         ${t('Account မှထွက်မည်', 'Sign out')}
       </button>
 
+      <button type="button" id="ios-profile-delete" class="ios-danger-outline-btn" style="opacity:0.85" ${profState.busy ? 'disabled' : ''}>
+        ${t('Account ကို အပြီးဖျက်မည်', 'Delete account permanently')}
+      </button>
+
       <section class="ios-white-card" style="margin-top:16px">
         <h3 class="ios-card-h3">✦ ${t('AstroK Pro အကြောင်းနှင့် ဆက်သွယ်ရန်', 'About & Contact AstroK Pro')}</h3>
         <p class="ios-muted-note">${t('KP နက္ခတ်၊ ဂဏန်းဗေဒင်၊ တြိစက္က၊ M-Sann၊ မုဟုတ္တ၊ တားရော့၊ ဗေဒင်စာအုပ်နှင့် သင်တန်းများအားလုံးကို တစ်နေရာတည်းတွင် အသုံးပြုနိုင်ပါသည်။', 'Complete astrology suite with KP, Numerology, Trisakka, M-Sann, Muhurat, Tarot, Books, and Courses.')}</p>
@@ -376,8 +382,23 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
     try {
       const { error } = await authClient.auth.updateUser({ data: { full_name: displayName, name: displayName } });
       if (error) throw error;
+      const { data: { session } } = await authClient.auth.getSession();
+      if (session?.access_token && session?.user?.id) {
+        const photoDataUrl = typeof localStorage !== 'undefined' ? (localStorage.getItem('astrok.web.profile.photo') || '') : '';
+        const photoBase64 = photoDataUrl.includes(',') ? photoDataUrl.split(',')[1] : photoDataUrl;
+        await fetch(`${apiOrigin}/rest/v1/profiles`, {
+          method: 'POST',
+          headers: {
+            apikey: publishableKey,
+            Authorization: `Bearer ${session.access_token}`,
+            'Content-Type': 'application/json',
+            Prefer: 'resolution=merge-duplicates,return=representation'
+          },
+          body: JSON.stringify({ id: session.user.id, display_name: displayName, photo_base64: photoBase64 })
+        }).catch(() => {});
+      }
       profState.displayName = displayName;
-      profState.notice = english ? 'Profile saved.' : 'Profile ကို သိမ်းဆည်းပြီးပါပြီ။';
+      profState.notice = english ? 'Profile saved & synced to cloud.' : 'Profile ကို Cloud နှင့် ချိတ်ဆက်သိမ်းဆည်းပြီးပါပြီ။';
     } catch (err) {
       profState.error = formatAuthError(err, english);
     } finally {
@@ -449,6 +470,46 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
       onSignedOut();
     } catch (err) {
       profState.error = formatAuthError(err, english);
+      rerender();
+    }
+  });
+
+  document.querySelector('#ios-profile-delete')?.addEventListener('click', async () => {
+    const first = window.confirm(english
+      ? 'Permanently delete your AstroK Pro account and all associated data? This cannot be undone.'
+      : 'Profile၊ ကျပ်လက်ကျန်၊ သိမ်းထားသောဇာတာများနှင့် Account Data အားလုံးကို အပြီးဖျက်မည်လား။ ပြန်လည်ရယူ၍မရပါ။');
+    if (!first) return;
+    const second = window.confirm(english
+      ? 'Final confirmation: delete this account now?'
+      : 'နောက်ဆုံးအတည်ပြုချက် — ဤ AstroK Pro Account ကို ယခုအပြီးဖျက်မည်လား။');
+    if (!second) return;
+    profState.busy = true;
+    profState.error = '';
+    rerender();
+    try {
+      const { data: { session } } = await authClient.auth.getSession();
+      if (!session?.access_token) throw new Error('LOGIN_REQUIRED');
+      const res = await fetch(`${apiOrigin}/functions/v1/delete-account`, {
+        method: 'POST',
+        headers: {
+          apikey: publishableKey,
+          Authorization: `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || !body?.deleted) throw new Error(body?.error || 'Account deletion failed');
+      try { localStorage.removeItem('astrok.web.profile.photo'); } catch {}
+      await signOut().catch(() => {});
+      profState.displayName = '';
+      profState.notice = english ? 'Account deleted.' : 'Account ကို အပြီးဖျက်ပြီးပါပြီ။';
+      onSignedOut();
+    } catch (err) {
+      profState.error = formatAuthError(err, english);
+      rerender();
+    } finally {
+      profState.busy = false;
       rerender();
     }
   });
