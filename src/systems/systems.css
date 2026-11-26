@@ -215,24 +215,24 @@
 }
 .ios-gold-card {
   position: relative;
-  height: 118px;
+  height: 116px;
   border-radius: 18px;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 255, 255, 0.95);
-  background: rgba(255, 255, 255, 0.65);
+  border: 1.4px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.72);
   padding: 0;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(214, 153, 31, 0.18);
+  box-shadow: 0 4px 10px rgba(214, 153, 31, 0.16);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 .ios-gold-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(214, 153, 31, 0.28);
+  box-shadow: 0 8px 18px rgba(214, 153, 31, 0.26);
 }
 .ios-gold-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 .ios-gold-label {
@@ -245,7 +245,7 @@
   font-weight: 700;
   color: #5E380A;
   padding: 0 10px 10px;
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85);
 }
 
 /* Floating 3-Tab iOS Bottom Pill Bar (MainTabView.swift) */
@@ -961,3 +961,157 @@
 .ak-course-inc { font-size: 13px; color: #166534; font-weight: 600; margin: 6px 0 12px; }
 .ak-tarot-wrap { width: 100%; height: calc(100vh - 64px); display: flex; flex-direction: column; }
 .ak-tarot-frame { width: 100%; flex: 1; border: none; background: #f6f4fb; }
+
+/* Unified iOS Page Background on Sub-Screens */
+.ios-app[data-screen="numerology"],
+.ios-app[data-screen="msann"],
+.ios-app[data-screen="trisakka"],
+.ios-app[data-screen="muhurat"],
+.ios-app[data-screen="books"],
+.ios-app[data-screen="courses"],
+.ios-app[data-screen="notifications"],
+.ios-app[data-screen="key"] {
+  background: #F2F4FF;
+  min-height: 100vh;
+}
+.ios-app[data-screen="plans"] {
+  background: #F2F0FF;
+  min-height: 100vh;
+}
+
+/* AstroKPlanKeyScreen.swift 1-to-1 Design */
+.ios-key-hero {
+  background: linear-gradient(135deg, #242975 0%, #4740B5 52%, #7561D1 100%);
+  border-radius: 24px;
+  padding: 22px;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(36, 41, 117, 0.22);
+}
+.ios-key-hero-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.ios-key-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: #783BD4;
+  border: 1.5px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #D6991F;
+  flex-shrink: 0;
+}
+.ios-key-hero-top h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 700;
+  color: #fff;
+  flex: 1;
+}
+.ios-key-hero p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.94);
+}
+.ios-key-input-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 14px;
+  min-height: 72px;
+  background: #fff;
+  border-radius: 22px;
+  border: 1.5px solid #9678E0;
+  box-shadow: 0 8px 18px rgba(120, 59, 212, 0.16);
+  margin-bottom: 18px;
+  box-sizing: border-box;
+}
+.ios-key-input-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #E8E3FF;
+  color: #783BD4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.ios-key-input-card input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--ak-ink);
+  background: transparent;
+  text-transform: uppercase;
+}
+.ios-key-activate-btn {
+  width: 100%;
+  min-height: 60px;
+  border: none;
+  border-radius: 20px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #5445C7 0%, #783BD4 100%);
+  color: #fff;
+  font-size: 16.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(120, 59, 212, 0.30);
+}
+.ios-key-active-banner {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #E8EBFF 0%, #D4BFFF 100%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #242975;
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+/* NumerologyView.swift Midnight-to-Plum Hero */
+.ios-num-hero {
+  background: linear-gradient(135deg, #171A40 0%, #5938B8 58%, #7D3DAD 100%);
+  border-radius: 24px;
+  padding: 20px;
+  color: #fff;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 24px rgba(23, 26, 64, 0.22);
+}
+.ios-num-hero small {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #F2C97D;
+  margin-bottom: 6px;
+}
+.ios-num-hero h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+  font-weight: 700;
+}
+.ios-num-hero p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  opacity: 0.92;
+}
