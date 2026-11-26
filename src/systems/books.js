@@ -20,7 +20,7 @@ export function renderBooksScreen(appHeader, english, user) {
   const filtered = items.filter(b => {
     if (booksState.category === 'free' && Number(b.priceKyat || 0) > 0) return false;
     if (booksState.category !== 'all' && booksState.category !== 'free' && b.category !== booksState.category) return false;
-    if (q && !`${b.title || ''} ${b.author || ''} ${b.category || ''}`.toLowerCase().includes(q)) return false;
+    if (q && !`${b.title || ''} ${b.titleEn || ''} ${b.author || ''} ${b.description || ''} ${b.category || ''}`.toLowerCase().includes(q)) return false;
     return true;
   });
 
@@ -43,18 +43,22 @@ export function renderBooksScreen(appHeader, english, user) {
       ${booksState.loading ? `<div class="chart-pending">${t('စာအုပ်စာရင်း ဖတ်နေပါသည်…', 'Loading books catalog…')}</div>` : `
         <p class="list-count">${t(`စာအုပ် ${toMyDigits(filtered.length)} အုပ်`, `${filtered.length} books`)}</p>
         <div class="ak-book-grid">
-          ${filtered.slice(0, 80).map(book => {
+          ${filtered.slice(0, 120).map(book => {
             const price = Number(book.priceKyat || 0);
             const busy = booksState.busyId === book.id;
+            const titleText = english ? (book.titleEn || book.title || book.name || '') : (book.title || book.name || '');
+            const descText = english ? (book.descriptionEn || book.description || '') : (book.description || '');
+            const metaText = english ? (book.metaEn || book.meta || book.author || '') : (book.meta || book.author || '');
             return `
               <article class="ak-book-card">
                 <div class="ak-book-meta">
                   <span class="ak-tag ${price === 0 ? 'good' : ''}">${price === 0 ? t('အခမဲ့', 'Free') : escHtml(fmtKyat(price, english))}</span>
                   ${book.category ? `<span class="ak-tag">${escHtml(book.category)}</span>` : ''}
                 </div>
-                <h3>${escHtml(book.title || book.name || '')}</h3>
-                ${book.author ? `<p class="ak-book-author">${escHtml(book.author)}</p>` : ''}
-                <button type="button" class="ak-book-btn" data-download-book="${escHtml(book.id)}" data-book-title="${escHtml(book.title || book.name || '')}" data-book-price="${price}" ${busy ? 'disabled' : ''}>
+                <h3>${escHtml(titleText)}</h3>
+                ${descText ? `<p class="ak-book-author">${escHtml(descText)}</p>` : ''}
+                ${metaText ? `<p class="ak-book-author" style="font-size:11.5px;opacity:0.85">${escHtml(metaText)}</p>` : ''}
+                <button type="button" class="ak-book-btn" data-download-book="${escHtml(book.id)}" data-book-title="${escHtml(titleText)}" data-book-price="${price}" ${busy ? 'disabled' : ''}>
                   ${busy ? t('ချိတ်ဆက်နေပါသည်…', 'Preparing…') : (user ? t('PDF ရယူမည်', 'Get PDF') : t('ဝင်ပြီး PDF ယူမည်', 'Log in to Get PDF'))}
                 </button>
               </article>
@@ -70,9 +74,16 @@ export function bindBooksScreen(rerender, openLogin) {
   if (!booksState.books && !booksState.loading) {
     booksState.loading = true;
     rerender();
-    loadJson('data/imported_free_catalog.json')
-      .then(data => {
-        booksState.books = Array.isArray(data) ? data : (data?.books || data?.items || []);
+    Promise.allSettled([
+      loadJson('data/core_books.json'),
+      loadJson('data/imported_free_catalog.json')
+    ])
+      .then(([coreRes, freeRes]) => {
+        const core = coreRes.status === 'fulfilled' && Array.isArray(coreRes.value) ? coreRes.value : [];
+        const freeRaw = freeRes.status === 'fulfilled' ? freeRes.value : [];
+        const free = Array.isArray(freeRaw) ? freeRaw : (freeRaw?.books || freeRaw?.items || []);
+        const seen = new Set(core.map(b => b.id));
+        booksState.books = [...core, ...free.filter(b => !seen.has(b.id))];
       })
       .catch(err => { booksState.error = err?.message || 'Could not load books'; })
       .finally(() => { booksState.loading = false; rerender(); });

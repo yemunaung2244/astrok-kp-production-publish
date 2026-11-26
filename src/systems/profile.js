@@ -153,10 +153,17 @@ export function renderProfileScreen({ english, user, base }) {
     <main class="ios-profile-page">
       <div class="ios-profile-avatar-section">
         <div class="ios-avatar-wrap large">
-          <div class="ios-avatar-circle large">${escHtml(initial)}</div>
+          <div class="ios-avatar-circle large">${(() => { const p = typeof localStorage !== 'undefined' ? localStorage.getItem('astrok.web.profile.photo') : ''; return p ? `<img src="${escHtml(p)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : escHtml(initial); })()}</div>
           <span class="ios-camera-badge large" aria-hidden="true">📷</span>
         </div>
         <h2>${escHtml(name)}</h2>
+        <div class="ak-badge-row" style="justify-content:center">
+          <label class="ak-chip selected" style="cursor:pointer">
+            📷 ${t('ပုံရွေးမည် / ပြောင်းမည်', 'Choose photo')}
+            <input id="prof-photo-input" type="file" accept="image/*" hidden>
+          </label>
+          ${typeof localStorage !== 'undefined' && localStorage.getItem('astrok.web.profile.photo') ? `<button type="button" id="prof-photo-remove" class="ak-chip">${t('ပုံဖယ်ရှားမည်', 'Remove')}</button>` : ''}
+        </div>
       </div>
 
       <section class="ios-white-card">
@@ -199,6 +206,16 @@ export function renderProfileScreen({ english, user, base }) {
       <button type="button" id="ios-profile-signout" class="ios-danger-outline-btn">
         ${t('Account မှထွက်မည်', 'Sign out')}
       </button>
+
+      <section class="ios-white-card" style="margin-top:16px">
+        <h3 class="ios-card-h3">✦ ${t('AstroK Pro အကြောင်းနှင့် ဆက်သွယ်ရန်', 'About & Contact AstroK Pro')}</h3>
+        <p class="ios-muted-note">${t('KP နက္ခတ်၊ ဂဏန်းဗေဒင်၊ တြိစက္က၊ M-Sann၊ မုဟုတ္တ၊ တားရော့၊ ဗေဒင်စာအုပ်နှင့် သင်တန်းများအားလုံးကို တစ်နေရာတည်းတွင် အသုံးပြုနိုင်ပါသည်။', 'Complete astrology suite with KP, Numerology, Trisakka, M-Sann, Muhurat, Tarot, Books, and Courses.')}</p>
+        <div class="ak-badge-row">
+          <a class="ak-chip" href="https://t.me/sayahtunlinnAstroK718" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:var(--ak-primary)">📢 Telegram Channel ↗</a>
+          <a class="ak-chip" href="https://t.me/htoomyatastro2635" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:var(--ak-primary)">💬 Support Telegram ↗</a>
+          <a class="ak-chip" href="tel:09699031718" style="text-decoration:none;color:var(--ak-ink)">📞 09699031718</a>
+        </div>
+      </section>
 
       <p class="ios-version-footer">AstroK Pro · Version 5.0</p>
     </main>
@@ -392,6 +409,35 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
       profState.busy = false;
       rerender();
     }
+  });
+
+  document.querySelector('#prof-photo-input')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const max = 360;
+        const scale = Math.min(1, max / Math.max(img.width, img.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        try { localStorage.setItem('astrok.web.profile.photo', dataUrl); } catch {}
+        profState.notice = english ? 'Profile photo updated.' : 'Profile ပုံ ပြောင်းလဲပြီးပါပြီ။';
+        rerender();
+      };
+      img.src = String(reader.result || '');
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.querySelector('#prof-photo-remove')?.addEventListener('click', () => {
+    try { localStorage.removeItem('astrok.web.profile.photo'); } catch {}
+    profState.notice = english ? 'Profile photo removed.' : 'Profile ပုံ ဖယ်ရှားပြီးပါပြီ။';
+    rerender();
   });
 
   document.querySelector('#ios-profile-signout')?.addEventListener('click', async () => {

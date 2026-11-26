@@ -79,7 +79,7 @@ export function renderHomeScreen({ english, user, wallet, base }) {
               <span class="ios-kyat-icon" aria-hidden="true">💵</span>
               <strong>${escHtml(compactKyat(kyat, english))}</strong>
             </button>
-            <button type="button" class="ios-bell-circle" data-entry-tab="key" aria-label="${t('Plan Key ထည့်ရန်', 'Activate Plan Key')}" title="${t('Plan Key ထည့်ရန်', 'Activate Plan Key')}">
+            <button type="button" class="ios-bell-circle" data-entry-tab="notifications" aria-label="${t('အသိပေးချက်များ', 'Notifications')}" title="${t('အသိပေးချက်များ', 'Notifications')}">
               <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg>
             </button>
           </div>
@@ -87,7 +87,7 @@ export function renderHomeScreen({ english, user, wallet, base }) {
 
         <section class="ios-profile-hero" data-entry-tab="profile" role="button" tabindex="0">
           <div class="ios-avatar-wrap">
-            <div class="ios-avatar-circle">${escHtml(initial)}</div>
+            <div class="ios-avatar-circle">${(() => { const photo = typeof localStorage !== 'undefined' ? localStorage.getItem('astrok.web.profile.photo') : ''; return photo ? `<img src="${escHtml(photo)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : escHtml(initial); })()}</div>
             <span class="ios-camera-badge" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 3 7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.17L15 3H9Zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></svg>
             </span>

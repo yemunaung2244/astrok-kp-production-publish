@@ -86,6 +86,10 @@ function renderTrisakkaResult(r, english) {
         ${renderKPChart(r, 'East Indian', 'Classic', 1, english)}
       </section>
       <section class="ak-card">
+        <h3>${t('ဘာဝစက် (Bhava Chart)', 'Bhava Chart')}</h3>
+        ${renderKPChart(r, 'South Indian', 'Emerald', 1, english)}
+      </section>
+      <section class="ak-card">
         <h3>${t('နဝင်းစက် (Navamsa Chart — D9)', 'Navamsa Chart (D9)')}</h3>
         ${renderKPChart(d9, 'East Indian', 'Lavender', 1, english)}
       </section>

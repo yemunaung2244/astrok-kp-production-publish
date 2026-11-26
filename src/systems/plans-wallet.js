@@ -71,6 +71,11 @@ export function renderMultiSystemPlans(english, wallet, base = './') {
         <span>✈️ ${plansState.linkBusy ? t('Telegram လင့်ခ်ထုတ်နေပါသည်…', 'Generating link…') : t('Telegram Bot နှင့် Account ချိတ်ဆက်ရန်', 'Link Account with Telegram Bot')}</span>
         <span>›</span>
       </button>
+      <button type="button" id="claim-trial-btn" class="ios-soft-action-btn" ${plansState.trialBusy ? 'disabled' : ''}>
+        <span>🎁 ${plansState.trialBusy ? t('အစမ်းသုံးခွင့် ဖွင့်နေပါသည်…', 'Activating trial…') : t('၃ ရက်အစမ်းသုံးရယူရန် (Free Trial)', 'Claim 3-Day Free Trial')}</span>
+        <span>›</span>
+      </button>
+      ${plansState.trialMsg ? `<p class="ios-notice-banner ${plansState.trialOk ? 'info' : 'error'}">${escHtml(plansState.trialMsg)}</p>` : ''}
       ${plansState.linkUrl ? `<p class="ios-notice-banner info">✓ <a href="${escHtml(plansState.linkUrl)}" target="_blank" rel="noopener noreferrer">${t('Telegram Bot ဖွင့်ပြီး ချိတ်ဆက်မည် ↗', 'Open Telegram Bot to Link ↗')}</a></p>` : ''}
       ${plansState.linkError ? `<p class="ios-notice-banner error">${escHtml(plansState.linkError)}</p>` : ''}
     </div>
@@ -245,6 +250,49 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
           : 'Telegram Bot ငွေဖြည့်လင့်ခ် ထုတ်၍မရပါ။ ထပ်စမ်းပါ။';
     } finally {
       plansState.topUpBusy = false;
+      rerender();
+    }
+  });
+
+  document.querySelector('#claim-trial-btn')?.addEventListener('click', async () => {
+    if (plansState.trialBusy) return;
+    const { data: { session } } = await authClient.auth.getSession();
+    if (!session?.access_token || !session?.user?.id) {
+      plansState.trialOk = false;
+      plansState.trialMsg = '၃ ရက်အစမ်းသုံးရယူရန် Account အရင်ဝင်ပါ။';
+      rerender();
+      return;
+    }
+    plansState.trialBusy = true;
+    plansState.trialMsg = '';
+    rerender();
+    try {
+      const res = await fetch(`${apiOrigin}/functions/v1/telegram-astrok-answer?action=app-trial`, {
+        method: 'POST',
+        headers: {
+          apikey: publishableKey,
+          Authorization: `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ expectedUser: session.user.id })
+      });
+      const body = await res.json().catch(() => ({}));
+      const st = body?.trialStatus || '';
+      if (st === 'active') {
+        plansState.trialOk = true;
+        plansState.trialMsg = '၃ ရက်အစမ်းသုံးခွင့် (၇၂ နာရီ) ရရှိပါပြီ။ Premium စနစ်များကို စတင်သုံးနိုင်ပါပြီ။';
+        if (onRefreshWallet) await onRefreshWallet();
+      } else if (st === 'used') {
+        plansState.trialOk = false;
+        plansState.trialMsg = 'ဤ Account သည် ၃ ရက်အစမ်းသုံးခွင့်ကို အသုံးပြုပြီးသား ဖြစ်ပါသည်။';
+      } else {
+        throw new Error(body?.error || 'TRIAL_FAILED');
+      }
+    } catch {
+      plansState.trialOk = false;
+      plansState.trialMsg = 'အစမ်းသုံးခွင့် ဖွင့်၍မရပါ။ ထပ်စမ်းပေးပါ။';
+    } finally {
+      plansState.trialBusy = false;
       rerender();
     }
   });
