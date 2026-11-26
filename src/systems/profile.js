@@ -13,6 +13,9 @@ import {
 } from '../auth.js';
 import { escHtml } from './script-loader.js';
 
+const PROFILE_PHOTO_KEY = 'astrok.web.profile.photo';
+const PROFILE_NAME_KEY = 'astrok.web.profile.displayName';
+
 const profState = {
   mode: 'login', // 'login' | 'signup' | 'recovery'
   email: '',
@@ -20,8 +23,80 @@ const profState = {
   busy: false,
   error: '',
   notice: '',
-  displayName: ''
+  displayName: typeof localStorage !== 'undefined' ? (localStorage.getItem(PROFILE_NAME_KEY) || '') : '',
+  photoDataUrl: typeof localStorage !== 'undefined' ? (localStorage.getItem(PROFILE_PHOTO_KEY) || '') : '',
+  loadedUserId: null
 };
+
+function normalizePhotoDataUrl(raw) {
+  const trimmed = String(raw || '').trim();
+  if (!trimmed) return '';
+  if (trimmed.startsWith('data:image/')) return trimmed;
+  const mime = trimmed.startsWith('iVBOR') ? 'image/png' : trimmed.startsWith('UklGR') ? 'image/webp' : 'image/jpeg';
+  return `data:${mime};base64,${trimmed}`;
+}
+
+export function getSavedProfileName(user) {
+  const cached = profState.displayName || (typeof localStorage !== 'undefined' ? localStorage.getItem(PROFILE_NAME_KEY) : '') || '';
+  if (cached.trim()) return cached.trim();
+  const meta = user?.user_metadata?.full_name || user?.user_metadata?.name || '';
+  if (String(meta).trim()) return String(meta).trim();
+  if (user?.email) return user.email.split('@')[0];
+  return 'AstroK Pro';
+}
+
+export function getSavedProfilePhoto() {
+  return profState.photoDataUrl || (typeof localStorage !== 'undefined' ? localStorage.getItem(PROFILE_PHOTO_KEY) : '') || '';
+}
+
+export function clearCachedProfile() {
+  profState.displayName = '';
+  profState.photoDataUrl = '';
+  profState.loadedUserId = null;
+  try {
+    localStorage.removeItem(PROFILE_PHOTO_KEY);
+    localStorage.removeItem(PROFILE_NAME_KEY);
+  } catch {}
+}
+
+export async function loadCloudProfile(userId) {
+  if (!userId) return null;
+  try {
+    const { data: { session } } = await authClient.auth.getSession();
+    if (!session?.access_token || session?.user?.id !== userId) return null;
+    const res = await fetch(
+      `${apiOrigin}/rest/v1/profiles?id=eq.${encodeURIComponent(userId)}&select=display_name,photo_base64`,
+      {
+        method: 'GET',
+        headers: {
+          apikey: publishableKey,
+          Authorization: `Bearer ${session.access_token}`,
+          Accept: 'application/json'
+        }
+      }
+    );
+    if (!res.ok) return null;
+    const rows = await res.json().catch(() => []);
+    const row = Array.isArray(rows) ? rows[0] : null;
+    profState.loadedUserId = userId;
+    const name = String(row?.display_name || '').trim();
+    const photo = normalizePhotoDataUrl(row?.photo_base64 || '');
+    if (name) {
+      profState.displayName = name;
+      try { localStorage.setItem(PROFILE_NAME_KEY, name); } catch {}
+    }
+    if (photo) {
+      profState.photoDataUrl = photo;
+      try { localStorage.setItem(PROFILE_PHOTO_KEY, photo); } catch {}
+    } else if (row) {
+      profState.photoDataUrl = '';
+      try { localStorage.removeItem(PROFILE_PHOTO_KEY); } catch {}
+    }
+    return { displayName: profState.displayName, photoDataUrl: profState.photoDataUrl };
+  } catch {
+    return null;
+  }
+}
 
 export function enterPasswordRecoveryMode() {
   profState.mode = 'recovery';
@@ -135,7 +210,8 @@ export function renderProfileScreen({ english, user, base }) {
     `;
   }
 
-  const name = profState.displayName || user.user_metadata?.full_name || user.user_metadata?.name || (user.email || 'A').split('@')[0];
+  const name = getSavedProfileName(user);
+  const photo = getSavedProfilePhoto();
   const initial = name.slice(0, 1).toUpperCase();
 
   return `
@@ -147,7 +223,7 @@ export function renderProfileScreen({ english, user, base }) {
     <main class="ios-profile-page">
       <div class="ios-profile-avatar-section">
         <div class="ios-avatar-wrap large">
-          <div class="ios-avatar-circle large">${(() => { const p = typeof localStorage !== 'undefined' ? localStorage.getItem('astrok.web.profile.photo') : ''; return p ? `<img src="${escHtml(p)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : escHtml(initial); })()}</div>
+          <div class="ios-avatar-circle large">${photo ? `<img src="${escHtml(photo)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : escHtml(initial)}</div>
           <span class="ios-camera-badge large" aria-hidden="true">📷</span>
         </div>
         <h2>${escHtml(name)}</h2>
@@ -156,7 +232,7 @@ export function renderProfileScreen({ english, user, base }) {
             📷 ${t('ပုံရွေးမည် / ပြောင်းမည်', 'Choose photo')}
             <input id="prof-photo-input" type="file" accept="image/*" hidden>
           </label>
-          ${typeof localStorage !== 'undefined' && localStorage.getItem('astrok.web.profile.photo') ? `<button type="button" id="prof-photo-remove" class="ak-chip">${t('ပုံဖယ်ရှားမည်', 'Remove')}</button>` : ''}
+          ${photo ? `<button type="button" id="prof-photo-remove" class="ak-chip">${t('ပုံဖယ်ရှားမည်', 'Remove')}</button>` : ''}
         </div>
       </div>
 
@@ -358,7 +434,7 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
       if (error) throw error;
       const { data: { session } } = await authClient.auth.getSession();
       if (session?.access_token && session?.user?.id) {
-        const photoDataUrl = typeof localStorage !== 'undefined' ? (localStorage.getItem('astrok.web.profile.photo') || '') : '';
+        const photoDataUrl = getSavedProfilePhoto();
         const photoBase64 = photoDataUrl.includes(',') ? photoDataUrl.split(',')[1] : photoDataUrl;
         await fetch(`${apiOrigin}/rest/v1/profiles`, {
           method: 'POST',
@@ -372,6 +448,7 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
         }).catch(() => {});
       }
       profState.displayName = displayName;
+      try { localStorage.setItem(PROFILE_NAME_KEY, displayName); } catch {}
       profState.notice = english ? 'Profile saved & synced to cloud.' : 'Profile ကို Cloud နှင့် ချိတ်ဆက်သိမ်းဆည်းပြီးပါပြီ။';
     } catch (err) {
       profState.error = formatAuthError(err, english);
@@ -412,7 +489,7 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
     const reader = new FileReader();
     reader.onload = () => {
       const img = new Image();
-      img.onload = () => {
+      img.onload = async () => {
         const max = 360;
         const scale = Math.min(1, max / Math.max(img.width, img.height));
         const canvas = document.createElement('canvas');
@@ -420,7 +497,8 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
         canvas.height = Math.max(1, Math.round(img.height * scale));
         canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
         const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
-        try { localStorage.setItem('astrok.web.profile.photo', dataUrl); } catch {}
+        profState.photoDataUrl = dataUrl;
+        try { localStorage.setItem(PROFILE_PHOTO_KEY, dataUrl); } catch {}
         profState.notice = english ? 'Profile photo updated.' : 'Profile ပုံ ပြောင်းလဲပြီးပါပြီ။';
         rerender();
       };
@@ -430,7 +508,8 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
   });
 
   document.querySelector('#prof-photo-remove')?.addEventListener('click', () => {
-    try { localStorage.removeItem('astrok.web.profile.photo'); } catch {}
+    profState.photoDataUrl = '';
+    try { localStorage.removeItem(PROFILE_PHOTO_KEY); } catch {}
     profState.notice = english ? 'Profile photo removed.' : 'Profile ပုံ ဖယ်ရှားပြီးပါပြီ။';
     rerender();
   });
@@ -438,7 +517,7 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
   document.querySelector('#ios-profile-signout')?.addEventListener('click', async () => {
     try {
       await signOut();
-      profState.displayName = '';
+      clearCachedProfile();
       profState.notice = '';
       profState.error = '';
       onSignedOut();

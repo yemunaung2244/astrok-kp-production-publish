@@ -1,4 +1,5 @@
 import { escHtml, toMyDigits } from './script-loader.js';
+import { getSavedProfileName, getSavedProfilePhoto } from './profile.js';
 
 export const HOME_SYSTEMS = [
   { id: 'entry', img: 'KPGoldCardV2.jpg', titleMm: 'KP စနစ်', titleEn: 'KP System', bottomPad: 6 },
@@ -61,7 +62,8 @@ export function renderHomeScreen({ english, user, wallet, base }) {
   const t = (mm, en) => (english ? en : mm);
   const kyat = wallet?.kyatBalance ?? 0;
   const hasVault = Boolean(wallet?.bankVault && (wallet?.bankVaultLifetime || (wallet?.bankVaultExpiresAt && Date.parse(wallet.bankVaultExpiresAt) > Date.now())));
-  const displayName = (user?.user_metadata?.full_name || user?.user_metadata?.name || (user?.email ? user.email.split('@')[0] : '') || 'AstroK Pro').trim();
+  const displayName = getSavedProfileName(user);
+  const photo = getSavedProfilePhoto();
   const initial = displayName.slice(0, 1).toUpperCase();
 
   return `
@@ -90,7 +92,7 @@ export function renderHomeScreen({ english, user, wallet, base }) {
 
         <section class="ios-profile-hero" data-entry-tab="profile" role="button" tabindex="0">
           <div class="ios-avatar-wrap">
-            <div class="ios-avatar-circle">${(() => { const photo = typeof localStorage !== 'undefined' ? localStorage.getItem('astrok.web.profile.photo') : ''; return photo ? `<img src="${escHtml(photo)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : escHtml(initial); })()}</div>
+            <div class="ios-avatar-circle">${photo ? `<img src="${escHtml(photo)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : escHtml(initial)}</div>
             <span class="ios-camera-badge" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 3 7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.17L15 3H9Zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></svg>
             </span>
