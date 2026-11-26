@@ -85,21 +85,10 @@ export function renderProfileScreen({ english, user, base }) {
           <h2>${isSignup ? t('Account အသစ်ဖန်တီးရန်', 'Create account') : t('Account ဝင်ရန်', 'Sign in')}</h2>
           <p class="ios-login-desc">${isSignup ? t('AstroK Pro Account အသစ်ဖွင့်ပါ', 'Create a new AstroK Pro account') : t('AstroK Pro Account သို့ ဝင်ရောက်ပါ', 'Sign in to your AstroK Pro account')}</p>
 
-          <div class="ios-seg-tabs">
-            <button type="button" data-prof-mode="login" class="${!isSignup ? 'selected' : ''}">${t('ဝင်ရန်', 'Log in')}</button>
-            <button type="button" data-prof-mode="signup" class="${isSignup ? 'selected' : ''}">${t('Account ဖွင့်ရန်', 'Sign up')}</button>
-          </div>
-
           ${profState.error ? `<p class="ios-notice-banner error">${escHtml(profState.error)}</p>` : ''}
           ${profState.notice ? `<p class="ios-notice-banner info">${escHtml(profState.notice)}</p>` : ''}
 
           <form id="ios-profile-auth-form" class="ios-auth-form">
-            ${isSignup ? `
-              <label class="ios-input-box">
-                <span>${t('အမည်', 'Display Name')}</span>
-                <input name="displayName" value="${escHtml(profState.displayName)}" placeholder="${t('သင့်အမည်', 'Your name')}" maxlength="80">
-              </label>
-            ` : ''}
             <label class="ios-input-box">
               <span>${t('အီးမေးလ်', 'Email')}</span>
               <input id="prof-email-input" name="email" type="email" value="${escHtml(profState.email)}" autocomplete="email" placeholder="${t('အီးမေးလ်လိပ်စာ', 'name@example.com')}" required>
@@ -111,29 +100,32 @@ export function renderProfileScreen({ english, user, base }) {
                 <button type="button" id="prof-toggle-pass" class="ios-eye-btn" aria-label="Toggle password">${profState.showPassword ? '🙈' : '👁'}</button>
               </div>
             </label>
-            ${isSignup ? `
-              <label class="ios-input-box">
-                <span>${t('စကားဝှက် ထပ်ရိုက်ရန်', 'Confirm password')}</span>
-                <input name="confirm" type="${profState.showPassword ? 'text' : 'password'}" minlength="6" autocomplete="new-password" required>
-              </label>
-            ` : `
+            ${!isSignup ? `
               <div class="ios-forgot-row">
                 <button type="button" id="prof-forgot-btn" class="ios-text-link-btn" ${profState.busy ? 'disabled' : ''}>${t('Password မေ့နေပါသလား?', 'Forgot password?')}</button>
               </div>
-            `}
+            ` : ''}
             <button type="submit" class="ios-primary-pill-btn" ${profState.busy ? 'disabled' : ''}>
-              ${profState.busy ? t('ခဏစောင့်ပါ…', 'Please wait…') : (isSignup ? t('Account ဖန်တီးမည် →', 'Create account →') : t('ဝင်မည် →', 'Sign in →'))}
+              ${profState.busy ? t('ခဏစောင့်ပါ…', 'Please wait…') : (isSignup ? t('Account ဖန်တီးမည်', 'Create account') : t('ဝင်မည်', 'Sign in'))}
             </button>
           </form>
 
-          <div class="ios-oauth-divider"><span>${t('သို့မဟုတ်', 'or')}</span></div>
+          ${!isSignup ? `
+            <div class="ios-oauth-divider"><span>${t('သို့မဟုတ်', 'or')}</span></div>
 
-          <div class="ios-oauth-row">
-            <button type="button" class="ios-social-btn" data-oauth-provider="apple" ${profState.busy ? 'disabled' : ''}>
-              ${APPLE_SVG}<span>Apple</span>
-            </button>
-            <button type="button" class="ios-social-btn" data-oauth-provider="google" ${profState.busy ? 'disabled' : ''}>
-              ${GOOGLE_SVG}<span>Google</span>
+            <div class="ios-oauth-row">
+              <button type="button" class="ios-social-btn" data-oauth-provider="apple" ${profState.busy ? 'disabled' : ''}>
+                ${APPLE_SVG}<span>Apple</span>
+              </button>
+              <button type="button" class="ios-social-btn" data-oauth-provider="google" ${profState.busy ? 'disabled' : ''}>
+                ${GOOGLE_SVG}<span>Google</span>
+              </button>
+            </div>
+          ` : ''}
+
+          <div style="text-align:center;margin-top:14px">
+            <button type="button" data-prof-mode="${isSignup ? 'login' : 'signup'}" class="ios-text-link-btn">
+              ${isSignup ? t('Account ရှိပြီးသား', 'Already have an account') : t('Account အသစ်ဖန်တီးမည်', 'Create a new account')}
             </button>
           </div>
         </section>
@@ -212,16 +204,6 @@ export function renderProfileScreen({ english, user, base }) {
       <button type="button" id="ios-profile-delete" class="ios-danger-outline-btn" style="opacity:0.85" ${profState.busy ? 'disabled' : ''}>
         ${t('Account ကို အပြီးဖျက်မည်', 'Delete account permanently')}
       </button>
-
-      <section class="ios-white-card" style="margin-top:16px">
-        <h3 class="ios-card-h3">✦ ${t('AstroK Pro အကြောင်းနှင့် ဆက်သွယ်ရန်', 'About & Contact AstroK Pro')}</h3>
-        <p class="ios-muted-note">${t('KP နက္ခတ်၊ ဂဏန်းဗေဒင်၊ တြိစက္က၊ M-Sann၊ မုဟုတ္တ၊ တားရော့၊ ဗေဒင်စာအုပ်နှင့် သင်တန်းများအားလုံးကို တစ်နေရာတည်းတွင် အသုံးပြုနိုင်ပါသည်။', 'Complete astrology suite with KP, Numerology, Trisakka, M-Sann, Muhurat, Tarot, Books, and Courses.')}</p>
-        <div class="ak-badge-row">
-          <a class="ak-chip" href="https://t.me/sayahtunlinnAstroK718" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:var(--ak-primary)">📢 Telegram Channel ↗</a>
-          <a class="ak-chip" href="https://t.me/htoomyatastro2635" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:var(--ak-primary)">💬 Support Telegram ↗</a>
-          <a class="ak-chip" href="tel:09699031718" style="text-decoration:none;color:var(--ak-ink)">📞 09699031718</a>
-        </div>
-      </section>
 
       <p class="ios-version-footer">AstroK Pro · Version 5.0</p>
     </main>
@@ -306,22 +288,14 @@ export function bindProfileScreen(rerender, onSignedOut, english = false) {
     const fd = new FormData(e.currentTarget);
     const email = String(fd.get('email') || '').trim();
     const password = String(fd.get('password') || '');
-    const displayName = String(fd.get('displayName') || '').trim();
     profState.email = email;
-    if (displayName) profState.displayName = displayName;
-
-    if (profState.mode === 'signup' && password !== String(fd.get('confirm') || '')) {
-      profState.error = english ? 'Passwords do not match.' : 'စကားဝှက်နှစ်ခု မတူပါ။';
-      rerender();
-      return;
-    }
     profState.busy = true;
     profState.error = '';
     profState.notice = '';
     rerender();
     try {
       const res = profState.mode === 'signup'
-        ? await emailSignUp(email, password, displayName)
+        ? await emailSignUp(email, password)
         : await emailSignIn(email, password);
       if (!res.session) {
         profState.notice = english

@@ -112,10 +112,7 @@ function renderSannResult(out, english) {
 
   return `
     <section class="ak-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px">
-        <h3 style="margin:0">${t('မဟာဘုတ် ၇ ဌာန', 'Mahabote 7 Houses')}</h3>
-        <button type="button" id="msann-print-btn" class="ak-chip">🖨 ${t('Print ထုတ်မည်', 'Print Chart')}</button>
-      </div>
+      <h3>${t('မဟာဘုတ် ၇ ဌာန', 'Mahabote 7 Houses')}</h3>
       <div class="msann-house-grid">
         ${houses.map(([label, val]) => `
           <div class="msann-house-cell">
@@ -146,10 +143,7 @@ function renderAngaResult(out, english) {
   ];
   return `
     <section class="ak-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px">
-        <h3 style="margin:0">${t('အင်္ဂဝိဇ္ဇာ ၅ တိုင်စနစ်', '5-Column Anga Vissa Chart')}</h3>
-        <button type="button" id="msann-print-btn" class="ak-chip">🖨 ${t('Print', 'Print')}</button>
-      </div>
+      <h3>${t('အင်္ဂဝိဇ္ဇာ ၅ တိုင်စနစ်', '5-Column Anga Vissa Chart')}</h3>
       ${out.textview90 ? `<p class="ak-highlight-line">${escHtml(out.textview90)}</p>` : ''}
       <div class="table-scroll">
         <table class="ak-data-table">
@@ -326,7 +320,6 @@ export function bindMSannScreen(rerender) {
     });
   });
 
-  document.querySelector('#msann-print-btn')?.addEventListener('click', () => window.print());
   document.querySelector('#msann-cal-year')?.addEventListener('change', e => { msannState.calYear = e.target.value; rerender(); });
   document.querySelector('#msann-cal-month')?.addEventListener('change', e => { msannState.calMonth = e.target.value; rerender(); });
 

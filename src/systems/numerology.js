@@ -296,13 +296,6 @@ export function renderNumerologyScreen(appHeader, english) {
   return `
     ${appHeader(t('ဂဏန်းဗေဒင်', 'Numerology'), true)}
     <main class="ak-sys-main">
-      ${!numState.result ? `
-        <section class="ios-num-hero">
-          <small>✦ ASTROK PRO · NUMEROLOGY</small>
-          <h2>${t('ဂဏန်းဗေဒင် ဇာတာနှင့် အဟောစာတမ်း', 'Numerology Chart & Readings')}</h2>
-          <p>${t('မွေးနေ့နှင့် အမည်ကို ထည့်သွင်းပြီး အုပ်စိုးကိန်း၊ ဂဏန်းဇာတာခွင်၊ မြှားတံများ၊ အလွှာ ၃ လွှာ၊ ၉ နှစ်စက်ဝန်းနှင့် ပိရမစ်အထွတ်အထိပ်နှစ်များကို တွက်ချက်ဖတ်ရှုနိုင်ပါသည်။', 'Enter your birth date and name to calculate Ruling Number, Birth & Name Grids, Arrows, Three Planes, 9-Year Cycle, and Pinnacle Years.')}</p>
-        </section>
-      ` : ''}
       <form id="num-form" class="ak-form-card">
         <div class="ak-form-row">
           <label class="ak-field full">

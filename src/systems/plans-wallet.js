@@ -1,6 +1,6 @@
 import { authClient, apiOrigin, publishableKey } from '../auth.js';
 import { loadJson, escHtml, toMyDigits } from './script-loader.js';
-import { createTelegramTopUpUrl, createTelegramAccountLinkUrl, redeemAnyAstroKKey } from './telegram.js';
+import { createTelegramTopUpUrl, createTelegramAccountLinkUrl, checkCanLinkTelegram } from './telegram.js';
 
 const plansState = {
   data: null,
@@ -12,17 +12,18 @@ const plansState = {
   feedback: '',
   feedbackOk: false,
   topUpOpen: false,
-  topUpAmount: '10000',
+  topUpAmount: '',
   topUpBusy: false,
   topUpUrl: '',
   topUpError: '',
+  isAdmin: false,
+  adminCheckedUser: null,
   linkBusy: false,
   linkUrl: '',
   linkError: '',
-  keyCode: '',
-  keyBusy: false,
-  keyMsg: '',
-  keyOk: false
+  trialBusy: false,
+  trialMsg: '',
+  trialOk: false
 };
 
 function fmtPrice(price, english) {
@@ -48,59 +49,44 @@ function isPlanActive(wallet, systemId, level) {
   return systemId === 'kp' ? (!hasSystemPremium && !hasKPStandard) : !hasSystemPremium;
 }
 
-export function renderMultiSystemPlans(english, wallet, base = './') {
+export function renderMultiSystemPlans(english, wallet) {
   const t = (mm, en) => (english ? en : mm);
   const systems = plansState.data?.systems || [];
   const activeSys = systems.find(s => s.id === plansState.selectedSystem) || systems[0];
-  const kyat = wallet?.kyatBalance ?? 0;
-  const hasVault = Boolean(wallet?.bankVault && (wallet?.bankVaultLifetime || (wallet?.bankVaultExpiresAt && Date.parse(wallet.bankVaultExpiresAt) > Date.now())));
 
-  const heroHtml = `
-    <section class="ios-topup-hero" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.42), rgba(0,0,0,0.08)), url('${escHtml(base)}ios-assets/KyatTopUpHero.png')">
-      <span class="ios-topup-kicker">${t('လက်ကျန် ကျပ်', 'AVAILABLE KYAT')}</span>
-      <strong>${hasVault ? 'Premium' : escHtml(Number(kyat).toLocaleString('en-US') + (english ? ' Kyat' : ' ကျပ်'))}</strong>
-      <small>${t('ကျပ်မကုန်ခင် · ကျပ်ဝန်ဆောင်မှု အသုံးပြုပါ', 'Kyat balance · use premium services')}</small>
-    </section>
-
+  const topActions = `
     <div class="ios-topup-actions">
+      ${plansState.isAdmin ? `
+        <button type="button" id="link-tg-account" class="ios-soft-action-btn" ${plansState.linkBusy ? 'disabled' : ''}>
+          <span>${plansState.linkBusy ? t('Telegram ချိတ်ဆက်နေ…', 'Linking Telegram…') : t('Telegram ချိတ်ဆက်ရန်', 'Link Telegram')}</span>
+          <span>›</span>
+        </button>
+        ${plansState.linkUrl ? `<p class="ios-notice-banner info">✓ <a href="${escHtml(plansState.linkUrl)}" target="_blank" rel="noopener noreferrer">${t('Telegram ဖွင့်ရန် ↗', 'Open Telegram ↗')}</a></p>` : ''}
+        ${plansState.linkError ? `<p class="ios-notice-banner error">${escHtml(plansState.linkError)}</p>` : ''}
+      ` : ''}
       <button type="button" id="open-tg-topup" class="ios-violet-action-btn" style="border:none;cursor:pointer;width:100%">
-        <span>💳 ${t('Telegram Bot ဖြင့် ငွေဖြည့်ရန်', 'Top Up via Telegram Bot')}</span>
-        <span>›</span>
-      </button>
-      <button type="button" id="link-tg-account" class="ios-soft-action-btn" ${plansState.linkBusy ? 'disabled' : ''}>
-        <span>✈️ ${plansState.linkBusy ? t('Telegram လင့်ခ်ထုတ်နေပါသည်…', 'Generating link…') : t('Telegram Bot နှင့် Account ချိတ်ဆက်ရန်', 'Link Account with Telegram Bot')}</span>
+        <span>💳 ${t('ငွေဖြည့်ရန်', 'Top Up')}</span>
         <span>›</span>
       </button>
       <button type="button" id="claim-trial-btn" class="ios-soft-action-btn" ${plansState.trialBusy ? 'disabled' : ''}>
-        <span>🎁 ${plansState.trialBusy ? t('အစမ်းသုံးခွင့် ဖွင့်နေပါသည်…', 'Activating trial…') : t('၃ ရက်အစမ်းသုံးရယူရန် (Free Trial)', 'Claim 3-Day Free Trial')}</span>
+        <span>🎁 ${plansState.trialBusy ? t('အစမ်းသုံးခွင့် ဖွင့်နေပါသည်…', 'Activating trial…') : t('၃ ရက်အစမ်းသုံးရယူရန်', 'Claim 3-Day Trial')}</span>
         <span>›</span>
       </button>
       ${plansState.trialMsg ? `<p class="ios-notice-banner ${plansState.trialOk ? 'info' : 'error'}">${escHtml(plansState.trialMsg)}</p>` : ''}
-      ${plansState.linkUrl ? `<p class="ios-notice-banner info">✓ <a href="${escHtml(plansState.linkUrl)}" target="_blank" rel="noopener noreferrer">${t('Telegram Bot ဖွင့်ပြီး ချိတ်ဆက်မည် ↗', 'Open Telegram Bot to Link ↗')}</a></p>` : ''}
-      ${plansState.linkError ? `<p class="ios-notice-banner error">${escHtml(plansState.linkError)}</p>` : ''}
     </div>
-
-    <section class="ak-card">
-      <h3>🔑 ${t('Kyat / Plan Key ဖြည့်သွင်းရန်', 'Redeem Kyat or Plan Key')}</h3>
-      <form id="universal-key-form" style="display:flex;gap:8px;flex-wrap:wrap">
-        <input name="code" value="${escHtml(plansState.keyCode)}" placeholder="ASTROK-..." autocomplete="off" autocapitalize="characters" style="flex:1;min-width:180px;padding:10px 12px;border:1px solid var(--ak-divider);border-radius:12px;background:var(--ak-page)" required>
-        <button type="submit" class="ios-price-buy-btn" ${plansState.keyBusy ? 'disabled' : ''}>${plansState.keyBusy ? t('စစ်နေ…', 'Checking…') : t('Key ဖြည့်မည်', 'Redeem')}</button>
-      </form>
-      ${plansState.keyMsg ? `<p class="ios-notice-banner ${plansState.keyOk ? 'info' : 'error'}" style="margin-top:10px">${escHtml(plansState.keyMsg)}</p>` : ''}
-    </section>
   `;
 
   if (plansState.loading) {
-    return `${heroHtml}<div class="chart-pending">${t('Plan စာရင်း ဖတ်နေပါသည်…', 'Loading plans…')}</div>`;
+    return `${topActions}<div class="chart-pending">${t('Plan စာရင်း ဖတ်နေပါသည်…', 'Loading plans…')}</div>`;
   }
-  if (!activeSys) return heroHtml;
+  if (!activeSys) return topActions;
 
   const visiblePlans = activeSys.id === 'kp'
     ? (activeSys.plans || []).filter(p => p.level !== 'Free')
     : (activeSys.plans || []);
 
   return `
-    ${heroHtml}
+    ${topActions}
     <nav class="ios-plan-sys-tabs" aria-label="${t('စနစ်များ', 'Systems')}">
       ${systems.map(sys => `
         <button type="button" data-plan-sys="${escHtml(sys.id)}" class="${activeSys.id === sys.id ? 'selected' : ''}">
@@ -145,27 +131,23 @@ export function renderMultiSystemPlans(english, wallet, base = './') {
 
 function renderTopUpModal(english) {
   const t = (mm, en) => (english ? en : mm);
-  const presets = [5000, 10000, 20000, 50000, 100000];
   return `
     <div class="ios-modal-backdrop" id="tg-topup-backdrop">
       <section class="ios-modal-sheet" role="dialog" aria-modal="true">
         <header class="ios-modal-head">
-          <strong>${t('Telegram Bot ဖြင့် ငွေဖြည့်ရန်', 'Top Up via Telegram Bot')}</strong>
+          <strong>${t('ငွေပမာဏရိုက်ထည့်ရန်', 'Enter Amount')}</strong>
           <button type="button" id="tg-topup-close" aria-label="Close">×</button>
         </header>
         <form id="tg-topup-form" class="ios-auth-form" style="margin-top:14px">
-          <div class="ak-chip-row" style="margin-top:0">
-            ${presets.map(v => `<button type="button" class="ak-chip ${Number(plansState.topUpAmount) === v ? 'selected' : ''}" data-topup-preset="${v}">${escHtml(fmtPrice(v, english))}</button>`).join('')}
-          </div>
           <label class="ios-input-box">
-            <span>${t('ငွေပမာဏ (၁၀၀ မှ ၁၀,၀၀၀,၀၀၀ ကျပ်)', 'Amount (100 – 10,000,000 MMK)')}</span>
-            <input id="tg-topup-amount" name="amount" type="number" min="100" max="10000000" step="100" value="${escHtml(plansState.topUpAmount)}" required>
+            <span>${t('ငွေပမာဏ (ကျပ်)', 'Amount (Kyat)')}</span>
+            <input id="tg-topup-amount" name="amount" type="number" min="100" max="10000000" value="${escHtml(plansState.topUpAmount)}" placeholder="10000" required>
           </label>
           <button type="submit" class="ios-primary-rect-btn" ${plansState.topUpBusy ? 'disabled' : ''}>
-            ${plansState.topUpBusy ? t('Telegram Bot လင့်ခ်ထုတ်နေပါသည်…', 'Creating Telegram checkout…') : t('Telegram Bot ဖြင့် ငွေဖြည့်မည်', 'Continue to Telegram Bot')}
+            ${plansState.topUpBusy ? t('ခဏစောင့်ပါ…', 'Please wait…') : t('ဝယ်ယူမည်', 'Buy Now')}
           </button>
         </form>
-        ${plansState.topUpUrl ? `<p class="ios-notice-banner info" style="margin-top:12px">✓ ${t('Checkout လင့်ခ် အဆင်သင့်ဖြစ်ပါပြီ —', 'Checkout ready —')} <a href="${escHtml(plansState.topUpUrl)}" target="_blank" rel="noopener noreferrer"><strong>${t('Telegram Bot ဖွင့်ရန် ↗', 'Open Telegram Bot ↗')}</strong></a></p>` : ''}
+        ${plansState.topUpUrl ? `<p class="ios-notice-banner info" style="margin-top:12px">✓ <a href="${escHtml(plansState.topUpUrl)}" target="_blank" rel="noopener noreferrer"><strong>${t('Telegram ဖွင့်ရန် ↗', 'Open Telegram ↗')}</strong></a></p>` : ''}
         ${plansState.topUpError ? `<p class="ios-notice-banner error" style="margin-top:12px">${escHtml(plansState.topUpError)}</p>` : ''}
       </section>
     </div>
@@ -214,6 +196,21 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
       .finally(() => { plansState.loading = false; rerender(); });
   }
 
+  // Only show Link Telegram button for admin accounts, matching iOS KyatKeyRedeemView.swift
+  authClient.auth.getSession().then(({ data: { session } }) => {
+    const uid = session?.user?.id || null;
+    if (uid && plansState.adminCheckedUser !== uid) {
+      plansState.adminCheckedUser = uid;
+      checkCanLinkTelegram().then(allowed => {
+        if (plansState.isAdmin !== allowed) { plansState.isAdmin = allowed; rerender(); }
+      });
+    } else if (!uid && plansState.isAdmin) {
+      plansState.isAdmin = false;
+      plansState.adminCheckedUser = null;
+      rerender();
+    }
+  }).catch(() => {});
+
   document.querySelector('#open-tg-topup')?.addEventListener('click', () => {
     plansState.topUpOpen = true;
     plansState.topUpUrl = '';
@@ -224,17 +221,11 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
   document.querySelector('#tg-topup-backdrop')?.addEventListener('click', e => {
     if (e.target.id === 'tg-topup-backdrop') { plansState.topUpOpen = false; rerender(); }
   });
-  document.querySelectorAll('[data-topup-preset]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      plansState.topUpAmount = btn.dataset.topupPreset;
-      rerender();
-    });
-  });
 
   document.querySelector('#tg-topup-form')?.addEventListener('submit', async e => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    plansState.topUpAmount = String(fd.get('amount') || '10000');
+    plansState.topUpAmount = String(fd.get('amount') || '');
     plansState.topUpBusy = true;
     plansState.topUpUrl = '';
     plansState.topUpError = '';
@@ -244,10 +235,10 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
     } catch (err) {
       const msg = String(err?.message || '');
       plansState.topUpError = msg === 'SIGN_IN_REQUIRED'
-        ? 'ငွေဖြည့်ရန် ပရိုဖိုင်မှ AstroK Pro Account အရင်ဝင်ပါ။'
+        ? 'ဝယ်ယူရန် AstroK account ဝင်ထားရပါမည်။'
         : msg === 'INVALID_AMOUNT'
           ? '၁၀၀ မှ ၁၀,၀၀၀,၀၀၀ ကျပ်အတွင်း ထည့်ပေးပါ။'
-          : 'Telegram Bot ငွေဖြည့်လင့်ခ် ထုတ်၍မရပါ။ ထပ်စမ်းပါ။';
+          : 'ဝယ်ယူမှု ဖွင့်လို့မရပါ။ ထပ်စမ်းပါ။';
     } finally {
       plansState.topUpBusy = false;
       rerender();
@@ -280,7 +271,7 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
       const st = body?.trialStatus || '';
       if (st === 'active') {
         plansState.trialOk = true;
-        plansState.trialMsg = '၃ ရက်အစမ်းသုံးခွင့် (၇၂ နာရီ) ရရှိပါပြီ။ Premium စနစ်များကို စတင်သုံးနိုင်ပါပြီ။';
+        plansState.trialMsg = '၃ ရက်အစမ်းသုံးခွင့် ရပါပြီ။ Premium စနစ်များကို ၇၂ နာရီ အသုံးပြုနိုင်ပါပြီ။';
         if (onRefreshWallet) await onRefreshWallet();
       } else if (st === 'used') {
         plansState.trialOk = false;
@@ -305,38 +296,10 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
     rerender();
     try {
       plansState.linkUrl = await createTelegramAccountLinkUrl();
-    } catch (err) {
-      plansState.linkError = String(err?.message || '') === 'SIGN_IN_REQUIRED'
-        ? 'Telegram ချိတ်ဆက်ရန် ပရိုဖိုင်မှ Account အရင်ဝင်ပါ။'
-        : 'Telegram ချိတ်ဆက်လင့်ခ် ထုတ်၍မရပါ။ ထပ်စမ်းပါ။';
+    } catch {
+      plansState.linkError = 'Telegram ချိတ်ဆက်လို့မရပါ။ ထပ်စမ်းပါ။';
     } finally {
       plansState.linkBusy = false;
-      rerender();
-    }
-  });
-
-  document.querySelector('#universal-key-form')?.addEventListener('submit', async e => {
-    e.preventDefault();
-    if (plansState.keyBusy) return;
-    const fd = new FormData(e.currentTarget);
-    const code = String(fd.get('code') || '').trim().toUpperCase();
-    plansState.keyCode = code;
-    plansState.keyBusy = true;
-    plansState.keyMsg = '';
-    rerender();
-    try {
-      await redeemAnyAstroKKey(code);
-      plansState.keyCode = '';
-      plansState.keyOk = true;
-      plansState.keyMsg = 'Key ဖြည့်သွင်းပြီးပါပြီ။ ကျပ်လက်ကျန် / Plan ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။';
-      if (onRefreshWallet) await onRefreshWallet();
-    } catch (err) {
-      plansState.keyOk = false;
-      plansState.keyMsg = String(err?.message || '') === 'SIGN_IN_REQUIRED'
-        ? 'Key ဖြည့်ရန် Account အရင်ဝင်ပါ။'
-        : 'Key မမှန်ပါ သို့မဟုတ် အသုံးပြုပြီးသား ဖြစ်နေပါသည်။';
-    } finally {
-      plansState.keyBusy = false;
       rerender();
     }
   });
@@ -377,7 +340,7 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
 
       const { data: { session } } = await authClient.auth.getSession();
       if (!session?.access_token || !session?.user?.id) {
-        plansState.feedback = 'Plan ဝယ်ယူရန် Account အရင်ဝင်ပါ။';
+        plansState.feedback = 'Plan ဝယ်ယူရန် Account ဝင်ပါ။';
         plansState.feedbackOk = false;
         rerender();
         return;
@@ -410,17 +373,17 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
           plansState.feedbackOk = true;
           if (onRefreshWallet) await onRefreshWallet();
         } else if (String(status).includes('INSUFFICIENT')) {
-          plansState.feedback = 'ကျပ်လက်ကျန် မလုံလောက်ပါ။ Telegram Bot မှ ငွေဖြည့်ပြီး ထပ်စမ်းပါ။';
+          plansState.feedback = 'ကျပ်လက်ကျန် မလုံလောက်ပါ။';
           plansState.feedbackOk = false;
         } else if (String(status).includes('LIFETIME')) {
           plansState.feedback = 'တစ်သက်တာ အသုံးပြုခွင့် ရရှိပြီးသားပါ။';
           plansState.feedbackOk = true;
         } else {
-          plansState.feedback = 'ဝယ်ယူမှုကို အတည်မပြုနိုင်သေးပါ။ ကျပ်လက်ကျန်စစ်ပြီး ထပ်စမ်းပါ။';
+          plansState.feedback = 'ဝယ်ယူမှုကို အတည်မပြုနိုင်သေးပါ။ ထပ်နှိပ်စမ်းပါ။';
           plansState.feedbackOk = false;
         }
       } catch {
-        plansState.feedback = 'အင်တာနက်ချိတ်ဆက်မှု မအောင်မြင်ပါ။ ထပ်စမ်းပါ။';
+        plansState.feedback = 'ဝယ်ယူမှုကို အတည်မပြုနိုင်သေးပါ။ ထပ်နှိပ်စမ်းပါ။';
         plansState.feedbackOk = false;
       } finally {
         plansState.buyingIndex = null;
