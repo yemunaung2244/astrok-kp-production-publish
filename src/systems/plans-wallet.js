@@ -1,6 +1,22 @@
 import { authClient, apiOrigin, publishableKey } from '../auth.js';
 import { loadJson, escHtml, toMyDigits } from './script-loader.js';
-import { createTelegramTopUpUrl } from './telegram.js';
+import { createTelegramTopUpUrl, createTelegramTrialUrl, fetchMobileTrialStatus } from './telegram.js';
+
+const DEVICE_TRIAL_KEY = 'astrok_device_trial_claimed_v1';
+
+function isDeviceTrialClaimed() {
+  try {
+    return localStorage.getItem(DEVICE_TRIAL_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function markDeviceTrialClaimed() {
+  try {
+    localStorage.setItem(DEVICE_TRIAL_KEY, '1');
+  } catch {}
+}
 
 const plansState = {
   data: null,
@@ -17,7 +33,9 @@ const plansState = {
   topUpError: '',
   trialBusy: false,
   trialMsg: '',
-  trialOk: false
+  trialOk: false,
+  trialCheckedUserId: '',
+  trialAwaitingReturn: false
 };
 
 function fmtPrice(price, english) {
@@ -55,7 +73,7 @@ export function renderMultiSystemPlans(english, wallet, { hideTopActions = false
         <span>›</span>
       </button>
       <button type="button" id="claim-trial-btn" class="ios-soft-action-btn" ${plansState.trialBusy ? 'disabled' : ''}>
-        <span>🎁 ${plansState.trialBusy ? t('အစမ်းသုံးခွင့် ဖွင့်နေပါသည်…', 'Activating trial…') : t('၃ ရက်အစမ်းသုံးရယူရန်', 'Claim 3-Day Trial')}</span>
+        <span>🎁 ${plansState.trialBusy ? t('Telegram Bot သို့ ချိတ်ဆက်နေပါသည်…', 'Opening Telegram Bot…') : t('၁ နာရီအစမ်းသုံးရယူရန်', 'Claim 1-Hour Trial')}</span>
         <span>›</span>
       </button>
       ${plansState.trialMsg ? `<p class="ios-notice-banner ${plansState.trialOk ? 'info' : 'error'}">${escHtml(plansState.trialMsg)}</p>` : ''}
@@ -366,12 +384,32 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
     }
   });
 
+  // Sync server trial status into device-level lock so switching accounts on the same phone cannot re-claim.
+  authClient.auth.getSession().then(async ({ data: { session } }) => {
+    const uid = session?.user?.id || '';
+    if (!uid || plansState.trialCheckedUserId === uid) return;
+    plansState.trialCheckedUserId = uid;
+    try {
+      const st = await fetchMobileTrialStatus();
+      if (st?.expires_epoch != null) markDeviceTrialClaimed();
+    } catch {}
+  }).catch(() => {});
+
   document.querySelector('#claim-trial-btn')?.addEventListener('click', async () => {
     if (plansState.trialBusy) return;
+    if (isDeviceTrialClaimed()) {
+      plansState.trialOk = false;
+      plansState.trialMsg = 'ဤဖုန်းတွင် အစမ်းသုံးခွင့် ရယူပြီးသားဖြစ်ပါသည်။ ဖုန်းတစ်လုံးလျှင် တစ်ကြိမ်သာ ရယူခွင့်ရှိပါသည်။';
+      rerender();
+      return;
+    }
+    // Open tab synchronously within user gesture to prevent mobile/Safari popup blocking
+    const tgWindow = window.open('', '_blank');
     const { data: { session } } = await authClient.auth.getSession();
     if (!session?.access_token || !session?.user?.id) {
+      try { tgWindow?.close(); } catch {}
       plansState.trialOk = false;
-      plansState.trialMsg = '၃ ရက်အစမ်းသုံးရယူရန် Account အရင်ဝင်ပါ။';
+      plansState.trialMsg = '၁ နာရီအစမ်းသုံးရယူရန် Account အရင်ဝင်ပါ။';
       rerender();
       return;
     }
@@ -379,30 +417,47 @@ export function bindMultiSystemPlans(rerender, onRefreshWallet) {
     plansState.trialMsg = '';
     rerender();
     try {
-      const res = await fetch(`${apiOrigin}/functions/v1/telegram-astrok-answer?action=app-trial`, {
-        method: 'POST',
-        headers: {
-          apikey: publishableKey,
-          Authorization: `Bearer ${session.access_token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ expectedUser: session.user.id })
-      });
-      const body = await res.json().catch(() => ({}));
-      const st = body?.trialStatus || '';
-      if (st === 'active') {
-        plansState.trialOk = true;
-        plansState.trialMsg = '၃ ရက်အစမ်းသုံးခွင့် ရပါပြီ။ Premium စနစ်များကို ၇၂ နာရီ အသုံးပြုနိုင်ပါပြီ။';
-        if (onRefreshWallet) await onRefreshWallet();
-      } else if (st === 'used') {
+      const st = await fetchMobileTrialStatus().catch(() => null);
+      if (st?.expires_epoch != null) {
+        markDeviceTrialClaimed();
+        try { tgWindow?.close(); } catch {}
         plansState.trialOk = false;
-        plansState.trialMsg = 'ဤ Account သည် ၃ ရက်အစမ်းသုံးခွင့်ကို အသုံးပြုပြီးသား ဖြစ်ပါသည်။';
+        plansState.trialMsg = 'ဤဖုန်းတွင် အစမ်းသုံးခွင့် ရယူပြီးသားဖြစ်ပါသည်။ ဖုန်းတစ်လုံးလျှင် တစ်ကြိမ်သာ ရယူခွင့်ရှိပါသည်။';
+        return;
+      }
+      const url = await createTelegramTrialUrl();
+      plansState.trialOk = true;
+      plansState.trialMsg = 'Telegram Bot တွင် Start နှိပ်၍ ၁ နာရီအစမ်းသုံးခွင့်ကို အတည်ပြုပါ။ ဖုန်းတစ်လုံးလျှင် တစ်ကြိမ်သာ ရယူနိုင်ပါသည်။';
+      if (tgWindow && !tgWindow.closed) {
+        tgWindow.location.href = url;
       } else {
-        throw new Error(body?.error || 'TRIAL_FAILED');
+        window.location.href = url;
+      }
+      if (!plansState.trialAwaitingReturn) {
+        plansState.trialAwaitingReturn = true;
+        const checkOnReturn = async () => {
+          if (document.visibilityState === 'hidden') return;
+          window.removeEventListener('focus', checkOnReturn);
+          document.removeEventListener('visibilitychange', checkOnReturn);
+          plansState.trialAwaitingReturn = false;
+          try {
+            const after = await fetchMobileTrialStatus();
+            if (after?.expires_epoch != null) {
+              markDeviceTrialClaimed();
+              if (onRefreshWallet) await onRefreshWallet();
+              plansState.trialOk = true;
+              plansState.trialMsg = '၁ နာရီအစမ်းသုံးခွင့် ဖွင့်ပြီးပါပြီ။ Premium စနစ်များကို အသုံးပြုနိုင်ပါပြီ။';
+              rerender();
+            }
+          } catch {}
+        };
+        window.addEventListener('focus', checkOnReturn);
+        document.addEventListener('visibilitychange', checkOnReturn);
       }
     } catch {
+      try { tgWindow?.close(); } catch {}
       plansState.trialOk = false;
-      plansState.trialMsg = 'အစမ်းသုံးခွင့် ဖွင့်၍မရပါ။ ထပ်စမ်းပေးပါ။';
+      plansState.trialMsg = 'Telegram Bot နှင့် ချိတ်ဆက်၍မရပါ။ ထပ်စမ်းပေးပါ။';
     } finally {
       plansState.trialBusy = false;
       rerender();

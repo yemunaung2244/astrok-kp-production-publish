@@ -35,6 +35,17 @@ export async function createTelegramTopUpUrl(amountKyat) {
   return buildTelegramStartUrl(`checkout_${token}`);
 }
 
+export async function createTelegramTrialUrl() {
+  const data = await callTelegramRpc('create_telegram_app_checkout', { p_offer: 'trial' });
+  const token = String(data?.token || '').trim().toLowerCase();
+  if (!token) throw new Error('INVALID_TOKEN');
+  return buildTelegramStartUrl(`checkout_${token}`);
+}
+
+export async function fetchMobileTrialStatus() {
+  return callTelegramRpc('mobile_trial_status', {});
+}
+
 export async function createTelegramAccountLinkUrl() {
   const data = await callTelegramRpc('create_telegram_link', {});
   const token = String(data?.token || '').trim().toLowerCase();
