@@ -19,7 +19,7 @@ import { RECTIFICATION_EVENTS, RECTIFICATION_APPEARANCE, rectifyBirthTime, recti
 import { horaryReading } from './kp-horary-readings.js';
 import { hasKPAccess, verifyKPKey, restoreKPAccess, clearKPAccess, currentKPPlan, currentWallet } from './kp-access.js';
 import { renderHomeScreen, renderIOSFloatingTabBar } from './systems/home.js';
-import { renderProfileScreen, bindProfileScreen, enterPasswordRecoveryMode } from './systems/profile.js';
+import { renderProfileScreen, bindProfileScreen, enterPasswordRecoveryMode, setAuthErrorBanner } from './systems/profile.js';
 import { renderNumerologyScreen, bindNumerologyScreen } from './systems/numerology.js';
 import { renderTrisakkaScreen, bindTrisakkaScreen } from './systems/trisakka.js';
 import { renderMSannScreen, bindMSannScreen } from './systems/msann.js';
@@ -28,7 +28,7 @@ import { renderTarotScreen, bindTarotScreen } from './systems/tarot.js';
 import { renderBooksScreen, bindBooksScreen } from './systems/books.js';
 import { renderCoursesScreen, bindCoursesScreen } from './systems/courses.js';
 import { renderMultiSystemPlans, bindMultiSystemPlans } from './systems/plans-wallet.js';
-import { authClient, emailSignIn, emailSignUp, signOut } from './auth.js';
+import { authClient, emailSignIn, emailSignUp, signOut, completeAuthCallbackFromUrl } from './auth.js';
 import { kpEbookPDF, rectificationEbookPDF } from './kp-pdf.js';
 import { renderIOSChartTwo } from './chart-two.js';
 import { renderIOSDashaTab, renderIOSRulingTab, renderIOSSignificatorTab, renderIOSMethodsTab, renderIOSAspectTab } from './ios-advanced-tabs.js';
@@ -361,7 +361,7 @@ function formatDate(value){return new Intl.DateTimeFormat(state.english?'en-GB':
 const hasAuthCallback=/[?&#](access_token|refresh_token|code|type=recovery|error_description)=/.test(location.href);
 authClient.auth.onAuthStateChange((event,session)=>{const previousUser=account.user?.id;account.user=session?.user||null;account.busy=false;if(session)account.open=false;if(event==='PASSWORD_RECOVERY'){enterPasswordRecoveryMode();state.screen='profile';history.replaceState({screen:'profile'},'','#profile');}else if(event==='SIGNED_IN'&&/[?&#](access_token|code)=/.test(location.href)){history.replaceState({screen:state.screen},'',`${location.pathname}#${state.screen}`);}if(previousUser!==account.user?.id){clearKPAccess();state.kpAuthorized=false;if(account.user){const userId=account.user.id;restoreAccountCharts(userId);setTimeout(async()=>{const active=await restoreKPAccess();if(userId===account.user?.id){state.kpAuthorized=active;render();}},0);}else state.saved=localCharts();}render();});
 const initialHash=location.hash.slice(1);state.screen=['home','profile','entry','plans','key','numerology','trisakka','msann','muhurat','tarot','books','courses'].includes(initialHash)?initialHash:'home';channelInviteOpen=false;if(!hasAuthCallback)history.replaceState({screen:state.screen},'',`#${state.screen}`);render();
-void (async()=>{try{const {data:initialAuth}=await authClient.auth.getSession();const user=initialAuth?.session?.user||null;if(user&&user.id!==account.user?.id){account.user=user;restoreAccountCharts(user.id);const active=await restoreKPAccess();if(account.user?.id===user.id)state.kpAuthorized=active;}}catch{}finally{render();}})();
+void (async()=>{try{const cb=await completeAuthCallbackFromUrl();if(cb?.error){setAuthErrorBanner(cb.error);state.screen='profile';}else if(cb?.recovery){enterPasswordRecoveryMode();state.screen='profile';}const {data:initialAuth}=await authClient.auth.getSession();const user=cb?.session?.user||initialAuth?.session?.user||null;if(user&&user.id!==account.user?.id){account.user=user;restoreAccountCharts(user.id);const active=await restoreKPAccess();if(account.user?.id===user.id)state.kpAuthorized=active;}}catch{}finally{render();}})();
 void loadQuestions().then(()=>{if(state.screen==='entry'&&state.mode==='horary')render();});
 if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register(`${import.meta.env?.BASE_URL || './'}sw.js`).catch(()=>{}));
 

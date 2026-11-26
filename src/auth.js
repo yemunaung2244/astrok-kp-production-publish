@@ -7,9 +7,10 @@ export const publishableKey = 'sb_publishable_1r6_U_5D7Il7hvy686kTxw_krFY0Jtc';
 
 export const authClient = createClient(apiOrigin, publishableKey, {
   auth: {
+    flowType: 'pkce',
     persistSession: true,
     autoRefreshToken: true,
-    detectSessionInUrl: true,
+    detectSessionInUrl: false,
   },
 });
 
@@ -68,6 +69,46 @@ export async function emailSignUp(email, password, displayName = '') {
     throw new Error('User already registered');
   }
   return data;
+}
+
+export async function signInWithGoogle() {
+  return signInWithOAuthProvider('google');
+}
+
+export async function completeAuthCallbackFromUrl() {
+  if (typeof window === 'undefined') return { handled: false };
+  const searchParams = new URLSearchParams(window.location.search);
+  const hashRaw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+  const hashParams = new URLSearchParams(hashRaw.includes('=') ? hashRaw : '');
+
+  const errDesc = searchParams.get('error_description') || hashParams.get('error_description') || searchParams.get('error') || hashParams.get('error');
+  if (errDesc) {
+    window.history.replaceState({ screen: 'profile' }, '', `${window.location.pathname}#profile`);
+    return { handled: true, error: errDesc };
+  }
+
+  const code = searchParams.get('code');
+  if (code) {
+    const { data, error } = await authClient.auth.exchangeCodeForSession(code);
+    const isRecovery = searchParams.get('type') === 'recovery';
+    const nextScreen = isRecovery ? 'profile' : 'home';
+    window.history.replaceState({ screen: nextScreen }, '', `${window.location.pathname}#${nextScreen}`);
+    if (error) return { handled: true, error: error.message };
+    return { handled: true, session: data?.session || null, recovery: isRecovery };
+  }
+
+  const accessToken = hashParams.get('access_token');
+  const refreshToken = hashParams.get('refresh_token');
+  if (accessToken && refreshToken) {
+    const isRecovery = hashParams.get('type') === 'recovery';
+    const { data, error } = await authClient.auth.setSession({ access_token: accessToken, refresh_token: refreshToken });
+    const nextScreen = isRecovery ? 'profile' : 'home';
+    window.history.replaceState({ screen: nextScreen }, '', `${window.location.pathname}#${nextScreen}`);
+    if (error) return { handled: true, error: error.message };
+    return { handled: true, session: data?.session || null, recovery: isRecovery };
+  }
+
+  return { handled: false };
 }
 
 export async function signInWithOAuthProvider(provider) {
