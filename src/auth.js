@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Use the gateway's canonical origin; cross-origin redirects strip Authorization.
-// The hostname prefix stays the same, preserving Supabase's session storage key.
-export const apiOrigin = 'https://astrok-api-gateway.hermorales04.chatgpt.site';
+const previousApiOrigin = 'https://astrok-api-gateway.hermorales04.chatgpt.site';
+export const apiOrigin = import.meta.env?.VITE_ASTROK_API_ORIGIN?.replace(/\/+$/, '') || previousApiOrigin;
 export const publishableKey = 'sb_publishable_1r6_U_5D7Il7hvy686kTxw_krFY0Jtc';
 const googleOAuthUrl = `${apiOrigin}/functions/v1/mobile-google-oauth`;
 const googleAttemptKey = 'astrok-google-oauth-attempt';
@@ -14,6 +14,7 @@ export const authClient = createClient(apiOrigin, publishableKey, {
     persistSession: true,
     autoRefreshToken: true,
     detectSessionInUrl: false,
+    storageKey: `sb-${new URL(previousApiOrigin).hostname.split('.')[0]}-auth-token`,
   },
 });
 
@@ -89,7 +90,7 @@ export async function signInWithGoogle() {
     nonce: nonceHash,
   });
   window.sessionStorage.setItem(googleAttemptKey, JSON.stringify({ state, verifier, nonce }));
-  window.location.assign(`${googleOAuthUrl}/start?${params}`);
+  window.location.assign(`${googleOAuthUrl}/web-start?${params}`);
 }
 
 function base64Url(bytes) {
@@ -112,7 +113,7 @@ async function completeGoogleCallback(params) {
     if (params.has('error') || !code) {
       return { handled: true, error: 'Google sign-in could not be completed. Please try again.' };
     }
-    const response = await fetch(`${googleOAuthUrl}/exchange`, {
+    const response = await fetch(`${googleOAuthUrl}/web-exchange`, {
       method: 'POST',
       headers: { apikey: publishableKey, 'Content-Type': 'application/json' },
       body: JSON.stringify({ code, verifier: attempt.verifier, nonce: attempt.nonce }),
