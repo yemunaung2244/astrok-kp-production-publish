@@ -1,5 +1,6 @@
 import { authClient, apiOrigin, publishableKey } from '../auth.js';
 import { loadJson, escHtml } from './script-loader.js';
+import { bookPdfUrl, openBookReader } from './book-reader.js';
 
 const CATEGORIES = [
   { id: 'all', mm: 'အားလုံး', en: 'All' },
@@ -22,8 +23,7 @@ const booksState = {
   search: '',
   category: 'all',
   activeBookId: '',
-  downloadedUrls: {},
-  pendingPurchase: null, // { book, priceKyat }
+  pendingPurchase: null,
   notice: '',
   noticeNeedsLogin: false
 };
@@ -105,7 +105,6 @@ export function renderBooksScreen(appHeader, english, user) {
           ${filteredBooks.map(book => {
             const price = Number(book.priceKyat || 0);
             const busy = booksState.activeBookId === book.id;
-            const ready = Boolean(booksState.downloadedUrls[book.id]);
             const titleText = english ? (book.titleEn || book.title) : book.title;
             const descText = english ? (book.descriptionEn || book.description) : book.description;
             const metaText = english ? (book.metaEn || book.meta) : book.meta;
@@ -127,11 +126,15 @@ export function renderBooksScreen(appHeader, english, user) {
                     </p>
                   </div>
                 </div>
-                <button type="button" class="ios-book-action-btn ${ready ? 'ready' : ''}" data-book-action="${escHtml(book.id)}" ${booksState.activeBookId ? 'disabled' : ''}>
-                  ${busy
-                    ? `<span>${t('ချိတ်ဆက်နေပါသည်…', 'Loading…')}</span>`
-                    : `${ready ? READ_SVG : DOWNLOAD_SVG}<span>${ready ? t('ဖတ်မည်', 'Read') : t('Download ဆွဲရန်', 'Download')}</span>`}
-                </button>
+                <div class="ios-online-btn-row">
+                  <button type="button" class="ios-book-action-btn ready" data-book-id="${escHtml(book.id)}" data-book-action="read" ${booksState.activeBookId ? 'disabled' : ''}>
+                    ${READ_SVG}<span>${t('ဖတ်မည်', 'Read')}</span>
+                  </button>
+                  <button type="button" class="ios-book-action-btn" data-book-id="${escHtml(book.id)}" data-book-action="download" ${booksState.activeBookId ? 'disabled' : ''}>
+                    ${DOWNLOAD_SVG}<span>${t('Download', 'Download')}</span>
+                  </button>
+                </div>
+                ${busy ? `<p class="ios-book-meta" role="status">${t('ချိတ်ဆက်နေပါသည်…', 'Loading…')}</p>` : ''}
               </article>
             `;
           }).join('')}
@@ -141,7 +144,7 @@ export function renderBooksScreen(appHeader, english, user) {
           <section class="ios-online-books-section">
             <div class="ios-online-books-intro">
               <h2>${t('အွန်လိုင်းအခမဲ့စာတမ်းများ', 'Free online astrology texts')}</h2>
-              <p>${t('မူရင်းစာကြည့်တိုက်မှ အင်္ဂလိပ် PDF များကို အခမဲ့ Download ဆွဲပြီး AstroK ထဲမှာ ဖတ်နိုင်ပါသည်။ AstroK က ဖိုင်များကို ရောင်းချခြင်း၊ ပြန်လည်ဖြန့်ဝေခြင်း မလုပ်ပါ။', 'Download free English PDFs from their original libraries, then read in AstroK. AstroK does not sell or mirror these files.')}</p>
+              <p>${t('အခမဲ့ အင်္ဂလိပ် PDF များကို မူရင်းစာကြည့်တိုက်တွင် ဖွင့်နိုင်ပါသည်။', 'Open free English PDFs from their original libraries.')}</p>
             </div>
             <div class="ios-books-list">
               ${filteredOnline.map(src => {
@@ -187,7 +190,8 @@ export function renderBooksScreen(appHeader, english, user) {
         <div class="ios-modal-backdrop" id="book-purchase-backdrop">
           <section class="ios-modal-sheet" role="alertdialog" aria-modal="true">
             <header class="ios-modal-head">
-              <strong>${t('စာအုပ် Download ဆွဲရန်', 'Download book')}</strong>
+              <strong>${booksState.pendingPurchase.action === 'read'
+                ? t('စာအုပ်ဖတ်ရန်', 'Read book') : t('စာအုပ် Download ဆွဲရန်', 'Download book')}</strong>
               <button type="button" id="book-purchase-close" aria-label="Close">×</button>
             </header>
             <p class="ios-books-modal-msg">
@@ -299,11 +303,10 @@ export function bindBooksScreen(rerender, openLogin, english = false, onRefreshW
     });
   });
 
-  const executeDownload = async (book, expectedPriceKyat, preOpenedTab = null) => {
+  const openBook = async (book, action, expectedPriceKyat, acquire) => {
     const { data: { session } } = await authClient.auth.getSession();
     if (!session?.access_token || !session?.user?.id) {
-      try { preOpenedTab?.close(); } catch {}
-      booksState.notice = t('စာအုပ် Download မလုပ်မီ Account ပြန်ဝင်ပေးပါ။', 'Sign in before downloading a book.');
+      booksState.notice = t('စာအုပ်ရယူရန် Account ပြန်ဝင်ပေးပါ။', 'Sign in to access the book.');
       booksState.noticeNeedsLogin = true;
       rerender();
       return;
@@ -321,7 +324,7 @@ export function bindBooksScreen(rerender, openLogin, english = false, onRefreshW
         },
         body: JSON.stringify({
           bookId: book.id,
-          acquire: true,
+          acquire,
           expectedUser: session.user.id,
           expectedPriceKyat: expectedPriceKyat ?? book.priceKyat
         })
@@ -338,15 +341,14 @@ export function bindBooksScreen(rerender, openLogin, english = false, onRefreshW
         }
         throw new Error(code || t('စာအုပ် Download ဆွဲ၍မရပါ။ ထပ်စမ်းပေးပါ။', 'Download failed. Please try again.'));
       }
-      booksState.downloadedUrls[book.id] = url;
-      if (onRefreshWallet) await onRefreshWallet().catch(() => {});
-      if (preOpenedTab && !preOpenedTab.closed) {
-        preOpenedTab.location.href = url;
+      if (onRefreshWallet && acquire) await onRefreshWallet().catch(() => {});
+      if (action === 'read') {
+        if (!document.querySelector('.ios-books-main')) return;
+        void openBookReader(english ? book.titleEn : book.title, bookPdfUrl(url, apiOrigin), english);
       } else {
-        window.open(url, '_blank', 'noopener,noreferrer') || (window.location.href = url);
+        window.location.assign(url);
       }
     } catch (err) {
-      try { preOpenedTab?.close(); } catch {}
       booksState.notice = err?.message || t('စာအုပ် Download ဆွဲ၍မရပါ။', 'Download failed.');
       booksState.noticeNeedsLogin = false;
     } finally {
@@ -358,18 +360,13 @@ export function bindBooksScreen(rerender, openLogin, english = false, onRefreshW
   document.querySelectorAll('[data-book-action]').forEach(btn => {
     btn.addEventListener('click', async () => {
       if (booksState.activeBookId) return;
-      const bookId = btn.dataset.bookAction;
+      const { bookId, bookAction: action } = btn.dataset;
       const book = (booksState.books || []).find(b => b.id === bookId);
       if (!book) return;
 
-      if (booksState.downloadedUrls[book.id]) {
-        window.open(booksState.downloadedUrls[book.id], '_blank', 'noopener,noreferrer');
-        return;
-      }
-
       const { data: { session } } = await authClient.auth.getSession();
       if (!session?.access_token || !session?.user?.id) {
-        booksState.notice = t('စာအုပ် Download မလုပ်မီ Account ဝင်ပေးပါ။', 'Sign in before downloading a book.');
+        booksState.notice = t('စာအုပ်ရယူရန် Account ဝင်ပေးပါ။', 'Sign in to access the book.');
         booksState.noticeNeedsLogin = true;
         rerender();
         return;
@@ -400,10 +397,10 @@ export function bindBooksScreen(rerender, openLogin, english = false, onRefreshW
           booksState.noticeNeedsLogin = false;
           rerender();
         } else if (access.owned || Number(access.priceKyat ?? book.priceKyat) === 0 || hasActiveBankVault(access)) {
-          await executeDownload(book, Number(access.priceKyat ?? book.priceKyat));
+          await openBook(book, action, Number(access.priceKyat ?? book.priceKyat), !access.owned);
         } else {
           booksState.activeBookId = '';
-          booksState.pendingPurchase = { book, priceKyat: Number(access.priceKyat ?? book.priceKyat) };
+          booksState.pendingPurchase = { book, action, priceKyat: Number(access.priceKyat ?? book.priceKyat) };
           rerender();
         }
       } catch (err) {
@@ -425,8 +422,7 @@ export function bindBooksScreen(rerender, openLogin, english = false, onRefreshW
     const pending = booksState.pendingPurchase;
     if (!pending) return;
     booksState.pendingPurchase = null;
-    const preOpened = window.open('', '_blank');
-    void executeDownload(pending.book, pending.priceKyat, preOpened);
+    void openBook(pending.book, pending.action, pending.priceKyat, true);
   });
 
   const closeNotice = () => { booksState.notice = ''; booksState.noticeNeedsLogin = false; rerender(); };
